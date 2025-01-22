@@ -1,0 +1,60 @@
+<!-- 
+   CTRL+SHIFT+/ => 여러줄 주석 처리
+   CTRL+SHIFT+\ => 주석해제 
+   /* */ // => 없다 
+   
+   54page 
+     HTML문서의 구조 
+	<!DOCTYPE html> : import유사 => HTML5문서를 읽어 온다 
+	      => 첫번째줄에 사용 
+	  -------- HTML5문서를 제작한 파일 => loose.dtd
+	           --------------------------------
+	           <!ELEMENT html (head,body)>
+	           <!ELEMENT head (meta*,title,script*,style*,link*)>
+	             => meta* => <meta>는 0번 이상 사용이 가능
+	             => html뒤에 버전이 없는 경우 => HTML5
+	<html> : html문서 시작 => 생략을 하면 body로 인식 => 들여쓰기
+	 <head> : 설정 파일 등록 => 화면에 출력이 안된다 
+	   <meta charset="UTF-8">
+	   ----- 한글지원 , 시작과 동시에 화면 이동 , 키워드 등록 
+	         모바일 크기 지정 
+	   <title>Insert title here</title> 
+	   -------
+	     브라우저 제목 출력 
+	   <script> : 내부 Script 
+	   <link> : 외부 CSS => 파일로 제작 
+	   <style> : 내부 CSS
+	   => js파일 제작 / css파일 제작 
+	      ---------------------- 여러개 HTML에 적용 
+	 </head> : 설정 등록 종료
+	 <body> 
+	 ------- 브라우저에 출력하는 태그 설정 
+	         -----------
+	
+     </body> : 화면 UI종료 
+	</html>: HTML문서가 종료
+     
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>First HTML</title>
+<style type="text/css">
+h3{
+     color:red;
+     background: yellow;
+}
+</style>
+<script type="text/javascript">
+function click2()
+{
+	 alert("Hello JavaScript");
+}
+</script>
+</head>
+<body>
+  <!-- 56page -->
+  <h3 onclick="click2()">Hello HTML</h3>
+</body>
+</html>
