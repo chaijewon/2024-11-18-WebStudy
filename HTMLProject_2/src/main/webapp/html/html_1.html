@@ -1,0 +1,173 @@
+<!-- 
+      79page 목록 
+      ---------- 
+      = 텍스트 관련
+         1) h1~h6 => 제목 설정 
+         2) br => 다음줄 (\n)
+         3) hr => 수평선 
+         4) sup / sub => 위첨자 / 아래첨자 
+         5) pre => 출력된 그대로 출력 
+         6) p => 단락 나누기 
+         7) strong / b => bold (강조체)
+         *** 특수문자 
+             공백 : &nbsp;
+             <   : &lt;
+             >   : &gt;  ==> 76page 
+      = 목록 관련 
+         1) ul : 순서없는 목록 => 메뉴 설정 
+         2) ol : 순서있는 목록 => 문제 
+         3) dl : 데이터목록 => 상세보기 
+         4) table : 목록 (게시판)
+      = 멀티미디어 관련 
+         1) img : 이미지 출력  
+         2) embed : 동영상 / object
+         3) video / audio 
+      = 화면 분할 
+         1) 가로 분할 : span
+         2) 세로 분할 : div 
+      = 입력 태그 
+         1) input 
+             => type="button" 일반 버튼 
+                type="reset"  초기화 
+                type="submit" 전송버튼 => <button> , type="image"
+                type="file" 업로드 
+                type="date" 달력 출력 
+                type="hidden" 데이터 감추기 
+                type="text"  한줄 문자 입력 
+                type="password" 비밀번호 입력 
+         2) select : 콤보박스 
+         3) textarea : 멀티라인 
+         4) form : 데이터를 한번 모아서 전송 
+            ----- => GET / POST
+                           =>내부 네트워크 전송 
+                     =>URL에 데이터 노출 (단순한 검색 ...)
+         기타 
+           fieldset / label / figcaption => card
+           
+      목록 태그 (79page) 
+      -----------------
+      ul : 순서가 없는 태그 => 이미지/메뉴 
+           동반하는 태그 
+           <ul> => 형식 
+            |
+           <li> => 실제 데이터 
+      ol : 순서가 있는 태그 
+           동반하는 태그 
+           <ol>
+            |
+           <li> => 실제 데이터 
+      dl : datalist => 데이터 목록 출력 
+       
+       <dl>
+        |
+       <dt> 제목을 설정 
+       <dd> 설명 
+       
+       <dl>
+         <dt>영화명</dt>
+         <dd>검은 수녀들</dd>
+       </dl>
+       
+       목록 출력 => 구분자가 거의 없다 (크롤링)
+    
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+ul#menu{
+  list-style: none;
+  display: inline;
+}
+ul#menu li{
+  display: inline;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+	color: green;
+	text-decoration: underline;
+}
+</style>
+</head>
+<body>
+ <h3>UL태그</h3>
+  <ul><!-- 80page -->
+    <li>자바</li>
+    <li>오라클</li>
+    <li>HTML/CSS</li>
+    <li>JavaScript</li>
+    <li>JSP</li>
+  </ul>
+ <h3>OL태그</h3>
+  <ol><!-- 80page -->
+    <li>자바</li>
+    <li>오라클</li>
+    <li>HTML/CSS</li>
+    <li>JavaScript</li>
+    <li>JSP</li>
+  </ol>
+  <h3>UL 사용처</h3>
+  <ul id="menu">
+   <li><a href="#">홈</a></li>
+   <li><a href="#">회원</a></li>
+   <li><a href="#">여행</a></li>
+   <li><a href="#">레시피</a></li>
+   <li><a href="#">스토어</a></li>
+   <li><a href="#">추천</a></li>
+   <li><a href="#">커뮤니티</a></li>
+   <li><a href="#">마이페이지</a></li>
+  </ul>
+  <h3>OL 사용처 (중첩 태그)</h3>
+  <ol style="list-style: upper-alpha;"><!-- 81page -->
+    <li>
+      <b>다음중 동물이 아닌 것은?</b><!-- bold 강조 -->
+      <ol>
+        <li>개</li>
+        <li>소</li>
+        <li>말</li>
+        <li>사과</li>
+      </ol>
+    </li>
+    <li>
+      <b>다음중 과일이 아닌 것은?</b>
+      <ol>
+        <li>배</li>
+        <li>수박</li>
+        <li>보쌈</li>
+        <li>사과</li>
+      </ol>
+    </li>
+  </ol>
+  <h3>DL 사용법</h3>
+  <dl>
+    <dt>Java</dt>
+    <dd>브라우저/오라클 연결해서 데이터를 관리</dd>
+    
+    <dt>Oracle</dt>
+    <dd>사용자가 공통으로 사용하는 데이터를 저장하는 공간</dd>
+    
+    <dt>HTML/CSS</dt>
+    <dd>브라우저에서 화면 UI(브라우저에서만 실행)</dd>
+    
+    <dt>자바스크립트</dt>
+    <dd>브라우저안에서 사용자 요청처리(이벤트 처리)</dd>
+    
+    <dt>JSP (Java Server Page)</dt>
+    <dd>서버에서 요청 처리후에 처리된 내용이 HTML로 변환</dd>
+    
+    <dt>Spring</dt>
+    <dd>통합 라이브러리</dd>
+    
+    <dt>AWS</dt>
+    <dd>운영체제를 빌려서 사이트 배포(PaaS)</dd>
+    
+    <dt>WEB 2.0 / WEB 3.0</dt>
+    <dd>AJAX(서제스트) , VUEJS, REACTJS(데이터 관리) </dd>
+  </dl>
+</body>
+</html>
