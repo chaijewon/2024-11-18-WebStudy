@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="table.css">
+</head>
+<body>
+  <center><!-- 가운데 정렬 --> 
+   <h3>자유 게시판</h3><!-- 제목  -->
+   <table class="table_content" width=600>
+     <tr>
+      <th width=10%>번호</th>
+      <th width=45%>제목</th>
+      <th width=15%>이름</th>
+      <th width=20%>작성일</th>
+      <th width=10%>조회수</th>
+     </tr>
+     <tr class="dataTr">
+     
+      <!-- 
+         a : 화면 이동 => 앵커 태그 
+         => 속성
+            href="이동할 파일명"
+            target="_self|_blank"
+                          -------- 새로운 창을 여는 경우
+                   ------- default => 현재창
+            HTML에서 사용하는 모든 태그 
+              => 공통으로 가지고 있는 속성 
+                 id , class , style
+                 ----------- 구분자
+                      | 중복이 있는 구분자 
+                 | 중복없는 구분자
+                 --------------- 1. css를 이용해서 디자인
+                                 2. javascript에서 제어
+       -->
+      <td width=10% align=center>1</td>
+      <td width=45%><a href="detail.html">HTML 태그 정리</a> <sup><img src="new.gif"></sup></td>
+      <td width=15% align=center>홍길동</td>
+      <td width=20% align=center>2025-01-23</td>
+      <td width=10% align=center>100</td>
+     </tr>
+     <tr class="dataTr">
+     <!-- img : jpg,gif,png -->
+     <!-- td : 정렬 
+        align="left|center|right"
+             => default : left
+      -->
+      <td width=10% align=center>2</td>
+      <td width=45%>&nbsp;&nbsp;<img src="re_icon.png">HTML 태그 정리 <sup><img src="new.gif"></sup></td>
+      <td width=15% align=center>심청이</td>
+      <td width=20% align=center>2025-01-23</td>
+      <td width=10% align=center>100</td>
+     </tr>
+     <tr class="dataTr">
+     <!-- img : jpg,gif,png -->
+      <td width=10% align=center>2</td>
+      <td width=45%>&nbsp;&nbsp;&nbsp;&nbsp;<img src="re_icon.png">HTML 태그 정리 <sup><img src="new.gif"></sup></td>
+      <td width=15% align=center>심청이</td>
+      <td width=20% align=center>2025-01-23</td>
+      <td width=10% align=center>100</td>
+     </tr>
+     <tr class="dataTr">
+     <!-- img : jpg,gif,png -->
+      <td width=10% align=center>2</td>
+      <td width=45%>&nbsp;&nbsp;<img src="re_icon.png">HTML 태그 정리 <sup><img src="new.gif"></sup></td>
+      <td width=15% align=center>심청이</td>
+      <td width=20% align=center>2025-01-23</td>
+      <td width=10% align=center>100</td>
+     </tr>
+   </table>
+  </center>
+</body>
+</html>
