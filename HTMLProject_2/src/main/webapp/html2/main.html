@@ -1,0 +1,64 @@
+<!-- 
+    main.html / header.html / aside.html 
+    section.html / footer.html
+    
+    ------------------------------
+        header : 로그 , 검색기 , 메뉴 
+    ------------------------------
+    로그인  |
+    부메뉴  |
+    aside |    section : 실제 출력 
+          |
+    ------------------------------
+       회사정보 : footer
+    ------------------------------
+    
+    => img 
+       embed : 동영상만 실행
+       iframe : 동영상 실행 / 다른 HTML을 include  
+       
+       => src / width / height / style="width/height"
+       
+       태그 
+        1. 태그명 => 어떤 모양 출력 
+                => 값에 어디에 출력하는지 
+                   <태그>값</태그>
+                   <태그 속성="값">
+                => 기본 속성이 어떤 것이 있는지 확인 
+       ------------ 표준화 (모든 사람이 동일 하게 사용)
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <center>
+   <table border=1 bordercolor=black width=800 height=600
+    cellspacing="0">
+     <tr>
+       <td colspan="2" height="100">
+        <iframe src="header.html" style="width:100%"></iframe>
+       </td>
+     </tr>
+     <tr>
+       <td width=200 height="400">
+         <iframe src="aside.html"></iframe>
+       </td>
+       <td width=600 height="400">
+         <iframe src="section.html" style="width:600px;height:380px"></iframe>
+       </td>
+     </tr>
+     <tr>
+       <td colspan="2" height="100">
+        <iframe src="footer.html" style="width:100%"></iframe>
+       </td>
+     </tr>
+    </table>
+  </center>
+</body>
+</html>
+
+
+

@@ -25,6 +25,7 @@
       </li>
       <li><a href="#">커뮤니티</a></li>
       <li><a href="#">실시간 뉴스</a></li>
+      <li><a href="#">마이페이지</a></li>
     </ul>
   </div>
 </nav>
