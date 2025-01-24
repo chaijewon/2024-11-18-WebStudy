@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="table.css">
+</head>
+<body>
+   <center>
+     <h3>회원 가입</h3>
+     <form>
+     <table class="table_content" width=600>
+       <tr>
+        <th width=15%>ID</th>
+        <td width=85%>
+         <input type=text size=20 readonly>
+         <input type=button value="중복체크">
+        </td>
+       </tr>
+       <tr>
+         <th width="15%">비밀번호</th>
+         <td width=85%>
+          <input type=password size=20 required>
+          &nbsp;&nbsp;
+          <input type=password size=20 placeholder="비밀번호확인">
+         </td>
+       </tr>
+       <tr>
+        <th width=15%>이름</th>
+        <td width=85%>
+         <input type=text size=20>
+        </td>
+       </tr>
+       <tr>
+        <th width=15%>성별</th>
+        <td width=85%>
+         <input type="radio" name="sex">남자
+         <input type="radio" name="sex">여자
+         <!-- name : Group -->
+        </td>
+       </tr>
+       <tr>
+         <th width=15%>나이</th>
+         <td width=85%>
+          <input type="number" min="20" max="70">
+          <!-- 크롬 / 파이어폭스 -->
+         </td>
+       </tr>
+       <tr>
+         <th width=15%>생년월일</th>
+         <td width=85%>
+          <input type="date" size=30>
+          <!-- 크롬 / 파이어폭스 -->
+         </td>
+       </tr>
+       <tr>
+         <th width="15%">이메일</th>
+         <td width="85%">
+           <input type=text size=50>
+         </td>
+       </tr>
+       <tr>
+         <th width="15%">우편번호</th>
+         <td width="85%">
+           <input type=text size=6>-<input type=text size=6>
+           <input type=button value="우편번호 검색">
+         </td>
+       </tr>
+       <tr>
+         <th width="15%">주소</th>
+         <td width="85%">
+           <input type=text size=50>
+         </td>
+       </tr>
+       <tr>
+         <th width="15%">상세주소</th>
+         <td width="85%">
+           <input type=text size=50>
+         </td>
+       </tr>
+       <tr>
+         <th width="15%">전화번호</th>
+         <td width="85%">
+          <select>
+           <option>010</option>
+           <option>011</option>
+           <option>017</option>
+          </select>
+          <input type=text size=20>
+         </td>
+       </tr>
+       <tr>
+         <th width="15%">소개</th>
+         <td width="85%">
+          <textarea rows="5" cols="52"></textarea>
+         </td>
+       </tr>
+       <tr>
+         <th width="15%">취미</th>
+         <td width="85%">
+           <input type="checkbox">낚시
+           <input type="checkbox">등산
+           <input type="checkbox">게임
+           <input type="checkbox">독서
+           <input type="checkbox">여행
+         </td>
+       </tr>
+       <tr>
+         <th width=15%>사진첨부</th>
+         <td width=85%>
+           <input type=file size=30>
+         </td>
+       </tr>
+       <tr>
+         <th width=15%>숙련도</th>
+         <td width=85%>
+          <input type="range" max="100" min="0" size=35>
+         </td>
+       </tr>
+       <tr>
+         <td colspan="2" align="center">
+           <input type="submit" value="회원가입">
+           <input type="button" value="취소">
+         </td>
+       </tr>
+     </table>
+     </form>
+   </center>
+</body>
+</html>

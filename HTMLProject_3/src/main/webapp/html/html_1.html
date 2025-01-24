@@ -1,0 +1,81 @@
+<!-- 
+     95page => 입력 양식 태그 
+            회원가입폼 , 글쓰기폼 , 로그인창 ,댓글 , 장바구니 수량 체크
+            검색창 , 다중 조건 
+     
+     <input> : 한줄 입력 
+       => 입력 
+          <input type="text"> : 한줄 문자열 
+          <input type="password"> : 비밀번호 입력창
+          <input type="file"> : 업로드 (파일 찾기)
+          <input type="date"> : 달력 => IE 사용이 안됨 
+          <input type="number"> : Spinner
+          <input type="range"> : Slider
+       => 버튼 
+          <input type="button"> 일반버튼 => 자바스크립트로 제어
+          <input type="submit"> 데이터 전송 버튼 
+            => <button> , <input type=image>
+          <input type="reset"> 초기화 
+          <input type="radio" name=""> 라디오 버튼 
+                      --------- 그룹화 (name이 동일)
+          <input type="checkbox">
+          
+          ** 속성 
+             size: 크기 지정 
+             id / class => CSS/JavaScript에서 구분자로 사용
+             name => 자바로 데이터 전송
+          ** 입력된 데이터를 모아서 전송 (서버)
+             <form method="GET/POST" action="데이터를 받을 파일명">
+                RestFul => 다른 프로그램과 연동 
+                GET(데이터 요청) => SELECT
+                  데이터 전송 : URL뒤에 데이터 추가해서 전송
+                    => 보안 취약하다 
+                    => 데이터가 많은 경우에는 URL주소가 커진다
+                    => 단순한 데이터를 전송시에 주로 사용 
+                       => page / 검색어 / 영화번호,게시물번호 
+                ** 화면 변경 
+                   <a> , location.href=""
+                   ----------------------- 무조건 GET
+                   받는 파일명?page=1
+                   받는 파일명?page=1&id=admin
+                                  -- 구분 
+                   ***** 주고 받기 
+                   로그인 요청 => id/pwd
+                   => 서버 => 새로운 화면으로 변경 
+                   => 이전화면은 메모리가 해제
+                   A a=new A() 
+                   => 
+                   a=null
+                   a=new A()
+                   
+                   jsp => 클래스로 변경 
+                   --- 메소드 
+                   --------------------------
+                   현재화면에 데이터 송수신 => web2.0
+                            => Ajax / Vue / React
+                POST(데이터 추가) => INSERT/UPDATE/DELETE
+                  내부 네크워크를 이용해서 전송 
+                  => 보안 (id,pwd) 
+                  => 여러개 데이터를 전송
+                  => form / ajax  
+                  
+                  list.html => detail.html?no=1
+                -------------- 웹에서 주로 사용 => 데이터 전송방식
+                PUT (데이터 수정) => UPDATE
+                DELETE(데이터 삭제) => DELETE
+     <select> : 콤보박스 
+        |
+       <option>출력</option>
+     <textarea> : 여러줄 입력이 가능 
+      rows="height" cols="width"
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>
