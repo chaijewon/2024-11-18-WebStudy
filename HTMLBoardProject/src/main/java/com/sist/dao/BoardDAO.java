@@ -139,6 +139,41 @@ public class BoardDAO {
 	   return total;
    }
    // 2. 상세보기  ----------- SELECT
+   public BoardVO boardDetailData(int no)
+   {
+	   BoardVO vo=new BoardVO();
+	   try
+	   {
+		   getConnection();
+		   String sql="UPDATE htmlboard SET "
+				     +"hit=hit+1 "
+				     +"WHERE no="+no;
+		   ps=conn.prepareStatement(sql);
+		   ps.executeUpdate(); // 조회수 증가 
+		   sql="SELECT no,name,subject,content,"
+			  +"TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS'),hit "
+			  +"FROM htmlboard "
+			  +"WHERE no="+no;
+		   ps=conn.prepareStatement(sql);
+		   ResultSet rs=ps.executeQuery();
+		   rs.next();
+		   vo.setNo(rs.getInt(1));
+		   vo.setName(rs.getString(2));
+		   vo.setSubject(rs.getString(3));
+		   vo.setContent(rs.getString(4));
+		   vo.setDbday(rs.getString(5));
+		   vo.setHit(rs.getInt(6));
+		   rs.close();
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   disConnection();
+	   }
+	   return vo;
+   }
    // 3. 글쓰기  INSERT
    // => 웹 프로그램 (감) => 화면 이동 => 어떤 데이터가 필요한지..
    public void boardInsert(BoardVO vo)

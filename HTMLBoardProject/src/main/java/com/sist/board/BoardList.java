@@ -144,9 +144,10 @@ public class BoardList extends HttpServlet {
 		// 출력 위치 
 		for(BoardVO vo:list)
 		{
+			// html => 화면 이동 <a>:화면 이동 <form>: 데이터전송+화면이동
 			out.println("<tr>");
 			out.println("<td width=10% align=center>"+vo.getNo()+"</td>");
-			out.println("<td width=45%>"+vo.getSubject());
+			out.println("<td width=45%><a href=BoardDetail?no="+vo.getNo()+">"+vo.getSubject()+"</a>");
 			out.println("&nbsp;");
 			if(today.equals(vo.getDbday()))
 			{

@@ -13,3 +13,6 @@
 		System.out.println("내용:"+content);
 		System.out.println("비번:"+pwd);
 %>
+<html>
+
+</html>

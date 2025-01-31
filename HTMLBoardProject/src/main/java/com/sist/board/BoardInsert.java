@@ -15,6 +15,7 @@ import com.sist.vo.BoardVO;
 @WebServlet("/BoardInsert")
 public class BoardInsert extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	// public String insert(BoardVO vo)
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		// request : 사용자가 보내준 데이터를 가지고 있다 
