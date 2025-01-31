@@ -204,6 +204,54 @@ public class BoardDAO {
    }
    // 4. 수정    UPDATE
    // 5. 삭제    DELETE
+   public boolean boardDelete(int no,String pwd)
+   {
+	   /*
+	    *   오라클 => 사이트에 필요한 데이터 저장 
+	    *    => SQL 문장 
+	    *   자바 => 오라클 연동 / 브라우저 연동 
+	    *          결과값을 받아서 => 브라우저로 전송 
+	    *          사용자 요청을 받는 경우 
+	    *          => 스프링 : 자바 / 코틀린  
+	    *          => ASP : C# , 장고 : 파이썬 => 통계 그래프 
+	    *   HTML/CSS => 브라우저에 화면만 출력 
+	    */
+	   boolean bCheck=false;
+	   try
+	   {
+		   getConnection();
+		   //1. 비밀번호 체크
+		   String sql="SELECT pwd FROM htmlboard "
+				     +"WHERE no="+no;
+		   ps=conn.prepareStatement(sql);
+		   ResultSet rs=ps.executeQuery();
+		   rs.next();
+		   String db_pwd=rs.getString(1);
+		   rs.close();
+		   
+		   if(db_pwd.equals(pwd))
+		   {
+			   bCheck=true;
+			   sql="DELETE FROM htmlboard "
+				  +"WHERE no="+no;
+			   ps=conn.prepareStatement(sql);
+			   ps.executeUpdate();
+		   }
+		   else
+		   {
+			   bCheck=false;
+		   }
+		   //2. 삭제 
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   disConnection();
+	   }
+	   return bCheck;
+   }
    // => 자료실 => 댓글 => 예약 => 결제 => 장바구니 => 추천 
 }
 

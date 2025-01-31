@@ -64,7 +64,8 @@ public class BoardDetail extends HttpServlet {
 		out.println("<tr>");
 		out.println("<td colspan=4 align=right>");
 		out.println("<a href=#>수정</a>");
-		out.println("<a href=#>삭제</a>");
+		// 해당 서블릿에 데이터 전송 => ? => primary key
+		out.println("<a href=BoardDelete?no="+vo.getNo()+">삭제</a>");
 		out.println("<a href=BoardList>목록</a>");
 		out.println("</td>");
 		out.println("</tr>");
