@@ -140,6 +140,33 @@ public class BoardDAO {
    }
    // 2. 상세보기  ----------- SELECT
    // 3. 글쓰기  INSERT
+   // => 웹 프로그램 (감) => 화면 이동 => 어떤 데이터가 필요한지..
+   public void boardInsert(BoardVO vo)
+   {
+	   try
+	   {
+		   getConnection();
+		   String sql="INSERT INTO htmlboard(no,name,subject,content,pwd) "
+				     +"VALUES(hb_no_seq.nextval,?,?,?,?)";
+		   ps=conn.prepareStatement(sql);
+		   // ?에 값을 채워서 실행
+		   ps.setString(1, vo.getName());
+		   ps.setString(2, vo.getSubject());
+		   ps.setString(3, vo.getContent());
+		   ps.setString(4, vo.getPwd());
+		   
+		   // 실행 
+		   ps.executeUpdate(); // commit이 포함 
+		   
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   disConnection();
+	   }
+   }
    // 4. 수정    UPDATE
    // 5. 삭제    DELETE
    // => 자료실 => 댓글 => 예약 => 결제 => 장바구니 => 추천 
