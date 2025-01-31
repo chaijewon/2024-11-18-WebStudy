@@ -1,0 +1,79 @@
+<!-- 
+     CSS : 화면 디자인 
+           => 사용자 , 라이브러리 (bootstrap) 
+           ------------------------------
+     => 장점 : 재사용이 가능 , HTML제작후에 나중에 적용할 수 있다 
+     => HTML / CSS : 퍼블리셔 
+     => JavaScript : Front 
+     => 언어 / 데이터베이스 : Back 
+     125page 
+     -------- <div> <span>: css 
+     => 1. css => 어떤 태그에 적용 
+                  ------- 선택자 (selector) 
+                          ----------------
+                          1. CSS 
+                          2. JavaScript
+                          3. Jsoup 
+                             select("div.aaa ")
+        2. 선택자의 종류 (126~127) 
+        3. CSS 코딩 방법 
+           ----------- 위치 지정 , 테두리 , 색상처리 , 투명 모드 
+           태그 {
+             속성:값;
+             속성:값;
+             --- 지정되어 있다 
+           }
+           
+           선택자 {
+           
+           }
+           
+           선택자 
+             전체 선택 : * => 기본 사이트 글꼴이 거의 동일 
+                            시스템 / 구글 폰트 
+             태그 선택자 : 태그명 {} => h1{속성:값}
+             아이디 선택자 : 중복없는 태그 설정 
+                          <div id="a">
+                          div#a{
+                          
+                          }
+                          
+             클래스 선택자 : 중복 있는 태그 설정 
+                          <div class="a">
+                          div.a{
+                          
+                          }
+             속성선택자 : 선택자[속성=값]  => input[type=submit]
+                       선택자[속성*=값]  => input[type=s]
+                         => 포함 => img[src*=/recipe/]
+                       선택자[속성^=값]  => input[type=submit]
+                         => 시작 => http/https 
+                       선택자[속성$=값]  => input[type=submit]
+                         => 끝 => 확장자 
+             후손 선택자 
+               선택자 선택자 
+                   div
+                    |
+                ------------
+                |    |     |
+               h3    span div    div > span
+                           |
+                         ------
+                         |    |
+                        h3   span 
+             자손 선택자 
+               선택자 > 선택자 
+                        
+             
+        
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

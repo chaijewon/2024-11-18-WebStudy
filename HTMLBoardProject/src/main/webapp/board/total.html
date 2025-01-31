@@ -1,0 +1,156 @@
+<!-- 
+   1. 태그 형식 => 5버전 => 태그가 소문자  
+      <html>
+       <head>
+         => css 
+            내부 => 한파일에서만 설정 
+             <style>
+              태그 {}
+             </style>
+            외부 (파일 로드) => 여러개 파일에서 사용 
+             <link rel="stylesheet" href="파일명">
+            인라인 
+              <h1 style="">
+         => javascript  => 화면 출력이 아니라 설정 파일 
+            내부 
+             <script>
+               function func_name()
+               {
+               }
+             </script>
+            외부
+              <script src="파일명"></script> => 원격도 가능 
+            인라인 
+              <input type=button onclick="javascript:history.back()">
+       </head>
+       <body>
+         => 화면 출력 태그 
+            => 시작 / 종료 / 단독 
+               <a>   </a>  <br> , <img> , <input> ...
+            => 제목 출력 heading 
+               <h1> ~ <h6> : <h1> , <h3>
+               => <b>를 포함 => 한줄 전체를 차지 => block속성 
+            글자 관련
+               => <b> : bold => 강조 => <strong>
+               팀 내 최고 수준의 연봉을 주면서 <h1>김하성(30)을 데려온 탬파베이 레이스. 
+               그런데 미국 현지에서는 아직 한 경기도 뛰지 않은 
+               그를 트레이드 후보에 올려두고 있다.
+               스포츠매체 디 애슬레틱은 31일(한국시간) 
+               "탬파베이가 김하성을 데려온 건, 
+               성적을 위해서나 트레이드 대상으로나 좋은 결정이었다"고 
+               말했다.
+               => <sup> : 위첨자 => new
+               => <hr> : 수평선 => 단독 
+               => <ins>: 밑줄  <del>:가운데 라인선 
+               => <p> : 단락 => <br><br>
+               => <pre>: 있는 그대로 출력 
+                         줄거리 , 내용 
+           링크 관련 
+               => <a> => 속성 : href="이동할 파일명"
+                               target="_self|_blank"
+           멀티미디어 
+               => <img> : 이미지 출력 
+                          => 속성 : src="이미지 파일명(png|gif|jpg):URL"
+                          => width / height => 크기 조절 
+                          => title => 풍선 도움말 
+                          => width만 지정하면 height는 자동으로 처리
+               => <embed> => 동영상 출력 
+                          => src="동영상파일명|URL"
+                          => width / height
+               => HTML안에 다른 HTML을 추가 
+                  <iframe> => src/width/height
+           목록 태그 
+               <ul> 
+                |
+               <li> => 데이터 출력 
+               => 메뉴 / 이미지 목록 
+               
+               <dl>
+                 |
+                <dt> 타이틀
+                <dd> 실제 데이터  ==> 상세 보기 
+                
+               <table>
+                 |
+                <tr>
+                 |
+               -------
+               |     |
+              <th>  <td>
+              
+          입력창 
+            <input>
+              type="text" => 한줄 문자열
+                   "password" => 비밀번호 입력
+                   "file" => 파일창 (업로드 / 다운로드)
+                   number => Spinner (숫자 출력) 
+                   date => 달력
+                   range => slider 
+                   button => 일반버튼 => 자바스크립트로 처리 
+                   submit / image / <button> 
+                   radio : 라디오버튼 
+                   checkbox
+            <select> : 콤보박스 
+              |
+             <option>
+            <textarea> : 멀티라인
+            
+          <데이터 전송> 
+            <form> : 입력된 데이터를 모아서 한번에 전송 
+              => method="데이터전송방식: GET/POST"
+              => action="데이터를 받을 서블릿 , JSP파일 지정"
+                 *** HTML은 화면만 출력이 가능 
+                 *** 데이터를 받는 것은 불가능하다 
+          화면 분할 
+            <div> | <span>
+                    ---- 원하는 영역만 CSS / 가로 분할 
+                    ---- 부메뉴  
+            ----- 세로분할 
+            => 시멘텍 => 쉽게 태그 검색가능 
+               <header> <nav> <section> <aside> <footer>
+               
+               ==========================
+                로고         검색기 
+                      <header> <div id="header">
+               ==========================
+                메뉴  <nav>
+               ==========================
+                주화면 출력      | 부가적인 정보 
+                <section>     |  <aside>
+                              |
+                              |
+                              |
+               ==========================
+                 개인 정보 방침 <footer>
+               ==========================
+          기타 
+           => <fieldset> 
+                <label> <legend> => 입력창과 관련 
+           => 이미지+설명(제목)
+              <figure> <figcation>  
+           => map 
+       </body>
+      </html>
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+  <!-- Card 제작  -->
+  <figure>
+   <img src="m1.jpg" width="150" height="200">
+   <figcaption>
+    영화 제목
+   </figcaption>
+  </figure>
+  <br> 
+   <fieldset>
+    <legend>개인정보</legend>
+    <label for="name">이름</label>
+    <input type=text size=20 id="name">
+   </fieldset>
+</body>
+</html>

@@ -95,7 +95,7 @@ public class BoardList extends HttpServlet {
 		// request => BufferedReader 
 		// 브라우저로 전송 => response => OutputStream
 		// 어떤 브라우저에 보내는지 확인 
-		PrintWriter out=response.getWriter();
+		PrintWriter out=response.getWriter();// JSP에서는 내장 
 		
 		// 출력 
 		// 1. 사용자로부터 요청한 페이지를 받는다 
