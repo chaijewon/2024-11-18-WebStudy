@@ -1,0 +1,150 @@
+<!-- 
+    상태 선택자 
+    => :checked 
+    => :focus
+    => :enabled
+    => :disabled
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+#a:active,#b:active,#c:active{
+   color:red
+}
+#a:hover,#b:hover,#c:hover{
+   color:green
+}
+input:enabled{
+   background: yellow;
+}
+input:disabled {
+	background: black;
+}
+input:focus{
+    background: white;
+}
+/*
+   :focus , :checked , :endabled , :disabled 
+   => 자바스크립트에서 제어 
+   
+   서블릿 : 목록 / 페이징 / 최신방문 / 상세보기 
+          -----------------------------
+          => 맛집 , 지니뮤직 
+          => 1. VO , DAO 
+          => 화면 UI
+          => 데이터 처리 
+*/
+input[type="checkbox"]:checked{
+  box-shadow:0 0 0 3px hotpink;
+}
+
+ul li:nth-child(2n){
+   color:yellow;
+}
+ul li:nth-child(2n+1){
+   color:cyan;
+}
+ul li:first-child {
+	color:red;
+	font-weight: bold;
+}
+ul li:last-child {
+	color:blue;
+	font-weight: bold;
+}
+table thead tr:first-child {
+	background: orange;
+}
+table tbody tr:nth-child(2n) {
+	background: rgb(255,255,220);
+}
+
+table tbody td:nth-child(4n+2) {
+	background: green;
+}
+
+table tbody td:nth-child(4n+3) {
+	background: cyan;
+}
+
+table tbody td:nth-child(4n+4) {
+	background: magenta;
+}
+</style>
+</head>
+<body>
+  <h1>:active,:hover</h1>
+  <h3 id="a">HTML CSS</h3>
+  <h3 id="b">HTML5 CSS3</h3>
+  <h3 id="c">JavaScript ES6.0</h3>
+  <h1>:focus,:enabled,:disabled,:checked</h1>
+  <input type="text" size=30><br>
+  <input type="text" size=30 disabled="disabled"><br>
+  <input type=checkbox value="취미" checked="checked">취미<br>
+  <h1>:first-child , :last-child , :nth-child(n)</h1>
+  <ul>
+    <!-- 
+         nth-child(2n)
+         2n => n=0 , n=1 , n=2...
+                |     |     |
+                0     2     4
+         2n+1 => 1    3     5 ...
+         3n   => 0    3     6 ...
+         3n+1 => 1    4     9
+     -->
+    <li>데이터 1</li><!-- first-child 1-->
+    <li>데이터 2</li><!-- 2 -->
+    <li>데이터 3</li><!-- 3 -->
+    <li>데이터 4</li><!-- 4 -->
+    <li>데이터 5</li><!-- 5 -->
+    <li>데이터 6</li><!-- 6 -->
+    <li>데이터 7</li><!-- last-child 7-->
+  </ul>
+  <h1>table에서 처리</h1>
+  <table width=500 border=1 bordercolor=black>
+   <thead>
+    <tr>
+     <th>이름</th>
+     <th>국어</th>
+     <th>영어</th>
+     <th>수학</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+      <td align=center>홍길동</td>
+      <td align=center>90</td>
+      <td align=center>80</td>
+      <td align=center>70</td>
+    </tr>
+    <tr>
+      <td align=center>심청이</td>
+      <td align=center>90</td>
+      <td align=center>80</td>
+      <td align=center>70</td>
+    </tr>
+    <tr>
+      <td align=center>박문수</td>
+      <td align=center>90</td>
+      <td align=center>80</td>
+      <td align=center>70</td>
+    </tr>
+    <tr>
+      <td align=center>이순신</td>
+      <td align=center>90</td>
+      <td align=center>80</td>
+      <td align=center>70</td>
+    </tr>
+    <tr>
+      <td align=center>강감찬</td>
+      <td align=center>90</td>
+      <td align=center>80</td>
+      <td align=center>70</td>
+    </tr>
+   </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!-- 
+    선택자 기본 
+    1) 종류 
+       ---
+       전체 선택자 : 모든 태그에 적용 
+         * {
+              글꼴 / 글자크기 / 색상  => 웹 사이트의 기본 (같은 글꼴)
+              => 시스템 / 구글 폰트 
+         }
+       태그 선택자 : 선택된 태그에 적용
+                  => 한정된 태그를 사용한다 (구분이 필요) 
+         태그명 {
+              속성 : 값..
+         }
+         
+       아이디선택자 : 특정 태그에 대해 적용 (중복이 없는 경우)
+       <h1 id="aaa">
+       <h1 id="aaa">
+       <h1 id="aaa">
+       => 전체가 적용 (HTML의 단점은 에러가 없다) 
+          id가 같은 경우에는 HTML은 관계없다 
+          ---------------------------
+           자바스크립트 / 크롤링시에 오류가 발생 
+           ---------
+           태그 선택 
+           -------
+           let h1=document.getElementById("aaa")
+           int a=10 20 30
+           $('h1#aaa') => Jquery : 이벤트 발생 
+            => VueJS / ReactJS / NextJS 
+               ------------------------ 화면 UI
+            => NodeJS : 서버 사이드 (Back-End) => 오라클연동 가능
+            HTML/CSS => Front-End(X)
+            Front-End 개발자 : 자바스크립트 
+            
+       #id명 {
+          속성 : 값
+       }
+       
+      클래스선택자 : 중복이 가능 
+      <태그명 class=""> 
+      .class명{
+         속성 : 값
+      }
+      ---------------------------------
+      *** name 속성 : 자바와 연결 => 데이터 전송 
+          ----- <input> , <select> , <textarea> 
+          ----- 중복이 있으면 안된다 
+          
+      속성선택자 
+      --------
+        **<input type=text class="">
+        **<input type=password class=""> 
+        ------------------------ width:200
+        <input type=file class="">
+        <input type=range class="">
+        ------------------------ width:300
+        <input type=radio id=""> 
+        ------------------------ width:100
+        
+        *** 선택자중에 class선택자는 여러개 사용이 가능 
+        <h1 class="a b c"> => 공백 => 클래스를 3개 사용 
+        
+      태그명[속성명=값]
+      예) input[type="text"]
+         {
+            width:200px;
+         }
+         input[type="password"]
+         {
+            width:200px;
+         }
+         => 여러개를 동시에 처리 
+         input[type="text"],input[type="password"]{
+                          --- ,구분 
+             width:200px
+         }
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.aaa{
+  color:blue;
+}
+</style>
+</head>
+<body>
+   <h1 class="aaa">Java</h1>
+   <h1 class="aaa">Oracle</h1>
+   <h1 class="aaa">HTML/CSS(Front 기초)</h1>
+</body>
+</html>

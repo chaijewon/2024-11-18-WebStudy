@@ -1,0 +1,97 @@
+<!-- 
+   가상 선택자 
+   태그명:hover 
+   태그명:focus
+   태그명:enabled
+       --
+   구조 선택자 
+   ---------
+     선택자:first-child 
+     선택자:last-child
+     선택자:nth-child(수열)
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 
+  1. 공통으로 적용되는 CSS 제작 
+  2. 각 태그마다 적용되는 CSS 제작 
+*/
+img {
+   width: 120px;
+   height: 180px;
+}
+img:first-child {
+	border: 3px solid green;
+}
+img:last-child {
+	border: 3px solid green;
+	border-radius:60px;
+}
+/*
+    0 1 2 3 4
+    2*0
+    2*1
+    
+*/
+img:nth-child(2n) {
+  	border:3px dotted red;
+}
+/*
+   색상 : 이미 등록된 색상 사용 
+         red / blue ..
+         rgb(채도 색상)
+         16진법 
+          #8FA8CC
+          
+   템플릿 : css제공 => 수정 
+*/
+div > p+h1{
+  background: rgb(0,255,255);
+  color: green;
+}
+div > span > h1{
+  background: #8FA8CC
+}
+div > p~h1{
+  background:magenta;
+}
+</style>
+</head>
+<body>
+  <h1>구조 선택자</h1>
+  <img src="image/m1.jpg">
+  <img src="image/m2.jpg">
+  <img src="image/m3.jpg">
+  <img src="image/m4.jpg">
+  <img src="image/m5.jpg">
+  <img src="image/m6.jpg">
+  <img src="image/m7.jpg">
+  <h1>동위 선택자</h1>
+  <!-- 
+        div 
+         |
+      ------------    => 형제 선택자 , 인접 형제 
+      |   |   |   |       --------  ---------
+                                     h1~h2
+     h1   h2  h2  ul       h1+h2 => <dl> <dt> <dd>
+                 |
+                ----
+                |  |
+                li li
+   -->
+   <div>
+    <p>Hello CSS</p>
+    <h1>형제 1</h1><!-- p+h1 -->
+    <h1>형제 2</h1>
+    <!-- p~h1 -->
+    <span>
+      <h1>후손 1</h1>
+      <!-- div span h1 -->
+    </span>
+   </div>
+</body>
+</html>

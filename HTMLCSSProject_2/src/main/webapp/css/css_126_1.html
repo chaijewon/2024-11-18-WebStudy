@@ -1,0 +1,103 @@
+<!-- 
+   class속성 여러개 사용 
+   
+   => 속성 선택자 
+      태그명[속성=값]  equals => input 
+      태그명[속성^=값] startsWith => a => href : http/https
+      태그명[속성$=값] endsWith => img => src : .jpg,gif,png
+      태그명[속성*=값] contains => img 
+                                ---- 여러개 
+                                img[src*="/recipe/"]
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 태그명.클래스명 */
+.poster{
+  width: 120px;
+  height: 180px;
+}
+/* img.red 
+   img#아이디명
+*/
+.red {
+  border: 2px solid red;
+}
+input[type="submit"]{ /* equals */
+   border-radius: 10px;
+}
+input[type^="b"]{ /* 시작 문자열 */
+  background: pink;
+}
+input[type$="t"]{ /* 끝문자열 */
+   background: cyan
+}
+/*
+   이전에 설정된 CSS는 그대로 유지 
+   다른 속성일 경우에는 유지
+   같은 속성일 경우에는 변경 
+*/
+input[type*="b"]{
+  background: blue;
+  color:white;
+}
+a[href^="https"]{
+  color: red;
+}
+/*확장자 설정*/
+img[src$="jpg"]{
+  width:250px;
+  height: 300px;
+  border: 2px solid green;
+}
+/* 여러개 태그를 동시에 처리시에는 ,
+   태그명,태그명,태그명{
+   
+   } 
+   아이디명,아이디명,아이디명{
+   
+   }
+   클래스명,클래스명{
+   
+   }
+   태그명,아이디명,클래스명{
+   
+   }
+*/
+h2,h3,h4{
+  color:yellow
+}
+</style>
+</head>
+<body>
+  <h1>클래스명 여러개 사용(공통적용 / 태그마다 따로 적용)</h1>
+  <!-- 별도 지정 / 공통 적용 -->
+ <img src="image/m1.jpg" class="poster red"><!-- red -->
+ <img src="image/m2.jpg" class="poster blue"><!-- blue -->
+ <img src="image/m3.jpg" class="poster green"><!-- green -->
+ <img src="image/m4.jpg" class="poster">
+ <img src="image/m5.jpg" class="poster">
+ <img src="image/m6.jpg" class="poster">
+ <img src="image/m7.jpg" class="poster">
+ <h1>속성 선택자1 </h1>
+ <input type="text" size="20"><br>
+ <input type="button" value="Click"><br>
+ <input type="submit" value="전송"><br>
+ <input type="password" size="20">
+ <h1>속성 선택자2 </h1>
+ <a href="http:">CSS 1</a>
+ <a href="https:">CSS 2</a>
+ <a href="http:">CSS 3</a>
+ <h1>속성 선택자3</h1>
+ <img src="image/new.gif">
+ <img src="image/m1.jpg">
+ <img src="image/m2.jpg">
+ <h1>멀티 선택자</h1>
+ <h3>Hello CSS!!</h3>
+ <h2>Hello CSS!!</h2>
+ <h4>Hello CSS!!</h4>
+</body>
+</html>

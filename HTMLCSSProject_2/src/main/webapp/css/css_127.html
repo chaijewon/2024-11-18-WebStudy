@@ -1,0 +1,81 @@
+<!-- 
+      후손 선택자  
+        형식)  태그명 태그명 
+              div 
+               |
+           --------------
+           |   |   |    |
+           h1 h2 span div ==> 자손 태그
+                        |
+                       span ==> 후손 태그 
+                       
+          <div>
+            <h1></h1>
+            <img>
+            <span></span>
+            <div>
+              <span></span>
+            </div>
+          </div>
+      자손 선택자 
+        형식)  태그명 > 태그명 
+      반응 선택자
+        형식) 태그명:hover
+      상태 선택자 
+      구조 선택자
+      동위 선택자
+      문자 선택자  
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div#p  span {
+  color:red
+}
+img{
+  width: 120px;
+  height: 180px;
+}
+img:hover{ /*mouseover*/
+  opacity: 0.3; /* 0.0 ~ 1.0 */
+  cursor: pointer; /* hand cursor : a*/
+  width:200px;
+  height: 230px;
+}
+a{
+   text-decoration: none; /* underline 제거*/
+   color:black;
+   display: block; /* br추가 */
+}
+a:hover{
+   color:gray;
+}
+</style>
+</head>
+<body>
+  <!-- <div id="p">
+     <h1>Java</h1>
+     <h2>HTML/CSS</h2>
+     <span>JavaScript</span>
+     <div>
+       <span>JSP/Servlet</span>
+     </div>
+  </div> -->
+  <img src="image/m1.jpg">
+  <img src="image/m2.jpg">
+  <img src="image/m3.jpg">
+  <img src="image/m4.jpg">
+  <img src="image/m5.jpg">
+  <img src="image/m6.jpg">
+  <img src="image/m7.jpg">
+  <h1>a태그에 hover 적용</h1>
+  <a href="#">Java</a>
+  <a href="#">Oracle</a>
+  <a href="#">HTML/CSS</a>
+  <a href="#">JavaScript</a>
+  <a href="#">JSP</a>
+</body>
+</html>
