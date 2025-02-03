@@ -33,6 +33,24 @@ public class FoodList extends HttpServlet {
 		// 총페이지 읽기 
 		int totalpage=dao.foodTotalPage();
 		
+		// 블럭별 페이지 
+		final int BLOCK=10;
+		/*
+		 *  1~10 => startPage = 1
+		 *  1~10 => endPage = 10
+		 *  
+		 *  11~20 => startPage = 11
+		 */
+		int startPage=((curpage-1)/BLOCK*BLOCK)+1;
+		//               10-1 => 9/10 0
+		//               11-1/10 => 1*10 => 10+1 => 11
+		// 1 11 21 31 ...
+		int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
+		// 10 20 30 40...
+		if(endPage>totalpage)
+		    endPage=totalpage;
+		
+		
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">");
@@ -41,11 +59,18 @@ public class FoodList extends HttpServlet {
 		out.println("<body>");
 		out.println("<div class=container>");
 		out.println("<div class=row>");
+		/*
+		 *   response는 기능을 한개 수행이 가능 
+		 *   ----------------------------
+		 *   1. 쿠키 전송 => Detail이동 => HTML전송 
+		 *   2. HTML전송 
+		 *   
+		 */
 		for(FoodVO vo:list)
 		{
 			out.println("<div class=\"col-md-3\">");
 			out.println("<div class=\"thumbnail\">");
-			out.println("<a href=\"#\">");
+			out.println("<a href=\"FoodBeforeDetail?fno="+vo.getFno()+"\">");
 			out.println("<img src="+vo.getPoster()+" style=\"width:230px;height:150px\">");
 			out.println("<div class=\"caption\">");
 			out.println("<p>"+vo.getName()+"</p>");
@@ -54,6 +79,28 @@ public class FoodList extends HttpServlet {
 			out.println("</div>");
 			out.println("</div>");
 		}
+		out.println("</div>");
+		out.println("<div class=\"row text-center\">");
+		out.println("<ul class=\"pagination\">");
+		// startPage = 1 , 11 , 21
+		if(startPage>1)
+		{
+		  out.println("<li><a href=\"FoodList?page="+(startPage-1)+"\">&lt;</a></li>");
+		}
+		
+		for(int i=startPage;i<=endPage;i++)
+		{
+		 if(i==curpage)
+		  out.println("<li class=active><a href=\"FoodList?page="+i+"\">"+i+"</a></li>");
+		 else
+		  out.println("<li><a href=\"FoodList?page="+i+"\">"+i+"</a></li>");
+		}
+		
+		if(endPage<totalpage)
+		{
+		  out.println("<li><a href=\"FoodList?page="+(endPage+1)+"\">&gt;</a></li>");
+		}
+		out.println("</ul>");
 		out.println("</div>");
 		out.println("</div>");
 		out.println("</body>");
