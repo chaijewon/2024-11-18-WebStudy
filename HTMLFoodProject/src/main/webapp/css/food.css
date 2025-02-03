@@ -1,0 +1,13 @@
+@charset "UTF-8";
+.container{
+	margin-top: 50px; /* 시작점 */
+}
+.row {
+	margin: 0px auto;/* 가운데 정렬 */
+	width: 960px;
+}
+p{
+	overflow: hidden; /* 글자수가 넘어가면 숨긴다 */
+	white-space: nowrap;
+	text-overflow: ellipsis;/* ... */
+}
