@@ -31,27 +31,27 @@
            선택자 
              전체 선택 : * => 기본 사이트 글꼴이 거의 동일 
                             시스템 / 구글 폰트 
-             태그 선택자 : 태그명 {} => h1{속성:값}
-             아이디 선택자 : 중복없는 태그 설정 
+             ***태그 선택자 : 태그명 {} => h1{속성:값}
+             ***아이디 선택자 : 중복없는 태그 설정 
                           <div id="a">
                           div#a{
                           
                           }
                           
-             클래스 선택자 : 중복 있는 태그 설정 
+             ***클래스 선택자 : 중복 있는 태그 설정 
                           <div class="a">
                           div.a{
                           
                           }
              속성선택자 : 선택자[속성=값]  => input[type=submit]
-                       선택자[속성*=값]  => input[type=s]
+                       ***선택자[속성*=값]  => input[type=s]
                          => 포함 => img[src*=/recipe/]
                        선택자[속성^=값]  => input[type=submit]
                          => 시작 => http/https 
                        선택자[속성$=값]  => input[type=submit]
                          => 끝 => 확장자 
              후손 선택자 
-               선택자 선택자 
+               선택자 선택자   ***div span
                    div
                     |
                 ------------
@@ -62,18 +62,95 @@
                          |    |
                         h3   span 
              자손 선택자 
-               선택자 > 선택자 
+               선택자 > 선택자   
                         
+             반응 선택자 
+               선택자:hover => mouseover 
+               선택자:active => 메뉴 선택시 
+               
+             상태 선택자 
+               ***선택자:checked => radio / checkbox 
+               선택자:enabled / disable
              
-        
+             동위선택자 
+               선택자+선택자 
+               선택자~선택자 
+               
+                  div
+                   |
+             ----------------
+             |     |    |   |
+            h1    span span span  h1+span
+                                  h1~span 
+                                  
+                <dl>
+                  <dt>영화명</dt>
+                  <dd></dd>
+                  
+                  <dt>장르</dt>
+                  <dd></dd>
+                  
+                  <dt>출연</dt>
+                  <dd></dd>
+                </dl>
+                
+                <dl>
+                  <dt>영화명</dt> dt+dd => dt가 영화명이라면
+                  <dd></dd>
+                  
+                  <dt>장르</dt>
+                  <dd></dd>
+                  
+                  <dt>상영일</dt>
+                  <dd></dd>
+                </dl>
+            
+            
+            <div>
+              <h1></h1>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            
+            문자선택자 
+              선택자::after
+              선택자::before
+            구조선택자 
+              선택자:first-child
+              선택자:last-child 
+              선택자:nth-child(수열)
+            
+            
+             
  -->
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+img.poster {
+  /* 주석 */
+  width: 150px;
+  height: 180px;
+}
+/* hover : mouseover => a태그에 주로 사용 */
+img.poster:hover{
+  opacity: 0.3; /* 0.0 ~ 1.0 */
+  cursor: pointer
+  
+}
+</style>
 </head>
 <body>
-
+	<img src="m1.jpg" class="poster">
+	<img src="m2.jpg" class="poster">
+	<img src="m3.jpg" class="poster">
+	<img src="m4.jpg" class="poster">
+	<img src="m5.jpg" class="poster">
+	<img src="m6.jpg" class="poster">
+	<img src="m7.jpg" class="poster">
+	<img src="re_icon.png">
 </body>
 </html>
