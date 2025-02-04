@@ -13,8 +13,8 @@ public class MainServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		PrintWriter out=response.getWriter();
-		
+		PrintWriter out=
+				response.getWriter();
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css\">");
@@ -23,16 +23,15 @@ public class MainServlet extends HttpServlet {
 		out.println("<body>");
 		out.println("<div class=container>");
 		out.println("<div class=row>");
-		out.println("<div class=text-center style=\"margin-top:150px\">");
-		out.println("<a href=FoodList class=\"btn btn-lg btn-danger\">맛집</a>");
-		out.println("<a href=MusicList class=\"btn btn-lg btn-success\">뮤직</a>");
-		out.println("<div>");
+		out.println("<div class=text-center style=\"margin-top:200px\">");
+		out.println("<a href=FoodList class=\"btn btn-lg btn-success\">맛집</a>");
+		out.println("<a href=MusicList class=\"btn btn-lg btn-warning\">뮤직</a>");
+		out.println("<a href=FoodFind class=\"btn btn-lg btn-danger\">맛집검색</a>");
 		out.println("</div>");
 		out.println("</div>");
 		out.println("</div>");
 		out.println("</body>");
 		out.println("</html>");
-		
 	}
 
 }

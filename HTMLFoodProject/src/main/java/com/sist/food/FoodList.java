@@ -125,7 +125,10 @@ public class FoodList extends HttpServlet {
 		for(int i=0;i<cList.size();i++)
 		{
 			FoodVO cvo=cList.get(i);
-			out.println("<img src="+cvo.getPoster()+" style=\"width:100px;height:100px\">");
+			if(i>8) break;
+			out.println("<a href=FoodDetail?fno="+cvo.getFno()+">");
+			out.println("<img src="+cvo.getPoster()+" style=\"width:100px;height:100px\" class=img-rounded title="+cvo.getName()+">");
+			out.println("</a>");
 		}
 		out.println("</div>");
 		out.println("</div>");
