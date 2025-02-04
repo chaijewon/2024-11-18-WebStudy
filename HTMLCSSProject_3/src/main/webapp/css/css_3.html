@@ -1,0 +1,157 @@
+<!-- 
+     글자 속성 
+     -------
+     1. font-family => 글꼴 (여러개 적용) , URL (구글폰트)
+     2. font-weight => 두께 => bold 
+     3. font-size => 글자 크기 (%,px,em)
+     4. text-align => 정렬 (left|center|right) => 가로
+                           ---- default
+     5. text-decoration => underline|none => <a>
+     6. vertical-align => 세로 (top|middle|bottom)
+                                  -------- default
+     7. white-space : 자동 줄바꿈 (내용 / 줄거리) 
+     8. line-height : 줄 간격(자간)
+     9. text-overflow : 굴자가 범위를 벗어난 경우에 ...
+     
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="table.css">
+<style type="text/css">
+*{
+   font-family: "42dot Sans", serif;
+   font-optical-sizing: auto;
+   font-weight: bold;
+   font-style: normal;
+}
+.table_content{
+  margin: 0px auto; /* 정렬(가운데) */
+}
+#image{
+  width: 100%;
+  height: 450px;
+}
+#title{
+  font-size: 24px;
+  font-weight: bold;
+}
+#sub{
+  color: gray;
+  text-align: center;
+}
+#percent{
+  font-size: 24px; /* h3 */
+  color: magenta;
+  font-weight: blod;
+}
+#price{
+  font-size: 24px; /* h3 */
+  font-weight: blod;
+}
+#star{
+  color: orange;
+  font-weight: bold;
+}
+#bold{
+  font-weight: bold;
+}
+#count{
+  color:gray;
+}
+.icon{
+  width: 20px;
+  height: 20px;
+}
+#sel{
+  width: 100%;
+  height: 40px;
+}
+#cart,#buy{
+  width: 250px;
+  height: 70px;
+  border:2px green solid;
+  font-size: 20px;
+  font-weight: blod;
+  box-shadow:5px 5px 5px #A9A9A9;
+}
+#cart:hover , #buy:hover{
+  cursor: pointer;
+}
+#cart{
+ background-color: white;
+ color:green;
+}
+#buy{
+  background-color: green;
+  color:white;
+}
+</style>
+</head>
+<body>
+  <table class="table_content" width="800">
+    <tr>
+      <td width="30%" align="center" rowspan="9">
+       <img src="https://recipe1.ezmember.co.kr/cache/data/goods/23/04/17/1000035915/1000035915_detail_081.jpg"
+        id="image"
+       >
+      </td>
+      <td width="70%">
+        <span id="title">[공동구매] 알텐바흐 큐라이네 디펜더스 후라이팬</span>
+      </td>
+    </tr>
+    <tr>
+      <!-- 특정부분에 CSS적용 : span -->
+      <td width="70%">
+        <span id="sub">현존 알텐바흐 최상급 디팬더스팬 , 세계최고의 코팅 위드포드사의 CU(구리)+아크스프레이 공법+원심회전코팅,3000톤 이상의 무게로 압착 방식으로 빈공간없이 열 전도율이 뛰어 납니다</span>
+      </td>
+    </tr>
+    <tr>
+      <td width="70%">
+        <span id="percent">52%</span>&nbsp;
+        <span id="price">48,000원</span>
+        <p>
+          <del id="psub">99,000원</del>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td width="70%">
+       <span id="star">★★★★★</span>
+       <span id="bold">4.7</span>
+       <span id="count">(210)</span>
+      </td>
+    </tr>
+    <tr>
+      <td width="70%">
+        <img src="https://recipe1.ezmember.co.kr/img/mobile/icon_delivery3.png" class="icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="common">무료배송</span>
+      </td>
+    </tr>
+    <tr>
+      <td width="70%">
+        <img src="https://recipe1.ezmember.co.kr/img/mobile/icon_point.png" class="icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="common">240원 적립 (모든 회원 구매액의 0.5% 적립)</span>
+      </td>
+    </tr>
+    <tr>
+      <td width="70%">
+       <select id="sel">
+         <option>옵션선택</option>
+       </select>
+      </td>
+    </tr>
+    <tr>
+      <td width="70%">
+        <input type=button value="장바구니" id="cart">
+        <input type=button value="바로구매" id="buy">
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

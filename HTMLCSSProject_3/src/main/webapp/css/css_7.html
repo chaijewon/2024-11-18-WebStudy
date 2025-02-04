@@ -1,0 +1,93 @@
+<!-- backgroubd-position: 출력 위치 지정 
+      글자 관련 속성 
+        => font-family : 글꼴 
+           ***font-family : "맑은 고딕" , 바탕체 , 궁서체 
+                         여러개 지정해서 해당되는 글꼴 처리 
+           font-size: % , px , em(배수)
+                     => default : 16px
+           ***font-weight : bold => <strong> <b>
+           
+         => ***color : 글자 색상  => red,black...
+                                rgb() , #FFF
+         => ***text-align : 정렬(수평) => left / center / right
+            text-decoration: underline => <a> 
+            ***text-overflow: 글자가 범위를 벗어나는 경우 ...
+            vertical-align: 수직 정렬 (top/middle/bottom)
+            line-height : 자간 (줄 간격) 
+            ***white-space : 줄바꿈 
+      background관련 
+         => background-image 
+            background-color
+            background-size
+            background-repeat 
+            background-position 
+            ------------------- + background
+            ***background:url('')
+            ***background:red
+               ---------------- <tr> <ul> menu
+             
+         => HTML => 출력 형식 => 108page 
+            block  / inline System.out.print()
+            
+            block => System.out.println()
+            ------ 
+             <div> , <table> , <ul> , <dl> , <ol> 
+             <br> , <p> , <h1~h6>
+             
+            inline 
+            ------
+             <span> , <a> , <input> , <select> , <textarea>
+             <img> , <b> , <sup> ...
+             
+            => 가시 속성 
+               display
+            => ul : 메뉴 제작    
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div{
+  width: 640px;
+  height: 480px;
+  border: 1px solid black;
+  background-image: url('mm.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+p{
+   white-space: pre-wrap;
+}
+ul li{
+  list-style: none;
+  display: inline;
+}
+</style>
+</head>
+<body>
+ <div>
+  <h1>말할 수 없는 비밀</h1>
+  <p>
+   “연주할 때만 느껴지는 감정이 있거든. 그게 널 만나면 느껴져”
+유학 중이던 피아니스트 유준은 팔목 치료를 위해 한국에 교환 학생으로 오게 된다.
+학교에 처음 간 그날, 신비로운 피아노 선율에 이끌려 도착한 연습실에서
+유준은 정아와 마주치고, 운명처럼 끌린 두 사람은 시간을 보내며 가까워진다.
+
+하지만, 연락처조차 알려주지 않는 정아와의 만남은 계속 엇갈리고, 
+유준의 시선이 늘 자신을 향해 있다고 생각한 
+인희의 갑작스러운 고백은 정아에게 큰 상처를 입힌다.
+
+그날 이후 사라진 정아의 행방을 찾던 유준은 정아의 비밀을 마주하게 되는데…
+  </p>
+ </div>
+ <ul>
+   <li>홈</li>
+   <li>맛집</li>
+   <li>레시피</li>
+   <li>여행</li>
+   <li>커뮤니티</li>
+ </ul>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!-- 
+   1. CSS 적용방법 
+      = 외부 CSS : 파일을 제작 => .css
+                  => 모든 파일에 적용 , 재사용 
+                  <link rel="stylesheet" href="파일명|URL">
+      = 내부 CSS : 파일 한개에 대한 처리 
+                  <style type="text/css">
+                  </style>
+      = 인라인 CSS : 태그한개에 대한 처리 
+                  <태그명 style="">
+                  *** 모든 태그는 id,class,style이 있다
+   2. 선택자 (selector) 
+      = CSS 적용 / 자바스크립트(태그 제어) / Jsoup 크롤링
+                                      -----------
+                                      web크롤링 => 사이트 데이터 수집
+        <style>
+          선택자 {
+            속성 : 값;
+            ...
+            ...
+          }
+        </style>
+        
+        $('선택자').이벤트 처리
+        $('#btn').click(function(){
+            버튼 클릭 
+        })
+        
+        doc.select("선택자")
+        
+      129page 기본 선택자 
+      = * : 전체 태그에 적용 => 글꼴 / margin / padding 
+      = id : 중복없는 태그를 적용 
+      = class : 중복이 있는 태그 (여러개 동시에 처리)
+      = 태그 : => 구분자 
+      -------------------------------------------
+      인라인 스타일 
+         |
+       id스타일 
+         |
+       클래스스타일
+         |
+       태그스타일 : 특정 태그 
+      135 page 속성선택자 
+      = <input> <select> <textarea> <a> <img> 
+        --------------------------------------
+         id,class를 적용하지 않는다 : 구분이 없다 
+      = 태그[속성명=값]  equals 
+      = 태그[속성명^=값] startsWith => URL주소 
+      = 태그[속성명$=값] endsWith => 확장자 
+      = 태그[속성명*=값] contains (*****) => img 
+      
+      136 page 후손 / 자손 선택자 
+          HTML은 DOM(Document Object Model) 
+                --------------------------- 트라형태로 저장 
+          <div>
+            <h1><h1>
+            <p></p>
+            <p>
+             <h1></h1>
+            </p> 
+          </div>
+          
+               div 
+                |
+            ------------
+            |     |    |
+            h1    p    p   ===> 자손  => div > h1
+                       |
+                       h1  ===> 후손  => div h1
+            => 형제 선택자 (동위 선택자)
+               옆에 있는 태그 => h1 + p => 크롤링 
+                  영화명 실제명
+                  출연   ...
+                  감독   ...
+               인접 한 태그   => h1 ~ p
+       141 page 가상 선택자 
+           태그:   ,  태그::
+           
+           => :hover => a, img , tr
+           => :checked => checkbox , radio 
+              -----------------------------
+                관리자 / 마이페이지 
+           => :focus => input / button
+           => 같은 태그가 여러개 구분이 없는 경우 
+              ----------------------------
+              목록 : <ul> , <table> , <dl>
+              => 구조선택자를 이용하다 
+              li:first-child , li:last-child 
+              li:nth-child(수열) 
+                 nth-child(2n) => 0 2 4...
+                 nth-child(2n+1) => 1 3 5...
+                  n값은 0번부터 ... 갯수만큼 수행 
+                 3n+1 => 1 4 7 ...
+            => ::after , ::before 
+               문자 선택자 : 새글 , 신상품 => 템플릿을 사용 
+        ------------ 태그선택자 사용자 정의가 없다 (표준화)
+                     -------- 디자인(화면 UI) , 이벤트처리 ,데이터수집 
+                              ------------
+        126~127page => 도표 
+        *** Back-End 
+            자바/오라클/JSP/Spring... , JavaScript 
+            HTML/CSS => 기본 변경 
+      ------------------------------------------------
+       속성의 종류 
+       선택자 {
+          속성 : 값
+          --- 속성명 (사용자정의가 없다)
+       }
+       
+       => 텍스트 속성 
+          => 단위 => 148~154page
+             1. 크기단위 => 글자 크기 
+                font-size => 16px
+                % => 100% (16px) , 150% (24px) .. 200%(32px)
+                em => 배수단위 
+                      0.2em => 16*0.2
+                      2em   => 16*2
+                px => 픽셀 
+             2. 색상
+                = 시스템 색상 => color:red,gray...
+                = rgb(255,255,255) => 그림판
+                = 16진법 사용 => #FFF , #000 => HTML 색상표
+             3. URL
+          => 스타일(글꼴) 
+          => 정렬 
+       => 이미지 관련 속성
+       => 위치 속성 
+       => border 속성 
+       => 목록 속성
+       => 박스 모델
+       => POSITION 
+       => 기타 ( 레이어 , 이동 속성)
+       => 반응형 웹 
+       => CSS 라이브러리 
+          => BootStrap => 1차 JSP
+          => TailWind  => 2차 Spring
+        
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 구조 선택자 */
+p:nth-child(1){
+    /*font-size: 16px;*/
+    /* font-size:100%; */
+    font-size:1.0em;
+}
+p:nth-child(2){
+    /*font-size: 24px;*/
+    /* font-size:150%; */
+    font-size:1.5em;
+}
+p:nth-child(3){
+    /*font-size: 32px;*/
+    /* font-size:200%; */
+    font-size:2.0em;
+}
+p:nth-child(4){
+
+}
+ul li:nth-child(1){
+   color:green;
+}
+ul li:nth-child(2){
+   /* color:rgb(50,130,246);rgba() => 투명모드*/
+   color:rgba(50,130,246,0.3); /* 0.0 ~ 1.0 */
+}
+ul li:nth-child(3){
+   color:#3282F6
+}
+/*
+   가급적이면 사이트 제작시에 원색은 피한다  
+*/
+</style>
+</head>
+<body>
+ <h1>글자 크기 단위</h1>
+  <p>Hello CSS1</p>
+  <p>Hello CSS2</p>
+  <p>Hello CSS3</p>
+  <p>Hello CSS4</p>
+ <h1>색상 처리</h1>
+   <ul>
+     <li>Hello HTML/CSS1</li>
+     <li>Hello HTML/CSS2</li>
+     <li>Hello HTML/CSS3</li>
+   </ul>
+</body>
+</html>

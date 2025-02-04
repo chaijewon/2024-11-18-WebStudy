@@ -1,0 +1,68 @@
+@charset "UTF-8";
+*{
+   font-family: "42dot Sans", serif;
+   font-optical-sizing: auto;
+   font-weight: bold;
+   font-style: normal;
+}
+.table_content{
+  margin: 0px auto; /* 정렬(가운데) */
+}
+#image{
+  width: 100%;
+  height: 450px;
+}
+#title{
+  font-size: 24px;
+  font-weight: bold;
+}
+#sub{
+  color: gray;
+  text-align: center;
+}
+#percent{
+  font-size: 24px; /* h3 */
+  color: magenta;
+  font-weight: blod;
+}
+#price{
+  font-size: 24px; /* h3 */
+  font-weight: blod;
+}
+#star{
+  color: orange;
+  font-weight: bold;
+}
+#bold{
+  font-weight: bold;
+}
+#count{
+  color:gray;
+}
+.icon{
+  width: 20px;
+  height: 20px;
+}
+#sel{
+  width: 100%;
+  height: 40px;
+}
+#cart,#buy{
+  width: 250px;
+  height: 70px;
+  border:2px green solid;
+  font-size: 20px;
+  font-weight: blod;
+  box-shadow:5px 5px 5px #A9A9A9;
+}
+#cart:hover , #buy:hover{
+  cursor: pointer;
+}
+#cart{
+ background-color: white;
+ color:green;
+}
+#buy{
+  background-color: green;
+  color:white;
+}
