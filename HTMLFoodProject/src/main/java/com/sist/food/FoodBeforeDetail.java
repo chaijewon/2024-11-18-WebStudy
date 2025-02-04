@@ -13,7 +13,21 @@ public class FoodBeforeDetail extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String fno=request.getParameter("fno");
+		Cookie[] cookies=request.getCookies();
+		if(cookies!=null)
+		{
+			for(int i=0;i<cookies.length;i++)
+			{
+				if(cookies[i].getName().equals("food_"+fno))
+				{
+					cookies[i].setPath("/");
+					cookies[i].setMaxAge(0);
+					response.addCookie(cookies[i]);
+				}
+			}
+		}
 		Cookie cookie=new Cookie("food_"+fno, fno);
+		
 		cookie.setPath("/"); // 저장 위치 지정 
 		cookie.setMaxAge(60*60*24); // 저장 기간 => 1일 
 		response.addCookie(cookie); // 브라우저 전송 

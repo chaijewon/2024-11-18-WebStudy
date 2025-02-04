@@ -57,12 +57,16 @@ public class FoodDetail extends HttpServlet {
 			out.println("<tr>");
 			StringTokenizer st=
 					new StringTokenizer(vo.getImages(),",");
+			int i=0;
+			int count=st.countTokens();
 			while(st.hasMoreTokens())
 			{
+				if(i==7) break;
 				out.println("<td class=text-center>");
 				out.println("<img src=https://www.menupan.com"
-				       +st.nextToken()+" style=\"width:100%\">");
+				       +st.nextToken()+" style=\"width:130px;height:100px\">");
 				out.println("</td>");
+				i++;
 			}
 			out.println("</tr>");
 			out.println("</table>");
