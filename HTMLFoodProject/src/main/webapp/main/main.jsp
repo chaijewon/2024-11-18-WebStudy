@@ -1,26 +1,48 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-String fno=request.getParameter("fno");
-Cookie cookie=new Cookie("food_"+fno, fno);
-cookie.setPath("/"); // 저장 위치 지정 
-cookie.setMaxAge(60*60*24); // 저장 기간 => 1일 
-response.addCookie(cookie); // 브라우저 전송 
-// 쿠키 => 브라우저에 저장 (클라이언트에 저장) 
-// 보안에 취약 / 저장 => 문자열만 저장이 가능 
-// => 최신 방문 / 로그인 여부 
-// => 서버에 저장 (세션) 
-// => Map방식 (키,값) => 키는 중복이 불가능 
-// 상세보기로 이동 => 서버에서 화면 이동 : response.sendRedirect()
-response.sendRedirect("FoodDetail?fno="+fno);
-%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 
+<div class="container">
+  <h2>Basic Table</h2>
+  <p>The .table class adds basic styling (light padding and only horizontal dividers) to a table:</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>john@example.com</td>
+      </tr>
+      <tr>
+        <td>Mary</td>
+        <td>Moe</td>
+        <td>mary@example.com</td>
+      </tr>
+      <tr>
+        <td>July</td>
+        <td>Dooley</td>
+        <td>july@example.com</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 </body>
 </html>
+    
