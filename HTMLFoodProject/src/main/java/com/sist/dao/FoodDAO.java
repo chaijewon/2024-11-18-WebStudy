@@ -217,6 +217,14 @@ public class FoodDAO {
 		  int rowSize=12;
 		  int start=(rowSize*page)-(rowSize-1);
 		  int end=rowSize*page;
+		  /*
+		   *   sql="SELECT fno,name,poster,num "
+			     +"FROM (SELECT fno,name,poster,rownum as num "
+				 +"FROM (SELECT fno,name,poster "
+			     +"FROM music "
+				 +"WHERE cno=?)) "
+			     +"WHERE num BETWEEN ? AND ?";
+		   */
 		  if(!type.equals("기타"))
 		  {
 			  sql="SELECT fno,name,poster,num "
