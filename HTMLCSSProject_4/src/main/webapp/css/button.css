@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.btn{
+	  width:150px;
+	  height:30px;
+	  display: block;
+}
+
+.danger{
+	border:1px solid red;
+	background-color: red;
+	border-radius: 20px;
+}
+.info{
+	border:1px solid cyan;
+	background-color: cyan;
+	border-radius: 20px;
+}
+.primary{
+	border:1px solid blue;
+	background-color: blue;
+	border-radius: 20px;
+}
+.success{
+	border:1px solid green;
+	background-color: green;
+	border-radius: 20px;
+}
+.warning{
+	border:1px solid rgb(255,128,128);
+	background-color: rgb(255,128,128);
+	border-radius: 20px;
+}

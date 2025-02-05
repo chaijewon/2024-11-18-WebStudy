@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="table.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+let i=0;
+$(function(){ //window.onload=function(){} => main
+	$('.dataTr').click(function(){
+		if(i==0)
+		{
+			i=1;
+			$('#content').show("slow");
+		}
+		else
+		{
+			i=0;
+			$('#content').hide("slow");
+		}
+	})
+})
+</script>
+</head>
+<body>
+  <table class="table_content" width=700>
+    <tr>
+      <th>번호</th>
+      <th>제목</th>
+      <th>이름</th>
+      <th>작성일</th>
+      <th>조회수</th>
+    </tr>
+    <tr class="dataTr">
+      <td class="text-center">1</td>
+      <td>복덩이' 양민혁 QPR 연패 끊었다</td>
+      <td class="text-center">홍길동</td>
+      <td class="text-center">2025-02-05</td>
+      <td class="text-center">10</td>
+    </tr>
+    <tr id="content" style="display:none">
+      <td colspan="5" height="200" class="text-left"
+        valign="top">
+       <pre>양민혁은 블랙번 로버스전 교체 출전을 하면서 퀸즈파크레인저스(QPR) 홈 데뷔전을 치렀다. 
+QPR은 5일 오전 4시 45분(한국시간) 영국 런던에 위치한 로프터스 로드에서 열린 
+2024-25시즌 잉글랜드 챔피언십(2부) 31라운드에서 블랙번에 2-1로 이겼다. 
+QPR은 2연패를 끝내고 승전보를 울렸다.</pre>  
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<style type="text/css">
+#wrapper{
+  border: 5px solid #FC39;
+  width: 500px;
+  margin-left: 150px;
+  border-radius: 10px;
+}
+#joinForm{
+  display: table;
+  margin: 10px auto;
+  border-collapse: collapse;
+}
+#joinForm h1{
+  display: table-caption;
+  font-size: 15px;
+  padding: 5px;
+  margin-bottom: 10px;
+  width: 450px;
+}
+#joinForm h1 span{
+  text-align: center;
+  display: block;
+  color: #FFF;
+  background-color: #333;
+  padding: 5px;
+  margin: 0px auto;
+}
+#joinForm p{
+  display: table-row;
+  padding: 5px;
+  border-bottom: 1px solid #6b6b6b;
+}
+#joinForm label{
+  display: table-cell;
+  padding-left: 10px;
+}
+#joinForm #id{
+  width: 100px;
+}
+#joinForm #pwd{
+  width: 100px;
+}
+#joinForm #name{
+  width: 100px;
+}
+#joinForm .cellStyle{
+  display: table-cell;
+  padding-left: 5px;
+}
+</style>
+</head>
+<body>
+ <!-- 
+      RestFul 
+      GET / POST / PUT / DELETE => React
+  -->
+ <div id="wrapper">
+  <form id="joinForm">
+   <h1><span>회원가입</span></h1>
+   <p>
+     <label for="id">ID</label>
+     <input type=text id="id" class="cellStyle">
+   </p>
+   <p>
+     <label for="pwd">Password</label>
+     <input type=password id="pwd" class="cellStyle">
+   </p>
+   <p>
+     <label for="name">Name</label>
+     <input type=text id="name" class="cellStyle">
+   </p>
+  </form>
+ </div>
+</body>
+</html>

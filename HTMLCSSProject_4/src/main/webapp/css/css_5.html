@@ -1,0 +1,104 @@
+<!-- 
+      CSS 속성
+      -------
+      1. 텍스트 관련 속성 
+         font-family : 글꼴 
+           => 시스템에 내장 
+           => 구글폰트 <link> @import()
+         font-size: => % , px , em(배수)
+         font-weight: bold => 강조 
+         color : 글자 색상 
+         
+         text-align : 정렬 => 수평 (left / center / right)
+                                 ------ default
+         vertical-align: 수직 => 정렬 (top / middle / bottom)
+                                          -------- default
+         게시판 : 모든 영역이 center가 아니다 
+                -----------------------
+                같은 글 갯수 => 다른 경우 (left)
+         white-space : 자동 줄바꿈 
+               ** HTML의 단점 => 자동으로 크기가 늘어난다
+         
+         word-spacing : 글자 간격
+         
+         line-height : 자간
+      2. background 관련 속성 
+         background-color 
+         background-image
+         background-size => cover , 100% 100%
+         ------------------- background 
+      3. 박스 모델
+         margin : 외부 간격 조절 
+           margin-top / margin-right / margin-bottom / margin-left
+         padding : 내부 간격 조절
+           padding-top / padding-right / padding-bottom / padding-left
+           => 시계방향 , 속기법 
+         border : 테두리 
+           border-style: 선의 종류 (solid / dotted)
+           border-width : 두께 
+           border-color : 테두리 색상 
+           border-collpase : 테두리 통합 
+           border-radius 
+         float: => 위치 이동 
+           => left | right =>  해제 : clear:both
+           => block 속성을 => inline형태로 출력 
+         기타 
+           => overflow : 범위를 벗어나는 경우 
+              hidden , scroll
+              => overflow-y / overflow-x
+      4. 가시성 
+         display:화면 출력 => none(숨김) ''(보여준다)
+         => 더보기 / 무한 스크롤 => 자바스크립트 
+                               ----------
+                               show()/hide()
+         ---------------------------
+          display:block : 세로 출력 
+            => div / br / p / hr / 목록(table,dl,ul,ol)
+               h1~h6
+            => 태그는 한줄 전체 차지하고 있다 
+          display:inline :가로 출력
+            => span / b / sup / input / select / textarea
+            => a , img 
+          display:inline-block => width/height가 지정된 경우
+          display:none 
+         ---------------------------
+         <table> : display:table 
+         <tr> : display:table-row
+         <th> : display:table-column
+         <td> : display:table-cell
+         <caption> : display:table-caption 
+      5. 위치 관련 속성 
+         
+      가시성 
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/*
+   템플릿 : 모든 태그가 block
+*/
+h1 {
+  background-color: yellow;
+  display: inline;
+}
+span {
+  background: green;
+  width:250px;
+  height: 100px;
+  display: block;
+  margin-top: 10px;
+}
+</style>
+</head>
+<body>
+  <h1>Hello Block</h1>
+  <h1>Hello Block</h1>
+  <h1>Hello Block</h1>
+  <span>Hello Inline</span>
+  <span>Hello Inline</span>
+  <span>Hello Inline</span>
+</body>
+</html>

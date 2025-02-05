@@ -1,0 +1,105 @@
+<!--
+     CSS => Servlet 
+     JavaScript => JSP  =>  ?
+     ------------------ Spring
+     Spring FrameWork 
+     Spring-Boot  ==> Python / Django 
+     
+     163page 박스모델 => 출력 위치 지정
+     1. HTML의 구성요소 
+     
+     브라우저
+     ----------------------------
+      margin |  Top
+      ------------------------
+        border 
+      ------------------------
+        padding
+      ------------------------
+   Left                        Right
+        -----------------
+          content => 이미지 / 문자 
+        
+        -----------------
+      
+      ------------------------
+             | Bottom
+     ----------------------------
+     => Margin : 외부 여백 지정 
+        => top right bottom left
+           ---       ------
+               -----        ---- 
+           --------------------- 시계방향으로 설정 
+        => 속기법 사용 
+           margin:10px  => 10px 10px 10px 10px
+           margin:10px 20px => 10px 20px 10px 20px 
+           margin:10px 20px 30px => 10px 20px 30px 20px
+           margin:10px   20px   10px   30px 
+                   |       |    |       |
+                  top  right bottom    left
+           margin:0px auto => 가운데 정렬 <center>
+           
+           => margin-top 
+              margin-right
+              margin-bottom
+              margin-left
+              ----------------- margin
+                                   
+     => Padding : 내부 여백 지정 
+           => 
+             | margin
+           <div>
+              | padding
+              | border
+             <img >
+           </div>
+           
+           => top right bottom left 
+              ---------------------
+           padding-top 
+           padding-right
+           padding-bottom
+           padding-left 
+           ------------------ padding => 속기법 
+     => Border : 테두리 => 선의 종류 
+                 ----- solid : 일반 라인선 
+                 ----- dotted : 점선 
+                 ----- dashed : ----- 
+        
+     => Content : text,image등 실제 출력 내용이 있는 부분 
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 공통 적용 부분 */
+div{
+  width: 200px;
+  height: 200px;
+  background: blue;
+}
+.box1{
+   margin: 30px; /* 30 30 30 30 */
+}
+.box2{
+   margin: 30px 50px; /* 30 50 30 50 */
+}
+.box3{
+   margin: 30px 30px 30px 30px;
+}
+.box4{
+   margin: 30px 50px 30px 50px;
+}
+/* margin은 브라우저안에서 태그와 태그의 여백*/
+</style>
+</head>
+<body>
+  <!-- 세로 출력 : block -->
+  <div class="box1"></div>
+  <div class="box2"></div>
+  <div class="box3"></div>
+  <div class="box4"></div>
+</body>
+</html>

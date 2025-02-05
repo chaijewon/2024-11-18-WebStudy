@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+img{
+  width: 130px;
+  height: 200px;
+  margin-left: 20px;
+  margin-top: 100px;
+}
+/* 출력 위치 지정 : margin , 태그안에서 위치 지정 : padding*/
+img:nth-child(1){
+  /*border: 2px solid red; 168page*/
+  /*
+     thin => 1px 
+     medium => 3px 
+     thick  => 5px 
+     
+     border-width:1px , thin
+     border-width:3px , medium
+  */
+  border-width: 2px 10px 4px 20px;
+  /*             top right bottom left */
+  border-color: green; 
+  border-style: solid;
+}
+img:nth-child(2){
+  border: 2px dotted red;
+}
+img:nth-child(3){
+  border: 2px dashed red;
+}
+img:nth-child(4){
+  border: 2px double red;
+}
+img:nth-child(5){
+  border: 2px groove red;
+}
+img:nth-child(6){
+  border: 5px inset red;
+}
+img:nth-child(7){
+  border: 5px outset red;
+}
+</style>
+</head>
+<body>
+  <img src="../image/m1.jpg">
+  <img src="../image/m2.jpg">
+  <img src="../image/m3.jpg">
+  <img src="../image/m4.jpg">
+  <img src="../image/m5.jpg">
+  <img src="../image/m6.jpg">
+  <img src="../image/m8.jpg" onerror="this.src='../image/noimg.png'">
+</body>
+</html>
