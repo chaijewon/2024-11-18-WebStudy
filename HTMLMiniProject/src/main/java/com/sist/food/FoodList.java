@@ -85,20 +85,20 @@ public class FoodList extends HttpServlet {
 		// startPage = 1 , 11 , 21
 		if(startPage>1)
 		{
-		  out.println("<li><a href=\"FoodList?page="+(startPage-1)+"\">&lt;</a></li>");
+		  out.println("<li><a href=\"MainServlet?page="+(startPage-1)+"\">&lt;</a></li>");
 		}
 		
 		for(int i=startPage;i<=endPage;i++)
 		{
 		 if(i==curpage)
-		  out.println("<li class=active><a href=\"FoodList?page="+i+"\">"+i+"</a></li>");
+		  out.println("<li class=active><a href=\"MainServlet?page="+i+"\">"+i+"</a></li>");
 		 else
-		  out.println("<li><a href=\"FoodList?page="+i+"\">"+i+"</a></li>");
+		  out.println("<li><a href=\"MainServlet?page="+i+"\">"+i+"</a></li>");
 		}
 		
 		if(endPage<totalpage)
 		{
-		  out.println("<li><a href=\"FoodList?page="+(endPage+1)+"\">&gt;</a></li>");
+		  out.println("<li><a href=\"MainServlet?page="+(endPage+1)+"\">&gt;</a></li>");
 		}
 		out.println("</ul>");
 		out.println("</div>");
@@ -122,11 +122,17 @@ public class FoodList extends HttpServlet {
 				}
 			}
 		}
+		/*
+		 *   MainServlet?mode=1  => MainServlet => FoodList
+		 *   MainServlet?mode=2  => FoodDetail
+		 *   MainServlet?mode=3  => FoodTypeFind
+		 *   MainServlet?mode=4  => FoodFind
+		 */
 		for(int i=0;i<cList.size();i++)
 		{
 			FoodVO cvo=cList.get(i);
 			if(i>8) break;
-			out.println("<a href=FoodDetail?fno="+cvo.getFno()+">");
+			out.println("<a href=MainServlet?mode=2&fno="+cvo.getFno()+">");
 			out.println("<img src="+cvo.getPoster()+" style=\"width:100px;height:100px\" class=img-rounded title="+cvo.getName()+">");
 			out.println("</a>");
 		}

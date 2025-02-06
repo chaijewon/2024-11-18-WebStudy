@@ -391,4 +391,61 @@ public class FoodDAO {
 	  }
 	  return total;
   }
+  // 로그인 처리 
+  public MemberVO memberLogin(String id,String pwd)
+  {
+	  MemberVO vo=new MemberVO();
+	  try
+	  {
+		  getConnection();
+		  String sql="SELECT COUNT(*) FROM member "
+				    +"WHERE id=?";
+		  ps=conn.prepareStatement(sql);
+		  // "no="+no
+		  // "id='"+id+"'" => ps.setString(1,id)
+		  ps.setString(1, id);
+		  ResultSet rs=ps.executeQuery();
+		  rs.next();
+		  int count=rs.getInt(1);
+		  rs.close();
+		  
+		  if(count==0)//ID가 없는 상태
+		  {
+			  vo.setMsg("NOID");
+		  }
+		  else // ID가 있는 상태 
+		  {
+			  sql="SELECT id,name,sex,pwd "
+			     +"FROM member "
+				 +"WHERE id=?";
+			  
+			  ps=conn.prepareStatement(sql);
+			  ps.setString(1, id);
+			  
+			  rs=ps.executeQuery();
+			  rs.next();
+			  vo.setId(rs.getString(1));
+			  vo.setName(rs.getString(2));
+			  vo.setSex(rs.getString(3));
+			  String db_pwd=rs.getString(4);
+			  if(db_pwd.equals(pwd))
+			  {
+				  vo.setMsg("OK");
+			  }
+			  else
+			  {
+				  vo.setMsg("NOPWD");
+			  }
+			  rs.close();
+		  }
+	  }catch(Exception ex)
+	  {
+		  ex.printStackTrace();
+	  }
+	  finally
+	  {
+		  disConnection();
+	  }
+	  return vo;
+  }
 }

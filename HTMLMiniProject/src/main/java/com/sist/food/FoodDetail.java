@@ -5,6 +5,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.StringTokenizer;
@@ -126,12 +128,18 @@ public class FoodDetail extends HttpServlet {
 			out.println("</td>");
 			out.println("</tr>");
 			
+			HttpSession session=request.getSession();
+			String id=(String)session.getAttribute("id");
 			out.println("<tr>");
 			out.println("<td class=text-right>");
-			out.println("<a href=# class=\"btn btn-xs btn-danger\">좋아요</a>");
-			out.println("<a href=# class=\"btn btn-xs btn-success\">찜하기</a>");
-			out.println("<a href=# class=\"btn btn-xs btn-info\">예약하기</a>");
+			if(id!=null)
+			{
+			 out.println("<a href=# class=\"btn btn-xs btn-danger\">좋아요</a>");
+			 out.println("<a href=# class=\"btn btn-xs btn-success\">찜하기</a>");
+			 out.println("<a href=# class=\"btn btn-xs btn-info\">예약하기</a>");
+			}
 			out.println("<a href=MainServlet class=\"btn btn-xs btn-primary\">목록</a>");
+			
 			out.println("</td>");
 			out.println("</tr>");
 			out.println("</table>");
