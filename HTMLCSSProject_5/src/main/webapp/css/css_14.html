@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="The Overflowing church website's main page" />
+    <meta name="author" content="xxx@gmail.com" />
+    <title>The Overflowing Church</title>
+</head>
+<body>
+    This site is under construction!
+    <br /><br />
+    세로형 네비게이션
+    <nav id="topMenu">
+        <ul>
+            <li class="topMenuLi">
+                <a class="menuLink" href="#">LECTURES</a>
+                <ul class="submenu">
+                    <li><a class="submenuLink longLink" href="#">속깊은 자바스크립트 강좌</a></li>
+                    <li><a class="submenuLink longLink" href="#">밑바닥부터 홈페이지 만들기</a></li>
+                    <li><a class="submenuLink longLink" href="#">안드로이드 앱 개발</a></li>
+                </ul>
+            </li>
+            <li>|</li>
+            <li class="topMenuLi">
+                <a class="menuLink" href="#">GUEST BOOK</a>
+            </li>
+            <li>|</li>
+            <li class="topMenuLi">
+                <a class="menuLink" href="#">TAG CLOUD</a>
+                <ul class="submenu">
+                    <li><a class="submenuLink" href="#">자바스크립트</a></li>
+                    <li><a class="submenuLink" href="#">K100D</a></li>
+                    <li><a class="submenuLink" href="#">강좌</a></li>
+                </ul>
+            </li>
+            <li>|</li>
+            <li class="topMenuLi">
+                <a class="menuLink" href="#">MEDIA LOG</a>
+            </li>
+            <li>|</li>
+            <li class="topMenuLi">
+                <a class="menuLink" href="#">LOCATION LOG</a>
+            </li>
+        </ul>
+    </nav>
+
+    <br /><br /><br /><br /><br />
+    가로형 네비게이션
+    <nav id="topMenuH">
+        <ul>
+            <li class="topMenuLiH">
+                <a class="menuLinkH" href="#">LECTURES</a>
+                <ul class="submenuH">   <!--[변경]-->
+                    <li><a class="submenuLinkH longLinkH" href="#">속깊은 자바스크립트 강좌</a></li>    <!--[변경]-->
+                    <li><a class="submenuLinkH longLinkH" href="#">밑바닥부터 홈페이지 만들기</a></li>  <!--[변경]-->
+                    <li><a class="submenuLinkH longLinkH" href="#">안드로이드 앱 개발</a></li>         <!--[변경]-->
+                </ul>
+            </li>
+            <li>|</li>
+            <li class="topMenuLiH">
+                <a class="menuLinkH" href="#">GUEST BOOK</a>
+            </li>
+            <li>|</li>
+            <li class="topMenuLiH">
+                <a class="menuLinkH" href="#">TAG CLOUD</a>
+                <ul class="submenuH">   <!--[변경]-->
+                    <li><a class="submenuLinkH" href="#">자바스크립트</a></li>   <!--[변경]-->
+                    <li><a class="submenuLinkH" href="#">K100D</a></li>         <!--[변경]-->
+                    <li><a class="submenuLinkH" href="#">강좌</a></li>          <!--[변경]-->
+                </ul>
+            </li>
+            <li>|</li>
+            <li class="topMenuLiH">
+                <a class="menuLinkH" href="#">MEDIA LOG</a>
+            </li>
+            <li>|</li>
+            <li class="topMenuLiH">
+                <a class="menuLinkH" href="#">LOCATION LOG</a>
+            </li>
+        </ul>
+    </nav>
+    <br /><br /><br />
+
+    <div id="rightBanner"></div>
+    위의 경우, css로 설정된 백드라운드 이미지는 다른 img로 로드되는 이미지들에 비해 우선순위가 떨어진다.<br />그래서 처음 마우스오버를 할때는 깜박임이 생긴다.<br /><br />
+
+
+    <img id="leftBanner" width="250" height="167" src="https://t1.daumcdn.net/cfile/tistory/155E5D044B71F5D554?original" onmouseover="this.src='https://t1.daumcdn.net/cfile/tistory/156F9E0D4B876FBD50?original'" onmouseout="this.src='https://t1.daumcdn.net/cfile/tistory/155E5D044B71F5D554?original'"></img>
+    <br />위의 경우, 이 역시 moveover에서 설정하는 src가 처음에 마우스 오버를 할 때에는 깜박임이 생겨버리게 되는 것이 불만이다.<br />
+    그리고 해당 src의 이미지들이 사이즈가 다르게 되면 어찌되었든 별도의 css를 설정해줘야한다는 점이 있다.<br /><br />
+
+        
+    <img id="centerBanner" width="250" height="167" src="https://t1.daumcdn.net/cfile/tistory/163A8B274C350DAF3C?original"></img>
+    <br />이 방법 역시 inline 자바스크립트와 똑같이 처음으로 마우스를 오버를 하게 되면 깜빡이는 현상이 나타난다.<br />
+    이것은 이미지의 용량이 커지면 더 크게 체감하게 된다.<br /><br />
+    <script>
+        (function (d) {
+            var img = d.getElementById("centerBanner");
+            img.onmouseover = function () {
+                this.src = "https://t1.daumcdn.net/cfile/tistory/113A8B274C350DAB3B?original";
+            };
+            img.onmouseout = function () {
+                this.src = "https://t1.daumcdn.net/cfile/tistory/163A8B274C350DAF3C?original";
+            };
+        }(document));
+    </script>
+
+
+    <div id="bannerWrapper">
+        <img id="frontImage" width="250" height="167" src="https://t1.daumcdn.net/cfile/tistory/2002CD414F4869192D?original" />
+        <img width="250" height="167" src="https://t1.daumcdn.net/cfile/tistory/203E5A424F471E3025?original" />
+    </div>
+    <img width="500" height="300" src="https://t1.daumcdn.net/cfile/tistory/2523B13C52E3AA8C1E" />
+    <br /> 위의 경우, 2개의 이미지를 겹쳐놨다가 마우스오버가 되는 경우 앞의 이미지를 display:none등으로 감추는 방식이다.<br />
+    이것과 비슷한 방법으로는 이미지의 앞뒤를 z-index를 수정함으로써 바꾸는 방법도 있다.<br />
+    하지만, z-index는 구버전 사파리에서 제대로 작동하지 않는 현상이 있으므로 그냥 display:none;을 하는 것이 호환을 고려할 때에는 속편할 것이다.<br /><br />
+
+
+    <div id="verticalBannerWrapper">
+        <img id="verticalBannerImg" src="https://t1.daumcdn.net/cfile/tistory/2347025052E59D691D" />
+    </div>
+    <img src="https://t1.daumcdn.net/cfile/tistory/266DAF3C52E3B27B2A" />
+    <br /> 위의 경우, 2개의 이미지를 하나의 이미지로 이어 붙인 다음에 하나의 &lt;img&gt; 태그로 불러오고<br />wrapper div는 overflow:hidden를 설정해서 이미지의 일부만 보이도록 하는 것이다.
+    <br />그리고 마우스오버가 되면 이미지태그의 위치를 이동시켜서 다른쪽 이미지를 표시하는 방식이다.
+    <style>
+        #topMenu { /*// topMenu의 ID를 가진 태그의 스타일 지정*/
+            height: 30px; /*// topMenu의 높이를 30px로 설정(제대로 설정 안하면 아래 내용이 깨짐)*/
+            width: 850px; /*// topMenu의 넓이를 850px로 설정(제대로 설정 안하면 브라우져 넓이가 좁아지면 깨짐);*/
+        }
+        #topMenu ul { /* 메인 메뉴 안의 ul을 설정함: 상위메뉴의 ul+하위 메뉴의 ul */
+            list-style-type: none; /* 메인 메뉴 안의 ul 내부의 목록 표시를 없애줌 */
+            margin: 0px; /* 메인 메뉴 안의 ul의 margin을 없앰 */
+            padding: 0px; /* 메인 메뉴 안의 ul의 padding을 없앰 */
+        } 
+        #topMenu ul li { /*// topMenu의 ID를 가진 태그 안에 <ul> 태그 안에 <li> 태그의 스타일을 지정*/
+            color: white; /*// 글씨 색을 흰색으로 설정*/
+            background-color: #2d2d2d; /*// 배경색을 진한 회색(RGB(2D,2D,2D)으로 설정*/
+            float: left; /*// <li>태그들이 왼쪽에 흐르게 설정(그러면 아래있는 내용은 오른쪽으로 옴)*/
+            line-height: 30px; /*// 글씨가 가운데로 오도록 설정하기 위해 한줄의 높이를 30px로 설정*/
+            vertical-align: middle; /*// 세로 정렬을 가운데로 설정(위의 line-height와 같이 설정 필요함)*/
+            text-align: center; /*// 글씨 정렬을 가운데로 설정;*/
+            position: relative; /* 해당 li 태그 내부의 top/left 포지션 초기화 */
+        }
+
+        .menuLink, .submenuLink { /* 상위 메뉴와 하위 메뉴의 a 태그에 공통으로 설정할 스타일 */
+            text-decoration: none; /*// 링크(<a> 태그)가 가지는 기본 꾸밈 효과(밑줄 등)을 없앰*/
+            display: block; /* a 태그의 클릭 범위를 넓힘 */
+            width: 150px; /* 기본 넓이를 150px로 설정 */
+            font-size: 12px; /* 폰트 사이즈를 12px로 설정 */
+            font-weight: bold; /* 폰트를 굵게 설정 */
+            font-family: "Trebuchet MS", Dotum; /* 기본 폰트를 영어/한글 순서대로 설정 */
+        } 
+        .menuLink { /*topMenu 아이디를 가진 태그 안에 있는 menuLink 클래스 태그들의 스타일 설정*/
+            color: white; /*// 폰트색을 흰색으로 설정*/
+        }
+
+        .topMenuLi:hover .menuLink { /* 상위 메뉴의 li에 마우스오버 되었을 때 스타일 설정 */
+            color: red; /* 글씨 색 빨간색 */
+            background-color: #4d4d4d; /* 배경색을 밝은 회색으로 설정 */
+        } 
+
+        .submenuLink { /* 하위 메뉴의 a 태그 스타일 설정 */
+            color: #2d2d2d; /* 글씨 색을 RGB(2D2D2D)로 설정 */
+            background-color: white; /* 배경색을 흰색으로 설정 */
+            border: solid 1px black; /* 테두리를 설정 */
+            margin-top: -1px; /* 위 칸의 하단 테두리와 아래칸의 상단 테두리가 겹쳐지도록 설덩 */
+        }
+        
+        .longLink { /* 좀 더 긴 메뉴 스타일 설정 */
+            width: 190px; /* 넓이는 190px로 설정 */
+        }
+        
+        .submenu { /* 하위 메뉴 스타일 설정 */
+            position: absolute; /* html의 flow에 영향을 미치지 않게 absolute 설정 */
+            height: 0px; /* 초기 높이는 0px로 설정 */
+            overflow: hidden; /* 실 내용이 높이보다 커지면 해당 내용 감춤 */
+            transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(기본) */
+            -webkit-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 크롬/사파라ㅣ) */
+            -moz-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 파폭) */
+            -o-transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(구버전 오페라) */
+        }
+        .topMenuLi:hover .submenu { /* 상위 메뉴에 마우스 모버한 경우 그 안의 하위 메뉴 스타일 설정 */
+            height: 93px; /* 높이를 93px로 설정 */
+        }
+        
+        .submenuLink:hover { /* 하위 메뉴의 a 태그의 마우스 오버 스타일 설정 */
+            color: red; /* 글씨색을 빨간색으로 설정 */
+            background-color: #dddddd; /* 배경을 RGB(DDDDDD)로 설정 */
+        } 
+    </style>
+    <style>
+        #topMenuH { /*// topMenu의 ID를 가진 태그의 스타일 지정*/
+            height: 30px; /*// topMenu의 높이를 30px로 설정(제대로 설정 안하면 아래 내용이 깨짐)*/
+            width: 850px; /*// topMenu의 넓이를 850px로 설정(제대로 설정 안하면 브라우져 넓이가 좁아지면 깨짐);*/
+            position: relative; /*[추가] 하위 메뉴 시작 지점을 메뉴와 동일하게 설정하기 위함*/
+        }
+        #topMenuH ul { /* 메인 메뉴 안의 ul을 설정함: 상위메뉴의 ul+하위 메뉴의 ul */
+            list-style-type: none; /* 메인 메뉴 안의 ul 내부의 목록 표시를 없애줌 */
+            margin: 0px; /* 메인 메뉴 안의 ul의 margin을 없앰 */
+            padding: 0px; /* 메인 메뉴 안의 ul의 padding을 없앰 */
+        } 
+
+        #topMenuH ul li { /*// topMenu의 ID를 가진 태그 안에 <ul> 태그 안에 <li> 태그의 스타일을 지정*/
+            color: white; /*// 글씨 색을 흰색으로 설정*/
+            background-color: #2d2d2d; /*// 배경색을 진한 회색(RGB(2D,2D,2D)으로 설정*/
+            float: left; /*// <li>태그들이 왼쪽에 흐르게 설정(그러면 아래있는 내용은 오른쪽으로 옴)*/
+            line-height: 30px; /*// 글씨가 가운데로 오도록 설정하기 위해 한줄의 높이를 30px로 설정*/
+            vertical-align: middle; /*// 세로 정렬을 가운데로 설정(위의 line-height와 같이 설정 필요함)*/
+            text-align: center; /*// 글씨 정렬을 가운데로 설정;*/
+            -position: relative; /*[삭제] 해당 li 태그 내부의 top/left 포지션 초기화 */
+        }
+
+        .menuLinkH, .submenuLinkH { /* 상위 메뉴와 하위 메뉴의 a 태그에 공통으로 설정할 스타일 */
+            text-decoration: none; /*// 링크(<a> 태그)가 가지는 기본 꾸밈 효과(밑줄 등)을 없앰*/
+            display: block; /* a 태그의 클릭 범위를 넓힘 */
+            width: 150px; /* 기본 넓이를 150px로 설정 */
+            font-size: 12px; /* 폰트 사이즈를 12px로 설정 */
+            font-weight: bold; /* 폰트를 굵게 설정 */
+            font-family: "Trebuchet MS", Dotum; /* 기본 폰트를 영어/한글 순서대로 설정 */
+        } 
+
+        .menuLinkH { /*topMenu 아이디를 가진 태그 안에 있는 menuLink 클래스 태그들의 스타일 설정*/
+            color: white; /*// 폰트색을 흰색으로 설정*/
+        }
+
+        .topMenuLiH:hover .menuLinkH { /* 상위 메뉴의 li에 마우스오버 되었을 때 스타일 설정 */
+            color: red; /* 글씨 색 빨간색 */
+            background-color: #4d4d4d; /* 배경색을 밝은 회색으로 설정 */
+        } 
+
+        .submenuLinkH {
+            color: #2d2d2d;
+            background-color: white;
+            border:solid 1px black;
+            margin-right: -1px; /*[변경]*/
+        }
+
+        .longLinkH { /* 좀 더 긴 메뉴 스타일 설정 */
+            width: 190px; /* 넓이는 190px로 설정 */
+        }
+        
+        .submenuH {
+            position: absolute;
+            height: 0px;
+            overflow: hidden;
+            transition: height .2s;
+            -webkit-transition: height .2s;
+            -moz-transition: height .2s;
+            -o-transition: height .2s;
+            width: 770px; /*[변경] 가로 드랍다운 메뉴의 넓이*/
+            left: 0; /*[추가]가장 왼쪽으로 하위 메뉴 위치 설정*/
+        }
+        /*[추가]*/
+        .submenuH li {
+            display: inline-block;  /*가로로 펼쳐지도록 설정*/
+        }
+
+        .topMenuLiH:hover .submenuH { /* 상위 메뉴에 마우스 모버한 경우 그 안의 하위 메뉴 스타일 설정 */
+            height: 32px; /* 높이 설정 */
+        }
+        
+        .submenuLinkH:hover { /* 하위 메뉴의 a 태그의 마우스 오버 스타일 설정 */
+            color: red; /* 글씨색을 빨간색으로 설정 */
+            background-color: #dddddd; /* 배경을 RGB(DDDDDD)로 설정 */
+        } 
+ 
+    </style>
+    <style>
+        /* css로 설정된 백드라운드 이미지는 다른 img로 로드되는 이미지들에 비해 우선순위가 떨어진다. */
+        #rightBanner {
+            width:250px;    /*배너의 가로 사이즈 설정*/
+            height:167px;   /*배너의 세로 사이즈 설정*/
+            background: url('https://t1.daumcdn.net/cfile/tistory/197E8B3E4F52C12926?original') no-repeat center; /*배너의 기본 이미지를 백그라운드로 설정*/
+        }
+        #rightBanner:hover {
+            background: url('https://t1.daumcdn.net/cfile/tistory/176CF9414F493C5614?original') no-repeat center; /*배너의 마우스오버 이미지를 백그라운드로 설정*/
+        }
+
+        #bannerWrapper {
+            position: relative; /*하위 테그가 상대적인 위치를 가질 수 있도록 설정*/
+        }
+        #bannerWrapper img {
+            position: absolute; /*img 태그들이 겹쳐질 수 있게, 다른 태그에 영향을 주지 않게 설정*/
+        }
+        #bannerWrapper #frontImage {
+            z-index: 1; /*앞에 나올 이미지를 설정*/
+        }
+        #bannerWrapper:hover #frontImage {
+            display: none;  /*마우스오버가 되면 앞에 나온 이미지를 숨김*/
+        }
+
+
+        #verticalBannerWrapper {
+            overflow: hidden;   /*div의 높이/넓이보다 커지는 경우 보여주지 않도록 설정*/
+            width: 265px; /*보여줄 배너의 넗이*/
+            height:400px; /*보여줄 배너의 높이*/
+            position: relative; /*내부의 태그가 상대적으로 움직일 수 있도록 설정*/
+        }
+        #verticalBannerImg  {
+            position: absolute; /*위치 변경이 다른 태그에 영향을 주지 않도록 설정*/
+        }
+        #verticalBannerWrapper:hover #verticalBannerImg {
+            top: -400px;    /*마우스 오버가 됐을 때 img태그를 400px만큼 올리도록 설정*/
+        }
+    </style>
+
+</body>
+</html>

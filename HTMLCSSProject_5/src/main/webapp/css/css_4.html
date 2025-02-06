@@ -1,0 +1,60 @@
+<!-- 
+   194page 위치속성 
+   float : 출력위치 설정 (left|right)
+   z-index : 레이어 (출력 순위) => 값이 높을 수록 위로 올라온다 
+             CardLayout 
+   clear : float 해제 
+   position 
+     = absolute : 절대 좌표 (브라우저 좌표)
+     = relative : 상대좌표 (태그)
+     = fixed : 고정 좌표 => 메뉴 , 퀵메뉴 , 이미지 
+     = static : HTML 소스 순서대로 배치 (default)
+   => 위치 지정 
+      top / left / right / bottom 
+      --------------------
+              | top
+          -----------
+      -left            - right
+          -----------
+              | bottom
+          
+      --------------------
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.box{
+  width: 100px;
+  height: 100px;
+  position: absolute; /* top:0px left:0px*/
+}
+.box:nth-child(1){
+  background-color: red;
+  left:10px;
+  top:10px;
+  z-index: 100;
+  
+}
+.box:nth-child(2){
+   background-color: green;
+   left:50px;
+   top:50px;
+   z-index: 10
+}
+.box:nth-child(3){
+    background-color:blue;
+    left:90px;
+    top:90px;
+    z-index: 1
+}
+</style>
+</head>
+<body>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+</body>
+</html>

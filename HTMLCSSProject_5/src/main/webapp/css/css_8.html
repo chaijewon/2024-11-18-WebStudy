@@ -1,0 +1,45 @@
+<!-- 
+   static : HTML 소스의 흐름 => 순서대로 배치 
+            position을 사용하지 않는 경우 
+   absolute : 원하는 위치에 태그를 배치 
+   relative : 앞에 있는 태그 / 상위태그 연결해서 배치하는 위지 속성 
+   fixed : 지정된 위치에 고정 
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.a {
+   position: relative;
+   top:20px;
+   left:20px;
+   width: 100px;
+   height: 100px;
+   background-color: blue;
+}
+.b{
+  /* position:relative; */
+  width: 200px;
+  height: 200px;
+  background-color: gray;
+}
+.c{
+   position: absolute;
+   top:30px;
+   left:30px;
+   width: 100px;
+   height: 100px;
+   background-color: green;
+}
+</style>
+</head>
+<body>
+  <div class="a">Relative</div>
+  <p>
+  <div class="b">
+    <div class="c">Absolute</div>
+  </div>
+</body>
+</html>

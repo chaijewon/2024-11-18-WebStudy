@@ -1,0 +1,203 @@
+<!-- 
+       194page 위치속성 
+       
+       주요속성 
+       1. 텍스트 속성 => 184~193page 
+          font-size : 글자 크기 (px , em(배수) , %) 
+                      => 기본 16px 
+          font-family : 글꼴 
+                        시스템 / 구글폰트 
+          font-weight : bold => 강조 
+          
+          color : 글자 색상 
+                  = red,gray ....
+                  = rgb(255,255,255) => 그림판 
+                  = 16진법 => #FFF => 그림판 / HTML 색상표
+                  = rgba() => 투명 모드 
+                       - 0.0~1.0
+          <a> => text-decoration:none / underline / overline
+                 line-throungh (취소선) 
+          text-align : 정렬 (수평) => <table> 
+                       left / center / right => default(left) 
+          vertical-align : 정렬 (수직) => <div> <table>
+                       top / middle / bottom => default(middle)
+          white-space : 줄바꿈  => <pre> 
+          line-height : 자간 (줄 간격) 
+          word-space : 글자 간격 
+       2. background 속성 => 174~183page 
+          background-color: 배경색 
+          background-image : 배경 이미지 
+               => background-image:url("경로명"|url주소)
+               => 크롤링 => style="background-image:url()"
+               => img(80%) / background(20%)
+          background-repeat : 반복 => 이미지가 작은 경우 
+                              no-repeat / repeat(default)
+          background-size: width/height , cover (축소/확대)
+          ------------------------------------------------
+            통합 : background 
+       3. 박스 모델 
+            margin / padding / border / content(태그)
+          = 외부 여백 : 브라우저와 태그의 간격 
+                      태그와 태그사이의 간격 
+                      margin 
+                      ------
+                       margin-top => 위아래 간격
+                       margin-left => 좌우 간격 
+                       margin-bottom => border
+                       margin-right => 오른쪽에 추가
+                       -------------
+                        통합: margin:top right bottom left
+                             => 시계방향 
+                             
+          = 내부 여백 : 태그안에 있는 텍스트 / 이미지의 여백
+                     padding 
+                     -------
+                       padding-top 
+                       padding-right
+                       padding-bottom
+                       padding-left 
+                      ---------------
+                      통합 : padding:top right bottom left
+          ------------------------------------------------
+                      속기법 : top / bottom , left / right
+                             -------------  -------------
+                      padding:10px (padding:10px 10px 10px 10px)
+                      padding:10px 20px (padding:10px 20px 10px 20px)
+                      padding:10px 20px 30px (padding:10px 20px 30px 20px)
+          
+          = 테두리
+            border 
+            ------
+              border-width : 두께 
+              border-color : 색상 
+              border-style : 출력형태 => 선의 종류 
+                             => solid , dotted , dashed , double
+              -------------------------------------------
+                통합 : border:1px solid red
+              border-radius: 타원 
+              -------------
+                border-radius:왼쪽위 , 오른쪽위 , 오른쪽 아래
+                              왼쪽아래
+              border-collpase : 라인선 통합 <table> 
+       4. 가시성 속성 
+            display 
+            --------
+              태그 => 브라우저 범위를 벗어나면 자동 줄바꿈
+              ---
+                block : System.out.println() => 세로 출력
+                   => 태그가 한줄 전체 차지  
+                   => <div> 
+                      <h1~h6> 
+                      <p> <br> <hr> <ul> <ol> <dl> <table>
+                inline : System.out.print() => 가로 출력 
+                   => 지정된 크기만큼만 차지 
+                   => <img> <a> <input> <select> 
+                      <textarea> <span> <b> <i> 
+                      <strong> ...
+              1) 감추는 경우 
+                 --------- display:none 
+              2) 속성변경 
+                 ---------
+                  display:block 
+                  display:inline
+                  display:inline-block 
+                          => 변경 대상에 width/height를 변경 
+              3) 테이블 사용을 하지 말라(권장) 
+                 ------------------
+                 => 웹접근표준 => 만약에 사용 <caption>
+                 => 테이블의 단점 : 자동으로 늘어난다 
+                 display:table => <table>
+                 display:table-row => <tr>
+                 display:table-cell => <td>
+                 display:table-column => <th> 
+                 dispaly:table-caption => <caption>
+             4) display => javascript 
+       5. 목록 속성 
+       6. 위치 속성 
+       7. 기타 
+       8. 화면 분할 
+       9. 반응형 웹 
+       10. CSS 라이브러리 => BootStrap / TailWind => CSS가 제작  
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+/* 
+ *   Front-End 
+        Jquery (3) => 발전사항(X)
+        React 
+        Vue 
+        TanStack (React-Query)
+        Next
+        ** Jquery (4,5) / AngularJS
+        => javascript => typescript 
+        
+ */
+ // main => window.onload
+let bCheck=true;
+$(function(){
+	// 이벤트 발생시 처리 => 서버와 연결되는 것은 아니다 => 브라우저 자체
+	$('input[type="button"]').click(function(){
+		if(bCheck==true)
+		{
+			$(this).val("취소")
+			$('#write').show(); // display:''
+			bCheck=false;
+		}
+		else
+		{
+			$(this).val("댓글")
+			$('#write').hide(); // display:''
+			bCheck=true;
+		}
+	})
+	
+	$('b').click(function(){
+		$('b').hide();
+		$('span').show();
+	})
+	
+})
+</script>
+<style type="text/css">
+b:hover{
+  color: green;
+  cursor:pointer;
+}
+</style>
+</head>
+<body>
+  <table border=1 borercolor=black width=500>
+   <tr>
+     <td>
+       <input type=button value="댓글">
+     </td>
+   </tr>
+   <tr style="display:none" id="write">
+      <td>
+        <textarea rows="5" cols="50"></textarea>
+      </td>
+   </tr>
+  </table>
+  <h1>'토트넘 17년 만의 우승 도전' 대진 확정 났다…</h1>
+  <pre>뉴캐슬은 6일(이하 한국시간) 영국 뉴캐슬의 세인트 제임스 파크에서 열린 
+  아스널과 2024-25시즌 잉글랜드 카라바오컵 준결승 2차전 홈 경기에서 
+  2-0으로 이겼다.
+  <b>더보기</b>
+<span style="display:none">지난달 8일 1차전 원정경기에서도 2-0으로 승리한 뉴캐슬은 이로써 1, 
+2차전 합계 4-0으로 아스널에 앞서며 대회 결승에 선착했다.
+
+뉴캐슬은 리그컵에서 두 차례 준우승(1975-76, 2022-23시즌)을 
+차지했을 뿐 아직 정상에 오른 적은 없다.</span></pre>
+</body>
+</html>
+
+
+
+
+
+

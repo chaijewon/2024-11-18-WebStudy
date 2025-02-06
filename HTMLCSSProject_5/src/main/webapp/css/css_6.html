@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.a{
+    width: 100px;
+    height: 100px;
+    position: relative;
+}
+.a:nth-child(1){
+  background-color: red;
+  left:10px;
+  top:10px;
+}
+.a:nth-child(2){
+  background-color: blue;
+  left:50px;
+  top:50px;
+}
+.a:nth-child(3){
+  background-color: green;
+  left:90px;
+  top:90px;
+}
+body > div{
+  width: 400px;
+  height: 200px;
+  border: 1px solid black;
+  overflow: scroll;
+}
+</style>
+</head>
+<body>
+ <div>
+  <div class="a"></div>
+  <div class="a"></div>
+  <div class="a"></div>
+ </div>
+</body>
+</html>
