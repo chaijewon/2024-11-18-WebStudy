@@ -70,12 +70,12 @@ public class FoodTypeFind extends HttpServlet {
 		out.println("<body>");
 		out.println("<div class=container>");
 		out.println("<div class=\"row text-center\">");
-		out.println("<a href=FoodTypeFind?type=한식 class=\"btn btn-sm btn-danger\">한식</a>");
-		out.println("<a href=FoodTypeFind?type=양식 class=\"btn btn-sm btn-success\">양식</a>");
-		out.println("<a href=FoodTypeFind?type=중식 class=\"btn btn-sm btn-info\">중식</a>");
-		out.println("<a href=FoodTypeFind?type=일식 class=\"btn btn-sm btn-primary\">일식</a>");
-		out.println("<a href=FoodTypeFind?type=카페 class=\"btn btn-sm btn-warning\">카페</a>");
-		out.println("<a href=FoodTypeFind?type=기타 class=\"btn btn-sm btn-default\">기타</a>");
+		out.println("<a href=MainServlet?mode=3&type=한식 class=\"btn btn-sm btn-danger\">한식</a>");
+		out.println("<a href=MainServlet?mode=3&type=양식 class=\"btn btn-sm btn-success\">양식</a>");
+		out.println("<a href=MainServlet?mode=3&type=중식 class=\"btn btn-sm btn-info\">중식</a>");
+		out.println("<a href=MainServlet?mode=3&type=일식 class=\"btn btn-sm btn-primary\">일식</a>");
+		out.println("<a href=MainServlet?mode=3&type=카페 class=\"btn btn-sm btn-warning\">카페</a>");
+		out.println("<a href=MainServlet?mode=3&type=기타 class=\"btn btn-sm btn-default\">기타</a>");
 		out.println("</div>");
 		out.println("<div class=row style=\"margin-top:20px\">");
 		/*
@@ -105,20 +105,20 @@ public class FoodTypeFind extends HttpServlet {
 		// startPage = 1 , 11 , 21
 		if(startPage>1)
 		{
-		  out.println("<li><a href=\"FoodTypeFind?type="+type+"&page="+(startPage-1)+"\">&lt;</a></li>");
+		  out.println("<li><a href=\"MainServlet?mode=3&type="+type+"&page="+(startPage-1)+"\">&lt;</a></li>");
 		}
 		
 		for(int i=startPage;i<=endPage;i++)
 		{
 		 if(i==curpage)
-		  out.println("<li class=active><a href=\"FoodTypeFind?type="+type+"&page="+i+"\">"+i+"</a></li>");
+		  out.println("<li class=active><a href=\"MainServlet?mode=3&type="+type+"&page="+i+"\">"+i+"</a></li>");
 		 else
-		  out.println("<li><a href=\"FoodTypeFind?type="+type+"&page="+i+"\">"+i+"</a></li>");
+		  out.println("<li><a href=\"MainServlet?mode=3&type="+type+"&page="+i+"\">"+i+"</a></li>");
 		}
 		
 		if(endPage<totalpage)
 		{
-		  out.println("<li><a href=\"FoodTypeFind?type="+type+"&page="+(endPage+1)+"\">&gt;</a></li>");
+		  out.println("<li><a href=\"MainServlet?mode=3&type="+type+"&page="+(endPage+1)+"\">&gt;</a></li>");
 		}
 		out.println("</ul>");
 	  
