@@ -131,7 +131,7 @@ public class FoodDetail extends HttpServlet {
 			out.println("<a href=# class=\"btn btn-xs btn-danger\">좋아요</a>");
 			out.println("<a href=# class=\"btn btn-xs btn-success\">찜하기</a>");
 			out.println("<a href=# class=\"btn btn-xs btn-info\">예약하기</a>");
-			out.println("<a href=FoodList class=\"btn btn-xs btn-primary\">목록</a>");
+			out.println("<a href=MainServlet class=\"btn btn-xs btn-primary\">목록</a>");
 			out.println("</td>");
 			out.println("</tr>");
 			out.println("</table>");
