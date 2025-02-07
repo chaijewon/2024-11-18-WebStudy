@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <input type=file size=30 multiple="multiple">
+  <h1>Error 발생</h1>
 </body>
 </html>
