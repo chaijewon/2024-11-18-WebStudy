@@ -25,6 +25,7 @@ public class FileUploadServlet extends HttpServlet {
 		    Part filePart = request.getPart("file");
 	        String fileName = filePart.getSubmittedFileName();
             System.out.println("fileName="+fileName);
+            
             if(fileName==null || fileName.equals(""))
             {
             	//System.out.println("파일 없음");
