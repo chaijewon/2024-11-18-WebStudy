@@ -1,0 +1,82 @@
+<!-- 
+      ==============================
+            header : cyan
+      ==============================
+            nav  :  pink
+      ==============================
+      aside1  |
+              |
+      magenta |  section : green
+      ======= |
+      aside2  |
+              |
+      blue    |
+      ======= |=====================
+           footer : gray
+      ==============================
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.container{
+   width: 800px;
+   height: 740px;
+   border:1px solid red;
+   margin: 50px auto;
+}
+.header{
+   width: 800px;
+   height: 100px;
+   background-color: cyan;
+}
+.nav{
+   width: 800px;
+   height: 100px;
+   background-color: pink;
+}
+.row{
+   width: 200px;
+   height: 440px;
+   float: left;
+}
+.aside1{
+   width: 200px;
+   height: 220px;
+   background-color: magenta;
+}
+.aside2{
+   width: 200px;
+   height: 220px;
+   background-color: blue;
+}
+.section{
+   width:600px;
+   height: 440px;
+   background-color: green;
+   float: left;
+}
+.footer{
+   width: 800px;
+   height: 100px;
+   background-color: gray;
+   clear: both;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header"></div>
+    <div class="nav"></div>
+    <div class="row">
+      <div class="aside1"></div>
+      <div class="aside2"></div>
+    </div>
+    <div class="section"></div>
+    <div class="footer"></div>
+  </div>
+</body>
+</html>

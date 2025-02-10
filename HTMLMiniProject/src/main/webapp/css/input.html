@@ -8,9 +8,10 @@
   <!-- 
      ?name=aaa&sex=aaa hide/show
    -->
-  <form method=get action="t.html">
-   <input type=text name=name size=10><br>
-   <input type=text name=sex size=10><br>
+  <form method=post action="../FileUploadServlet"
+   enctype="multipart/form-data"
+  >
+    <input type=file name=file size=30>
    <button>전송</button>
   </form>
 </body>

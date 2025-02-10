@@ -1,0 +1,113 @@
+<!-- 
+     ======================
+       로고 / 검색기 
+     ======================
+       메뉴 
+     ======================
+     
+     
+     
+     ======================
+       
+     ======================
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div.container{
+  width:800px;
+  height: 700px;
+  border:2px solid red;
+  margin: 0px auto;
+}
+div.header{
+  width: 800px;
+  height: 100px;
+  background-color: cyan;
+}
+div.nav{
+  width: 800px;
+  height: 100px;
+  background-color: yellow;
+}
+div.section{
+  width: 800px;
+  height: 400px;
+  background-color: pink;
+}
+div.footer{
+  width: 800px;
+  height: 100px;
+  background-color: green;
+}
+div.search{
+  width: 700px;
+  margin: 0px auto;
+}
+#keyword{
+  margin-top: 70px;
+  margin-left: 170px;
+  text-align: center;
+}
+#btn{
+  text-align: center;
+}
+ul{
+  list-style: none;
+  background-color: blue;
+}
+ul li{
+  padding: 15px;
+  float: left;
+  font-weight: bold;
+  color:white;
+}
+ul li:first-child {
+	border-radius: 10px 0px 0px 10px;
+}
+ul li:last-child {
+	border-radius: 0px 10px 10px 0px;
+}
+/* 홀수 */
+ul li:nth-child(odd) {
+	background-color: #800000;
+}
+/* 짝수 */
+ul li:nth-child(even) {
+	background-color: #FF0003;
+}
+ul li:hover{
+  cursor: pointer;
+  color:cyan;
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="search">
+       <input type=text id="keyword">
+       <input type=button id=btn value="검색">
+      </div>
+    </div>
+    <div class="nav">
+      <ul>
+        <li>홈</li>
+        <li>회원가입</li>
+        <li>맛집</li>
+        <li>레시피</li>
+        <li>서울여행</li>
+        <li>제주여행</li>
+        <li>추천</li>
+        <li>커뮤니티</li>
+        <li>마이페이지</li>
+      </ul>
+    </div>
+    <div class="section"></div>
+    <div class="footer"></div>
+  </div>
+</body>
+</html>

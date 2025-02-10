@@ -1,0 +1,234 @@
+<!-- 
+     HTML 
+     => 1. HTML은 태그+속성 
+                     ---- 지정된 속성 + 사용자 정의
+                                     ========= 데이터 저장 
+                                               ========
+                                               | 자바스크립트
+                                               | Ajax / Jquery사용시 
+                                               | data-no
+                 ---- 지정된 태그 (표준화)
+         1) 텍스트 관련 
+            ***<font> : 색상지정 , 크기 , 글꼴 
+                     <font color="" size="" face=""> 
+                     => css를 이용한다 
+                     => color / font-size="" font-family=""
+                                ------------- 단위 px , em 
+                                ------------- 16px 
+                          |
+                        #FFF / rgb() , 지정된 색상 사용 
+            <u> : underline 
+            <em> : 강조체 
+            ***<strong> : 강조체 
+            <b> : 굵은체
+            ***<h1>~<h6> : 제목 => block + bold 
+            ***<sup> : 위첨자 
+            ***<p> : 단락
+            ***<br> : 줄바꿈
+            ***<pre> : 입력된 상태 그대로 출력 
+            ***<hr> : 수평선 
+            
+         멀티미디어 : 동영상 / 이미지 
+            ***<img>
+             => src="파일명"
+             => width/height
+             => title="풍성도움말"
+            <embed> 
+             => src / width / height
+         화면이동 
+            ***<a>
+                href="이동할 파일명|자바스크립트처리"
+                target="_self|_blank"
+                화면 이동과 동시에 데이터 전송 : GET방시만 사용이 가능 
+                받을파일명|서블릿명?변수=값&변수=값...
+                              ----------------
+            ***<form> : 여러개의 입력데이터 전송 / 보안 데이터 전송 
+               method="GET|POST"
+               action="전송값을 받을 파일명|서블릿"
+               *** 웹에서 데이터를 받을 수 있는 파일 
+                   -------------------------- 서블릿 / JSP
+                   *** HTML : 화면 디자인만 한다 
+               *** JSP / 서블릿 
+                   => sendRedirect("이동 파일명|서블릿") => GET만 사용이 가능
+               *** JavaScript : location.href="이동파일명|서블릿" => GET만 사용이 가능
+               *** AJax(Jquery) / Axios => Vue / React
+                    |               |
+                    -----------------  선택이 가능 (GET/POST)
+         목록 출력 
+           <ul> => 메뉴 제작 
+            |
+           <li>출력데이터</li>
+           
+           <table> : 가장 많이 사용 => 게시판 / 장바구니 
+             |  => width
+            <tr>
+             |  => height
+         ------------
+         |          |
+        <th>       <td> => width / height / align / valign
+                                              |       |
+                                                    top/(middle)/bottom
+                                        (left)/center/right
+        제목        실제 데이터
+           <dl> : 상세보기 
+             |
+            <dt> : 제목 (레벨)
+            <dd> : 내용 출력
+            
+       입력 관련 
+        = <input>
+            ***type="text" : 한줄문자열 
+            ***type="password" : 비밀번호 
+            ***type="radio" : 한개만 선택 
+                 => name속성값이 동일
+                 => getParameter()
+            ***type="checkbox" : 여러개 선택이 가능
+                 => getParameterValues()
+            type="number" : spinner => 숫자 선택 
+            ***type="file" : 파일업로드시에 파일 선택기
+            type="date" : 날짜 출력 
+            type="color" : HTML 색상기  
+            ***type="button" : 기능은 없다 => 자바스크립트 이용 
+            ***type="submit" : 데이터 전송 버튼 
+            type="image" : submit 
+            ***<button> : submit 
+        = <select> : 콤보박스 
+             |
+           <option>내용</option>
+        = <textarea> : 멀티라인 => 댓글 / 글쓰기(내용)
+          ------------  rows / cols (width) 
+                        (height)
+                        
+        => 화면 분할 
+           <div>: 세로 분할  <span>:가로 분할 , 특정부분에 CSS적용
+        
+        ***
+        block : <p> <br> <div> <ul> <table> <h1~h6> , <dl> 
+                <hr>
+        inline: <b> , <input> , <textarea> <select> <font>
+                <span>  <img> <a>
+     ------------------------------------- HTML
+     CSS 
+      = 선택자 : 디자인 할 태그를 선택 
+               => 자바스크립트 처리 
+               => 크롤링 (Jsoup)
+        * 전체선택자 : 글꼴 / margin / padding / font-family
+        태그명 , 구분자 (id,class) 
+                id는 중복이 없는 태그 => #아이디명 
+                class는 중복이 가능  => .클래스명
+        구분이 없는 태그 
+        -------------
+          속성선택자 : img , a , input 
+            태그명[속성=값] => equals
+            태그명[속성*=값] => contains 
+            태그명[속성^=값] => startWith
+            태그명[속성$=값] => endsWith
+          자손.후손,동위선택자 
+              div
+               |
+           -----------------
+           |    |   |      |
+           p    h1  span  span => 자손  div > p , div > h1
+                            |
+                           h1  => 후손  div p div h1
+           동위 선택자 : h1 + span => h1바로 옆에 있는 span
+                      h1~span => 인접한 모든 span태그 선택 
+          가상선택자 
+            1. 상태 선택자 
+               태그(ID|CLASS):checked => type=radio/checkbox
+               :focus => button / text
+               :enabled => text / button 
+               :disabled => text / button 
+            2. 구조 선택자 
+               <ul>/<table> 
+               :first-child / : last-child / nth-child 
+                => 짝수 : 2n ==> even
+                => 홀수 : 2n+1 => odd
+            3. 문자 선택자 
+               ::before / ::after => 할인 / 혜택 
+               
+               => 기본 : 태그 / id / class / 속성 선택자 
+        -------------------- 자바스크립트 (핵심 : 선택자) 
+          react / vue / redux / next => js
+        -----------------------------------
+          
+      = 속성 
+        텍스트 속성 
+        font-family : 글꼴 / 시스템 , 구글폰트 
+        font-size: 크기 (px,em)
+        font-weight:bold 
+        color: 글자 색상 
+        text-align : 정렬 (left|center|right)
+        text-decoration : 라인선 
+                         none|underline|overline => <a>
+        white-space:줄바꿈 => 많이 사용 
+        word-spacing : 글자 간격
+        line-height : 줄 간격 (자간) 
+       ul => list-style:none 
+       
+       = background 
+         background-image:url('파일명:URL주소')
+                          => 이미지가 작으면 : 반복한다 
+                          => repeat => no-repeat
+         background-size:width/height (%,px) => 축소/확대
+                         cover
+         background-color: 색상 => div / span
+         
+      = border 
+        border-width : 두께 
+        border-style : solid / dotted / dashed / double
+                       -----
+        border-color : 테두리 색상 
+        ------------------------- border:순서와 관계없다 
+        border: 1px solid red
+      
+      = display : 가시성 
+           none|block|inline|inline-block 
+                             ------------- 대상태그의 width/height
+      = margin : 태그와 태그사이의 여백 
+        margin-top 
+        margin-right
+        margin-bottom
+        margin-left 
+        -------------- margin:top right bottom left
+                       시계방향으로 할당 
+        *** margin:0px auto => 가운데 정렬 
+      = padding : 태그안의 글자 여백 , 이미지에 대한 여백 
+        padding-top 
+        padding-right
+        padding-bottom
+        padding-left 
+        -------------- padding:top right bottom left
+        
+      = position 
+         static : HTML 코딩 순서로 배치 (default)
+         absolute : 절대좌표 => 브라우저 좌표를 이용한다 
+         relative : 상대좌표 => 지정된 태그의 위치 좌표 기준 
+         fixed : 고정좌표 
+       
+      = 기타 
+        z-index : 레이어 => 숫자가 높을 수록 위로 올라온다 
+                  퀵메뉴 / 실시간 채팅 
+        float : left / right 
+           => 해제시에는 반드시 clear:both 
+           
+        @media screen and (max-width:960)
+        {
+            => 해상도 따라서 크기 변경이 가능 : 반응형 웹 
+            => 모바일에서 사용 => flutter(dart) 
+            => 최근에는 앱에서 만들어서 처리 
+            => 웹 : www
+               앱 : m
+        }
+        ==== 대체 : bootstrap : width/height를 지정하면 안된다 
+ -->  
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+</body>
+</html>

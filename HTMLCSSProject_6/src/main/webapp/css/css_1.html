@@ -1,0 +1,104 @@
+<!-- 
+    화면 분할 => 가로 분할(span) / 세로 분할(div)
+      div를 많이 사용 => 검색을 하기 어렵다 
+                      ---------------
+                      <시멘텍 태그>
+      ============================
+         로그 / 검색기  <header> => <div id="header">
+      ============================
+         주메뉴   <nav> => <div id="nav">
+      ============================
+        section(본문)     |  로그인 / 부메뉴 / 부가적인 정보 
+      <section>          |  공지사항 5 / 인기 순위 5
+                         |  <aside>
+                         |
+      ============================
+        개인정보 방침 / 사이트맵 / 회사정보  => <footer>
+                     ------- 이동 (메뉴)
+      ============================
+      
+      => 템플릿을 다운시 화면 분할 
+      
+      div => container
+      =============================
+        <header>
+      =============================
+        <nav>
+      =============================
+       <aside>|  <section>
+              |
+              |
+              |
+      =============================
+        <footer>
+      ============================
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+.container{
+   /* 화면 출력 전체 영역 
+      container / wrapper
+      = bootstrap => 960px (여백)
+   */
+   width: 800px;
+   height: 640px;
+   border: 1px solid red;
+   margin: 0px auto;
+}
+header{
+  width: 800px;
+  height: 100px;
+  background-color: cyan;
+}
+nav{
+  width:800px;
+  height: 100px;
+  background-color: yellow;
+}
+aside{
+  width: 200px;
+  height: 340px;
+  background-color: green;
+  float: left;
+}
+section{
+  width:600px;
+  height: 340px;
+  background-color: pink;
+  float: left;
+}
+footer{
+   width: 800px;
+   height: 100px;
+   background-color: gray;
+   clear: both; /* float 해제 */
+}
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h3 style="text-align: center">로고 / 검색기</h3>
+    </header>
+    <nav>
+      <h3>메뉴</h3>
+    </nav>
+    <!-- 고정  -->
+    <aside>
+      <h3>부메뉴/부가적정보</h3>
+    </aside>
+    <section>
+      <h3>본문</h3>
+    </section>
+    <footer>
+      <h3>회사정보/개인정보방침/사이트맵</h3>
+    </footer>
+    <!-- 고정 -->
+    
+  </div>
+</body>
+</html>
