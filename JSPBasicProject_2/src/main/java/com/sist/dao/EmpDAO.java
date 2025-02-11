@@ -94,7 +94,12 @@ public class EmpDAO {
 		   ResultSet rs=ps.executeQuery();
 		   while(rs.next())
 		   {
-			   
+			   FoodVO vo=new FoodVO();
+			   vo.setFno(rs.getInt(1));
+			   vo.setName(rs.getString(2));
+			   vo.setPoster("https://www.menupan.com"+rs.getString(3));
+			   vo.setType(rs.getString(4));
+			   list.add(vo);
 		   }
 		   rs.close();
 	   }catch(Exception ex)
