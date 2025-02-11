@@ -12,9 +12,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
-
 @WebServlet("/FileUploadServlet")
 public class FileUploadServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
