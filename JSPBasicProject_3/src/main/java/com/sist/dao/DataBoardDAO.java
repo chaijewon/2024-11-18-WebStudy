@@ -46,3 +46,4 @@ public class DataBoardDAO {
 	   // 수정 
 	   // 삭제 => 댓글 먼저 삭제 => 게시물 
 }
+
