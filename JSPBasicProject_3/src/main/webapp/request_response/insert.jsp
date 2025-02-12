@@ -24,6 +24,12 @@ h3{
 <body>
   <div class="container">
    <h3>글쓰기</h3>
+   <%--
+      multipart/form-data : 파일업로드 사용하는 프로토콜
+    --%>
+   <form method="post" action="insert_ok.jsp"
+    enctype="multipart/form-data"
+   >
    <table class="table_content">
      <tr>
       <th width=15%>이름</th>
@@ -64,6 +70,7 @@ h3{
        </td>
      </tr>
    </table>
+   </form>
   </div>
 </body>
 </html>
