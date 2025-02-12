@@ -4,6 +4,31 @@
      => list.jsp로 이동
  --%>
 <%
+     /*
+         server => context.xml
+         <Context allowCasualMultipartParsing="true" path="/">
+           <Resources cachingAllowed="true" 
+             cacheMaxSize="100000"/>
+         </Context>
+         
+         xml파일은 지정된 속성만 사용이 가능 
+         ------- 대소문자를 구분한다
+         ------- 지정된 태그 / 속성을 정의하고 있는 파일 
+                 .dtd
+         ------- 속성은 반드시 ""를 사용한다
+         
+         웹 개발 
+         ------ XML / JSON => 교재 (X) , 교정에 미포함
+                --- 처리방법 
+                
+                => XML 이용하는 라이브러리 
+                   MyBatis / Spring 
+                => JSON 
+                   Ajax / VueJS / ReactJS / NextJS 
+                   => 자바에서 만들어서 전송 
+                      jackson / simple-json
+                      
+     */
      // 오라클에 데이터 첨부 
      DataBoardVO vo=new DataBoardVO();
      DataBoardDAO dao=DataBoardDAO.newInstance();
