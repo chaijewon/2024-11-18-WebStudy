@@ -75,7 +75,9 @@ a:hover{
       %>
              <tr>
 		        <td width=10% align=center><%=vo.getNo() %></td>
-		        <td width=45%><%=vo.getSubject() %></td>
+		        <td width=45%>
+		         <a href="detail.jsp?no=<%=vo.getNo()%>"><%=vo.getSubject() %></a>
+		        </td>
 		        <td width=15% align=center><%=vo.getName() %></td>
 		        <td width=20% align=center><%=vo.getRegdate().toString() %></td>
 		        <td width=10% align=center><%=vo.getHit() %></td>

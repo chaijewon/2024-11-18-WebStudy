@@ -113,6 +113,44 @@ public class DataBoardDAO {
 		   return total;
 	   }
 	   // 상세보기 => 다운로드 
+	   public DataBoardVO databoardDetail(int no)
+	   {
+		   DataBoardVO vo=new DataBoardVO();
+		   try
+		   {
+			   getConnection();
+			   String sql="UPDATE jspDataBoard SET "
+					     +"hit=hit+1 "
+					     +"WHERE no="+no;
+			   ps=conn.prepareStatement(sql);
+			   ps.executeUpdate();
+			   
+			   sql="SELECT no,name,subject,content,regdate,hit,"
+				  +"filename,filesize "
+				  +"FROM jspDataBoard "
+				  +"WHERE no="+no;
+			   ps=conn.prepareStatement(sql);
+			   ResultSet rs=ps.executeQuery();
+			   rs.next();
+			   vo.setNo(rs.getInt(1));
+			   vo.setName(rs.getString(2));
+			   vo.setSubject(rs.getString(3));
+			   vo.setContent(rs.getString(4));
+			   vo.setRegdate(rs.getDate(5));
+			   vo.setHit(rs.getInt(6));
+			   vo.setFilename(rs.getString(7));
+			   vo.setFilesize(rs.getInt(8));
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return vo;
+	   }
 	   // 추가 => 업로드
 	   public void databoardInsert(DataBoardVO vo)
 	   {
