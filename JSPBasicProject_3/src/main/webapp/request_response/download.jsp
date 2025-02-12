@@ -1,6 +1,11 @@
 <%@page import="java.net.URLEncoder"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.io.*"%>
+<%--
+    사용자 요청 받기 : request 
+    처리후 전송 : response 
+    ======================= 60%
+ --%>
 <%
     // 1. 사용자가 전송한 데이터 받기 
     String fn=request.getParameter("fn"); // 파일명 

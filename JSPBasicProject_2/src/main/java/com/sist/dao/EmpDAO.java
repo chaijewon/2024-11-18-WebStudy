@@ -1,5 +1,10 @@
 package com.sist.dao;
 import java.util.*;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
 import java.sql.*;
 /*
  *   JSP 기초 
@@ -10,17 +15,14 @@ import java.sql.*;
 public class EmpDAO {
    private Connection conn;
    private PreparedStatement ps;
-   private final String URL="jdbc:oracle:thin:@localhost:1521:XE";
+   //private final String URL="jdbc:oracle:thin:@localhost:1521:XE";
    private static EmpDAO dao;
    
    // 드라이버 등록  => 톰캣 
-   public EmpDAO()
-   {
-	   try
-	   {
-		   Class.forName("oracle.jdbc.driver.OracleDriver");
-	   }catch(Exception ex) {}
-   }
+	/*
+	 * public EmpDAO() { try { Class.forName("oracle.jdbc.driver.OracleDriver");
+	 * }catch(Exception ex) {} }
+	 */
    // 싱글턴
    public static EmpDAO newInstance()
    {
@@ -33,7 +35,11 @@ public class EmpDAO {
    {
 	   try
 	   {
-		   conn=DriverManager.getConnection(URL,"hr","happy");
+			/* conn=DriverManager.getConnection(URL,"hr","happy"); */
+		   Context init=new InitialContext();
+		   Context c=(Context)init.lookup("java://comp/env");
+		   DataSource ds=(DataSource)c.lookup("jdbc/oracle");
+		   conn=ds.getConnection();
 	   }catch(Exception ex) {}
    }
    // 닫기 ==> 재사용 반환 

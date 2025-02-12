@@ -1,0 +1,41 @@
+@charset "UTF-8";
+.table_content{
+	border-collapse: collapse;
+	border-top-width: 3px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-top-color: black;
+	border-bottom-color: black;
+}
+/* 후손 => 멀티 사용  th/td를 공통으로 적용*/
+.table_content th,.table_content td{
+	margin: 0px;
+	padding: 8px;
+	font-size: 9pt;
+}
+.table_content th{
+	background-color: #999;
+	color: white;
+	border-width: 1px;
+}
+.table_content td{
+	border-bottom-width: 1px;
+	border-bottom-style: dotted;
+	border-bottom-color: #666;
+}
+/* 정렬*/
+.table_content .text-left{
+	text-align: left
+}
+.table_content .text-center{
+	text-align: center;
+}
+.table_content .text-right{
+	text-align: right;
+}
+.table_content .dataTr:hover{
+	cursor: pointer;
+	background-color: #FC68;
+}
+
+
