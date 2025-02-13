@@ -131,17 +131,20 @@ public class FoodDAO {
 	  return total;
   }
   // 상세보기 
-  public FoodVO foodDetailData(int fno)
+  public FoodVO foodDetailData(int fno,int mode)
   {
 	  FoodVO vo=new FoodVO();
 	  try
 	  {
 		  getConnection();
-		  String sql="UPDATE food_menupan SET "
+		  if(mode==1)
+		  {
+		    String sql="UPDATE food_menupan SET "
 				    +"hit=hit+1 "
 				    +"WHERE fno="+fno;
-		  ps=conn.prepareStatement(sql);
-		  ps.executeUpdate();
+		    ps=conn.prepareStatement(sql);
+		    ps.executeUpdate();
+		  }
 		  
 		  // mainpage => 공동작업 
 		  /*
@@ -150,7 +153,7 @@ public class FoodDAO {
   private String name,type,phone,address,theme,poster,
           images,time,parking,content,price;
 		   */
-		  sql="SELECT name,type,phone,address,theme,poster,"
+		  String sql="SELECT name,type,phone,address,theme,poster,"
 		     +"images,time,parking,content,price,score,hit "
 		     +"FROM food_menupan "
 		     +"WHERE fno="+fno;

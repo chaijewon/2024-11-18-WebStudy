@@ -105,7 +105,45 @@ p{
    <div class="row">
     <h3>최근 방문 맛집</h3>
     <hr>
+    <%
+        List<FoodVO> cList=
+              new ArrayList<FoodVO>();
+        // 쿠키 읽기 
+        Cookie[] cookies=request.getCookies();
+        if(cookies!=null)
+        {
+        	for(int i=cookies.length-1;i>=0;i--)
+        	{
+        		if(cookies[i].getName().startsWith("house_"))
+        		{
+        			String fno=cookies[i].getValue();
+        			FoodVO vo=dao.foodDetailData(Integer.parseInt(fno), 2);
+        			cList.add(vo);
+        		}
+        	}
+        }
+        
+    %>
     
+      <%
+         for(FoodVO vo:cList)
+         {
+      %>
+            <div class="col-md-2">
+		    <div class="thumbnail">
+		      <%-- 상세보기 (한개) => 중복없이 적용된 데이터(Primary Key) --%>
+		      <a href="#">
+		        <img src="<%=vo.getPoster() %>" style="width:120px;height: 120px">
+		        <div class="caption">
+		          <p><a href="#" class="btn btn-xs btn-success">삭제</a></p>
+		        </div>
+		      </a>
+		    </div>
+		  </div>
+      <%
+         }
+      %>
+     
    </div>
   </div>
 </body>

@@ -4,7 +4,7 @@
 <%
     // 사용자가 보내준 값을 받는다 
     String fno=request.getParameter("fno");
-    FoodVO vo=dao.foodDetailData(Integer.parseInt(fno));
+    FoodVO vo=dao.foodDetailData(Integer.parseInt(fno),1);
     
 %>
 <!DOCTYPE html>
