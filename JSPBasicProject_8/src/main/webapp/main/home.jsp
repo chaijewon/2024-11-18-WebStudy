@@ -8,6 +8,7 @@
      // 받는 데이터가 아니다 => ${}
      List<FoodVO> list=(List<FoodVO>)request.getAttribute("list");
      int curpage=(int)request.getAttribute("curpage");
+     // ${curpage}
      int totalpage=(int)request.getAttribute("totalpage");
      int startPage=(int)request.getAttribute("startPage");
      int endPage=(int)request.getAttribute("endPage");
@@ -74,6 +75,9 @@ p{
         for(int i=startPage;i<=endPage;i++)
         {
       %>
+      <%--
+         ${curpage==i?"class=active":""}
+       --%>
          <li <%=curpage==i?"class=active":"" %>>
          <a href="main.jsp?page=<%=i%>"><%=i %></a>
          </li>
