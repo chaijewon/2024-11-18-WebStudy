@@ -153,7 +153,7 @@ public class FoodDAO {
   private String name,type,phone,address,theme,poster,
           images,time,parking,content,price;
 		   */
-		  String sql="SELECT name,type,phone,address,theme,poster,"
+		  String sql="SELECT fno,name,type,phone,address,theme,poster,"
 		     +"images,time,parking,content,price,score,hit "
 		     +"FROM food_menupan "
 		     +"WHERE fno="+fno;
@@ -161,6 +161,7 @@ public class FoodDAO {
 		  ResultSet rs=ps.executeQuery();
 		  rs.next();
 		  // MyBatis 
+		  vo.setFno(rs.getInt("fno"));
 		  vo.setName(rs.getString("name"));
 		  vo.setType(rs.getString("type"));
 		  vo.setPhone(rs.getString("phone"));

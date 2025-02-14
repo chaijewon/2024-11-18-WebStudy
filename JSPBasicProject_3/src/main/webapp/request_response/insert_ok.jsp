@@ -43,6 +43,9 @@
      // 사용자가 파일 전송 request.getPart("upload");
      Part filePart=request.getPart("upload");
      String fileName=filePart.getSubmittedFileName();
+     
+     
+     
      if(fileName==null || fileName.equals(""))// 업로드가 안된 상태
      {
     	 vo.setFilename("");
