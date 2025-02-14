@@ -8,6 +8,7 @@
     	strPage="1";
     int curpage=Integer.parseInt(strPage);
     List<FoodVO> list=dao.foodListData(curpage);
+    
     int totalpage=dao.foodTotalPage();
     
     final int BLOCK=10;
