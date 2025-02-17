@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <!-- 
+      (properties?, settings?, 
+      typeAliases?, typeHandlers?, 
+      objectFactory?, objectWrapperFactory?, 
+       reflectorFactory?, plugins?, 
+       environments?, databaseIdProvider?, 
+       mappers?)
+   -->
+   <!-- properties파일 읽기 -->
+   <properties resource="db.properties"/>
+   <!-- VO등록 -->
+   <typeAliases>
+     <typeAlias type="com.sist.vo.FoodVO" alias="FoodVO"/>
+   </typeAliases>
+   <!-- 오라클 환경 설정  -->
+   <environments default="development">
+     <!--  (environment)+ : 한번이상은 반드시 사용한다 -->
+     <environment id="development">
+     <!-- (transactionManager,dataSource) : default : 한번은 무조건 사용 -->
+       <transactionManager type="JDBC"/>
+       <dataSource type="POOLED">
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+       </dataSource>
+     </environment>
+   </environments>
+   <!-- SQL문장을 모아서 관리 -->
+   <!-- 
+      <!ENTITY nbsp ' '> &nbsp;
+      <!ENTITY lt '<'>  &lt;
+      <!ENTITY gt '>'>  &gt;
+    -->
+   <mappers>
+     <mapper resource="com/sist/dao/food-mapper.xml"/>
+   </mappers>
+</configuration>
+ 

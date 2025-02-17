@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+      PreparedStatement / ResultSet 담당 
+      => SQL문장 저장 장소
+      => sql => 중복 방지 => 재사용 
+         select 
+         update
+         delete
+         insert 
+        ========================= 동적 쿼리 (다중 검색)
+                                 
+ -->
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.dao.food-mapper">
+  <!--  id : 구분자 (중복이 없다) , 스프링 
+        HashMap에 첨부 
+        map.put("id명","SELECT~")
+        
+        selectList(id명) , insert(id명) update(id명) ...
+        
+        = 단점 : 각태그에 한개 SQL만 실행한다 
+        
+        = 여러개 실행 
+          =========
+           회원탈퇴 
+           
+        <delete id="">
+         begin
+          delete from A
+          delete from B
+          delete from C
+         end 
+        </delete>
+  -->
+  <!-- 
+       1개만 설정 
+       => 여러개인 경우 
+          1) Map => VO에 없는 변수 여러개인 경우 
+          2) VO  => VO에 있는 변수가 여러개인 경우 
+                    = insert/update
+   -->
+  <sql id="where-fno">
+   WHERE fno=#{fno}
+  </sql>
+  <select id="foodListData" resultType="FoodVO">
+    SELECT fno,name,poster,num
+    FROM (SELECT fno,name,poster,rownum as num 
+    FROM (SELECT fno,name,poster 
+    FROM food_menupan ORDER BY fno ASC))
+    WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  
+  <select id="foodTotalPaga" resultType="int">
+    SELECT CEIL(COUNT(*)/12.0) FROM food_menupan
+  </select>
+  <!-- 
+      private int fno,hit;
+      private double score;
+      private String name,type,phone,address,theme,poster,
+                   images,time,parking,content,price;
+   -->
+   <update id="hitIncrement" parameterType="int">
+     UPDATE food_menupan SET
+     hit=hit+1
+     <include refid="where-fno"/>
+   </update>
+   
+   <select id="foodDetailData" resultType="FoodVO" parameterType="int">
+    SELECT name,type,phone,address,theme,poster,
+	images,time,parking,content,price,score,hit 
+	FROM food_menupan 
+	<include refid="where-fno"/>
+   </select>
+</mapper>
+
+
+
+
+
+

@@ -24,7 +24,8 @@ public class GoodsModel {
 	   
 	   List<GoodsVO> list=GoodsDAO.goodsListData(map);
 	   int totalpage=GoodsDAO.goodsTotalPage();
-	   
+	   // JSP로 전송 
+	   // => 화면 출력 => ${}
 	   request.setAttribute("list", list);
 	   request.setAttribute("totalpage", totalpage);
 	   request.setAttribute("curpage", curpage);

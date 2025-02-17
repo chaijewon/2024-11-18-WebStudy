@@ -37,7 +37,7 @@
                selectOne => row (상세보기)
             insert / update / delete 
    -->
-  <select id="goodsListData" resultType="GoodsVO" parameterType="hashmap">
+  <select id="goodsListData" resultType="GoodsVO">
     SELECT no,goods_name,goods_poster,num
     FROM (SELECT no,goods_name,goods_poster,rownum as num 
     FROM (SELECT no,goods_name,goods_poster 

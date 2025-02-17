@@ -4,6 +4,7 @@
 <jsp:useBean id="model" class="com.sist.model.GoodsModel"/>
 <%
     model.goodsListData(request);
+    // imp68206770
 %>
 <!DOCTYPE html>
 <html>
