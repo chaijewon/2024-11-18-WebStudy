@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PreparedStatement / ResultSet : table당 한개 -->
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+   package => namespace 
+ -->
+<mapper namespace="com.sist.dao.goods_mapper">
+ <!-- 
+    (cache-ref | cache | resultMap* | parameterMap* | sql* | insert* | update* | delete* | select*)+
+  -->
+  <!-- 
+       id=구분자 => 중복이 없다
+       key = id 
+       value = sql
+       resultType => 결과값 
+       parameterType => 매개변수 : 한개만 사용이 가능 
+       => int start / int end
+       ps.setInt(1,start)
+       ps.setInt(2,end)
+       
+       1. VO에 없는 변수 => Map
+       2. VO에 있는 변수 => VO
+       
+       while(rs.next())
+       {
+          EmpVO v=new EmpVO()
+          vo.set...
+       }
+       
+       public List<GoodsVO> goodsListData(Map map)
+             ===============             ==========
+             resultType                 parameterType
+                |
+               selectList => 목록 
+               selectOne => row (상세보기)
+            insert / update / delete 
+   -->
+  <select id="goodsListData" resultType="GoodsVO" parameterType="hashmap">
+    SELECT no,goods_name,goods_poster,num
+    FROM (SELECT no,goods_name,goods_poster,rownum as num 
+    FROM (SELECT no,goods_name,goods_poster 
+    FROM goods_all ORDER BY no ASC))
+    WHERE num BETWEEN #{start} AND #{end}
+    <!-- 
+         map.put("start",1);
+         map.put("end",10);
+         #{end} => map.get("end")
+     -->
+  </select>
+  <select id="goodsTotalPage" resultType="int">
+    SELECT CEIL(COUNT(*)/12.0) FROM goods_all
+  </select>
+</mapper>
