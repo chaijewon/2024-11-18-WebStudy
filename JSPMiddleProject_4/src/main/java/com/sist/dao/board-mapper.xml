@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PreparedStatement / ResultSet : SQL
+     mybatis => ORM => 관계형데이터베이스를 연동하는 클래스의 집합
+     hibernate => JPA
+     public BoardVO findByNoBetween(int no);
+                    ======
+           Select * from Board WHERE no=10
+ -->
+ <!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.sist.dao.board-mapper">
+  <!-- 목록 출력 -->
+  <select id="boardListData" resultType="BoardVO" parameterType="hashmap">
+    SELECT no,subject,name,regdate,hit,num
+    FROM (SELECT no,subject,name,regdate,hit,rownum as num 
+    FROM (SELECT no,subject,name,regdate,hit 
+    FROM board ORDER BY no DESC))
+    WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  <!-- 
+      map.get("end",10)
+      map.get("start",1)
+   -->
+  <!-- 총페이지 구하기 -->
+  <select id="boardTotalPage" resultType="int">
+    SELECT CEIL(COUNT(*)/10.0) FROM board
+  </select>
+  <!-- 데이터 추가 (글쓰기) -->
+  <insert id="boardInsert" parameterType="BoardVO">
+    <!-- MyBatis의 sequence: 자동 증가번호  -->
+    <selectKey keyProperty="no" resultType="int" order="BEFORE">
+     SELECT NVL(MAX(no)+1,1) as no FROM board
+    </selectKey>
+    INSERT INTO board VALUES(#{no},#{name},
+    #{subject},#{content},#{pwd},SYSDATE,0)
+  </insert>
+  <!-- 
+      #{name} => vo.getName() => {} : getXxx()
+      vo.setPwd("1234")
+      vo.setName()
+   -->
+  <!-- 조회수 증가 -->
+  <!-- 상세보기 -->
+  <!-- 삭제 -->
+  <!-- 수정 -->
+ </mapper>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
