@@ -92,7 +92,7 @@ public class Controller extends HttpServlet {
 		// TODO Auto-generated method stub
 		try
 		{
-			String xml_path="C:\\webDev\\webStudy\\JSPMiddleProject_4\\src\\main\\webapp\\WEB-INF\\application.xml";
+			String xml_path="C:\\Users\\sist\\git\\web-study\\JSPMiddleProject_4\\src\\main\\webapp\\WEB-INF\\application.xml";
 			DocumentBuilderFactory dbf=
 					DocumentBuilderFactory.newInstance();
 			// 파서기 생성 => XML / WML / HDML / VML ... 
