@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +14,7 @@
 }
 .row{
   margin: opx auto;
-  width: 700px;
+  width: 800px;
 }
 </style>
 </head>
@@ -39,7 +40,7 @@
 	         <td width=10% class="text-center">${vo.no }</td>
 	         <td width=45%>${vo.subject }</td>
 	         <td width=15% class="text-center">${vo.name}</td>
-	         <td width=20% class="text-center">${vo.regdate }</td>
+	         <td width=20% class="text-center"><fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd"/></td>
 	         <td width=10% class="text-center">${vo.hit }</td>
 	       </tr>
        </c:forEach>
