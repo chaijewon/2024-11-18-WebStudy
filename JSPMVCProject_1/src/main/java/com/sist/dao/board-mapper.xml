@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.dao.board-mapper">
+  <!-- 마이바티스는 한개의 태그에 한개의 SQL문 지정해야 된다 : CRUD -->
+  <!-- 반복 제거 -->
+  <sql id="where-no">
+    WHERE no=#{no}
+  </sql>
+  <!-- 목록 -->
+  <select id="boardListData" resultType="BoardVO"
+   parameterType="hashmap"
+  >
+     SELECT no,subject,name,regdate,hit,num
+     FROM (SELECT no,subject,name,regdate,hit,rownum as num 
+     FROM (SELECT no,subject,name,regdate,hit 
+     FROM board ORDER BY no ASC))
+     WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  <!-- 총페이지 -->
+  <!-- 
+      SELECT  == resultType:실행 결과값 , parameterType=?
+      INSERT/UPDATE/DELETE == parameterType
+   -->
+  <select id="boardTotalPage" resultType="int">
+     SELECT CEIL(COUNT(*)/10.0) FROM board
+  </select>
+  <!-- 글쓰기 -->
+  <!-- 
+     BoardVO vo=new BoardVO();
+     vo.setContent("aaa");
+     vo.setPwd("1234");
+     vo.setName("1111");
+     vo.setSubject("ddgdg");
+   -->
+  <insert id="boardInsert" parameterType="BoardVO">
+     <!-- 마이바티스 자동 증가번호 제작 
+          order => BEFORE: 먼저 수행 
+                   AFTER : 나중에 실행 
+                   
+          ${vo.name} ${vo.getName()}
+      -->
+     <selectKey keyProperty="no" resultType="int" order="BEFORE">
+        SELECT NVL(MAX(no)+1,1) as no FROM board
+     </selectKey>
+     INSERT INTO board VALUES(
+       #{no},#{name},#{subject},#{content},
+       #{pwd},SYSDATE,0
+     )
+     <!-- #{name}  vo.getName() -->
+  </insert>
+  <!-- 조회수 증가 -->
+  <update id="hitIncrement" parameterType="int">
+    UPDATE board SET
+    hit=hit+1
+    <include refid="where-no"/>
+  </update>
+  <!-- 상세보기 -->
+  <select id="boardDetailData" resultType="BoardVO" parameterType="int">
+    SELECT * FROM board
+    <include refid="where-no"/>
+  </select>
+  <!-- 비밀번호 읽기 -->
+  <select id="boardGetPassword" resultType="string" parameterType="int">
+    SELECT pwd FROM board
+    <include refid="where-no"/>
+  </select>
+  <!-- 수정하기 -->
+  <update id="boardUpdate" parameterType="BoardVO">
+    UPDATE board SET 
+    name=#{name},subject=#{subject},content=#{content}
+    <include refid="where-no"/>
+  </update>
+  <!-- 삭제하기 -->
+  <delete id="boardDelete" parameterType="int">
+    DELETE FROM #{board}
+    <include refid="where-no"/>
+  </delete>
+  <!-- 
+       SQL 문장 
+       = resultType / parameterType
+          리턴형          매개변수 
+       = ? 대신  #{컬럼명}
+       
+       ${} #{} => ''
+       === ===
+           setString(getName())
+   -->
+</mapper>
+
+
