@@ -78,6 +78,8 @@ public class BoardDAO {
 		     )
 		     <!-- #{name}  vo.getName() -->
 		  </insert>
+		  
+		  Controller - Model - DAO - Model - JSP
     */
    public static void boardInsert(BoardVO vo)
    {

@@ -15,7 +15,7 @@
      SELECT no,subject,name,regdate,hit,num
      FROM (SELECT no,subject,name,regdate,hit,rownum as num 
      FROM (SELECT no,subject,name,regdate,hit 
-     FROM board ORDER BY no ASC))
+     FROM board ORDER BY no DESC))
      WHERE num BETWEEN #{start} AND #{end}
   </select>
   <!-- 총페이지 -->

@@ -17,6 +17,17 @@ public class ListModel implements Model{
 		// 현재 페이지 지정 
 		int curpage=Integer.parseInt(page);
 		// 데이터 읽기 
+		Map map=new HashMap();
+		map.put("start", (10*curpage)-9);
+		map.put("end", 10*curpage);
+		List<BoardVO> list=BoardDAO.boardListData(map);
+		
+		int totalpage=BoardDAO.boardTotalPage();
+		
+		// list.jsp로 값 전송 
+		request.setAttribute("list", list);
+		request.setAttribute("curpage", curpage);
+		request.setAttribute("totalpage", totalpage);
 		
 		return "board/list.jsp";
 	}

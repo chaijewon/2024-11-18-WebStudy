@@ -4,7 +4,7 @@
  "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
   <!-- properties파일 읽기 -->
-  <properties resource="db.propertes"/>
+  <properties resource="db.properties"/>
   <!-- VO 등록 -->
   <typeAliases>
    <typeAlias type="com.sist.vo.BoardVO" alias="BoardVO"/>
