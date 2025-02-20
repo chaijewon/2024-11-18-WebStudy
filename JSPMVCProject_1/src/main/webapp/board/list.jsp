@@ -41,7 +41,7 @@
         <c:forEach var="vo" items="${list }">
           <tr>
 	         <td class="text-center" width=10%>${vo.no }</td>
-	         <td width=45%>${vo.subject }
+	         <td width=45%><a href="detail.do?no=${vo.no }">${vo.subject }</a>
 	           <c:if test="${vo.dbday==today }">
 	             <sup><img src="image/new.gif"></sup>
 	           </c:if>
@@ -57,9 +57,9 @@
       <table class="table">
         <tr>
           <td class="text-center">
-           <a href="#" class="btn btn-sm btn-danger">이전</a>
+           <a href="list.do?page=${curpage>1?curpage-1:curpage }" class="btn btn-sm btn-danger">이전</a>
            ${curpage } page / ${totalpage } pages
-           <a href="#" class="btn btn-sm btn-danger">다음</a>
+           <a href="list.do?page=${curpage<totalpage?curpage+1:curpage }" class="btn btn-sm btn-danger">다음</a>
           </td>
         </tr>
       </table>
