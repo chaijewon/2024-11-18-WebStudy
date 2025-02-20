@@ -18,8 +18,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-
-import com.sist.ann.*;
 import java.net.*;
 import java.io.*;
 @WebServlet("*.do")
@@ -65,7 +63,7 @@ public class DispatcherServlet extends HttpServlet {
 				pack=elem.getAttribute("basePackage");
 			}
 			System.out.println(pack);
-			clsList=com.sist.ann.FileReader.componentScan(file.getPath(), pack);
+			clsList=com.sist.controller.FileReader.componentScan(file.getPath(), pack);
 			
 		}catch(Exception ex) {}
 	}
@@ -103,7 +101,7 @@ public class DispatcherServlet extends HttpServlet {
 					if(rm.value().equals(uri))
 					{
 						// food_list()
-						String jsp=(String)m.invoke(obj, request);
+						String jsp=(String)m.invoke(obj, request,response);
 						
 						if(jsp==null) // void 
 						{
