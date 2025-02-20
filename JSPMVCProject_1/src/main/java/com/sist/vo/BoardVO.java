@@ -2,8 +2,16 @@ package com.sist.vo;
 import java.util.*;
 public class BoardVO {
     private int no,hit;
-    private String name,subject,conent,pwd;
-    private Date regdate;
+    private String name,subject,content,pwd,dbday;
+    
+    public String getDbday() {
+		return dbday;
+	}
+	public void setDbday(String dbday) {
+		this.dbday = dbday;
+	}
+	private Date regdate;
+    
 	public int getNo() {
 		return no;
 	}
@@ -28,11 +36,11 @@ public class BoardVO {
 	public void setSubject(String subject) {
 		this.subject = subject;
 	}
-	public String getConent() {
-		return conent;
+	public String getContent() {
+		return content;
 	}
-	public void setConent(String conent) {
-		this.conent = conent;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public String getPwd() {
 		return pwd;

@@ -12,7 +12,7 @@
   <select id="boardListData" resultType="BoardVO"
    parameterType="hashmap"
   >
-     SELECT no,subject,name,regdate,hit,num
+     SELECT no,subject,name,regdate,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit,num
      FROM (SELECT no,subject,name,regdate,hit,rownum as num 
      FROM (SELECT no,subject,name,regdate,hit 
      FROM board ORDER BY no DESC))
