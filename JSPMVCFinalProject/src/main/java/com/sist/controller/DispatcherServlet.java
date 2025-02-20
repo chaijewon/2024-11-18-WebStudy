@@ -101,6 +101,15 @@ public class DispatcherServlet extends HttpServlet {
 					if(rm.value().equals(uri))
 					{
 						// food_list()
+						/*
+						 *   class A
+						 *   {
+						 *      public void display(){}
+						 *   }
+						 *   
+						 *   A a=new A();
+						 *   a.display()
+						 */
 						String jsp=(String)m.invoke(obj, request,response);
 						
 						if(jsp==null) // void 
