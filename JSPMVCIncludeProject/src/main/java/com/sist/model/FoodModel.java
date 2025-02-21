@@ -75,6 +75,21 @@ public class FoodModel {
    {
 	   String fno=request.getParameter("fno");
 	   FoodVO vo=FoodDAO.foodDetailData(Integer.parseInt(fno));
+	   // 강원
+	   String addr1=vo.getAddress().trim();
+	   /*addr1=addr1.trim().substring(addr1.indexOf(" "));
+	   // 양양군 
+	   String addr2=addr1.trim().substring(addr1.indexOf(" "));
+	   //  연창리 180-108
+	   String addr3=addr2.trim().substring(0,addr2.indexOf(" "));
+	   // 양양읍
+	   System.out.println(addr3.trim());*/
+	   // 제주 서귀포시 표선면 표선리 45 금데기횟집
+	   StringTokenizer st=new StringTokenizer(addr1);
+	   String s1=st.nextToken();
+	   String s2=st.nextToken();
+	   String addr3=st.nextToken();		   
+	   request.setAttribute("addr", addr3.trim());
 	   request.setAttribute("vo", vo);
 	   
 	   // include 
