@@ -103,6 +103,12 @@ public class DispatcherServlet extends HttpServlet {
 					if(rm.value().equals(uri))
 					{
 						// food_list()
+						// String jsp=m.main_main()
+						/*
+						 *   MainModel model=new MainModel()
+ *                           String jsp=model.main_main()
+ *                                 main.jsp
+						 */
 						String jsp=(String)m.invoke(obj, request);
 						
 						if(jsp==null) // void 

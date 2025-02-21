@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- SQL문장 저장 : PreparedStatement / ResultSet 
+     resultType / parameterType
+     결과값 받기    = ?에 들어가는 값 
+                 = 한개만 설정 : VO와 관련 => VO
+                               VO와 관련없는 데이터 여러개 => hashmap
+     총페이지 : int
+     어떤 VO로 받을지 
+     
+     = 메소드 : selectList => ROW여러개
+              selectOne  => ROW한개 
+              insert / update / delete 
+              
+              => selectList("food.foodListData")
+     = 간단한 SQL : @Select("")
+       복잡한 SQL : XML
+                  => 동적쿼리  
+                  => 조인 
+     => 사이트 : 모든 사람이 볼 수 있게...
+      
+-->
+<mapper namespace="com.sist.mapper.food-mapper">
+  <select id="foodTop12" resultType="FoodVO" parameterType="string">
+    SELECT fno,poster,name,rownum
+    FROM (SELECT fno,poster,name 
+    FROM food_menupan ORDER BY ${column} DESC)
+    WHERE rownum&lt;=12
+  </select>
+</mapper>
+
+
+
+
+
+
