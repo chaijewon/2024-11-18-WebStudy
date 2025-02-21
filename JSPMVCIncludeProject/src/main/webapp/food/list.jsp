@@ -27,25 +27,29 @@
           <header class="heading">맛집 목록</header>
           <ul class="nospace clear">
            <c:forEach var="vo" items="${list }" varStatus="s">
-            <li class="${s.index%4==0?'one_quarter first':'one_quarter'}"><a href="#"><img src="https://www.menupan.com${vo.poster }" title="${vo.name }"></a></li>
+            <li class="${s.index%4==0?'one_quarter first':'one_quarter'}"><a href="../food/detail_before.do?fno=${vo.fno }"><img src="https://www.menupan.com${vo.poster }" title="${vo.name }"></a></li>
            </c:forEach> 
           </ul>
         </figure>
       </div>
       <nav class="pagination">
         <ul>
-          <li><a href="#">&laquo; Previous</a></li>
-          <li><a href="#">1</a></li>
-          <li><a href="#">2</a></li>
-          <li><strong>&hellip;</strong></li>
-          <li><a href="#">6</a></li>
-          <li class="current"><strong>7</strong></li>
-          <li><a href="#">8</a></li>
-          <li><a href="#">9</a></li>
-          <li><strong>&hellip;</strong></li>
-          <li><a href="#">14</a></li>
-          <li><a href="#">15</a></li>
-          <li><a href="#">Next &raquo;</a></li>
+        <%-- startPage : 1 11 21... --%>
+         <c:if test="${startPage>1 }">
+          <li><a href="../food/list.do?page=${startPage-1 }">&laquo; Previous</a></li>
+         </c:if>
+         
+         <c:forEach var="i" begin="${startPage }" end="${endPage }">
+          <li ${curpage==i?"class=current":"" }><a href="../food/list.do?page=${i }">${i }</a></li>
+         
+         </c:forEach>
+         
+         <%--
+              endPage : 10 20 30
+          --%>
+         <c:if test="${endPage<totalpage }">
+          <li><a href="../food/list.do?page=${endPage+1 }">Next &raquo;</a></li>
+         </c:if>
         </ul>
       </nav>
       </div>

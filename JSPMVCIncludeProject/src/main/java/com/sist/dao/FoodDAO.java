@@ -81,4 +81,25 @@ public class FoodDAO {
 	   session.close();
 	   return total;
    }
+   /*
+    *   <update id="hitIncrement" parameterType="int">
+		    UPDATE food_menupan SET
+		    hit=hit+1
+		    WHERE fno=#{fno}
+		  </update>
+		  <select id="foodDetailData" resultType="FoodVO"
+		  parameterType="int">
+		   SELECT * FROM food_menupan
+		   WHERE fno=#{fno}
+		  </select>
+    */
+   public static FoodVO foodDetailData(int fno)
+   {
+	   SqlSession session=ssf.openSession();
+	   session.update("hitIncrement",fno);
+	   session.commit();
+	   FoodVO vo=session.selectOne("foodDetailData",fno);
+	   session.close();
+	   return vo;
+   }
 }

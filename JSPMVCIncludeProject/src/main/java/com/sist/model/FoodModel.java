@@ -3,6 +3,7 @@ package com.sist.model;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.*;
@@ -41,5 +42,46 @@ public class FoodModel {
 	   request.setAttribute("main_jsp", "../food/list.jsp");
 	   return "../main/main.jsp";
    }
+   /*
+    *   class A
+    *   {
+    *      String name;
+    *   }
+    *   
+    *   A a=new A();
+    *   a.name
+    */
+   @RequestMapping("food/detail_before.do")
+   public String food_detail_before(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   String fno=request.getParameter("fno");
+	   // 쿠키저장 
+	   // 1. Cookie생성 
+	   Cookie cookie=new Cookie("food_"+fno, fno);
+	   // 2. Path 설정 
+	   cookie.setPath("/");
+	   // 3. 저장 기간 
+	   cookie.setMaxAge(60*60*24);
+	   // 4. 브라우저로 전송 
+	   response.addCookie(cookie);
+	   // 상세보기 
+	   return "redirect:../food/detail.do?fno="+fno;
+   }
+   
+   @RequestMapping("food/detail.do")
+   public String food_detail(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   String fno=request.getParameter("fno");
+	   FoodVO vo=FoodDAO.foodDetailData(Integer.parseInt(fno));
+	   request.setAttribute("vo", vo);
+	   
+	   // include 
+	   request.setAttribute("main_jsp", "../food/detail.jsp");
+	   return "../main/main.jsp";
+	   
+   }
+   
    
 }

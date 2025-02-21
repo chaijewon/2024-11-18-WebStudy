@@ -40,6 +40,16 @@
   <select id="foodTotalPage" resultType="int">
    SELECT CEIL(COUNT(*)/20.0) FROM food_menupan
   </select>
+  <update id="hitIncrement" parameterType="int">
+    UPDATE food_menupan SET
+    hit=hit+1
+    WHERE fno=#{fno}
+  </update>
+  <select id="foodDetailData" resultType="FoodVO"
+  parameterType="int">
+   SELECT * FROM food_menupan
+   WHERE fno=#{fno}
+  </select>
 </mapper>
 
 
