@@ -23,12 +23,62 @@ public class FoodDAO {
     */
    public static List<FoodVO> foodTop12(String column)
    {
-	   SqlSession session=ssf.openSession();
-	   // conn/ps 
-	   List<FoodVO> list=session.selectList("foodTop12",column);
-	   
-	   session.close();// 반환 (DBCP) => 재사용
-	   
+	   SqlSession session=null;
+	   List<FoodVO> list=null;
+	   try
+	   {
+		   session=ssf.openSession();
+		   list=session.selectList("foodTop12",column);
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   if(session!=null)
+			   session.close();
+	   }
 	   return list;
+   }
+   /*
+    *   <select id="foodListData" resultType="FoodVO" 
+          parameterType="hashmap">
+		  SELECT fno,poster,name,num
+		  FROM (SELECT fno,poster,name,rownum as num 
+		  FROM (SELECT /+ INDEX_ASC(food_menupan fm_fno_pk)/fno,poster,name 
+		  FROM food_menupan))
+		  WHERE num BETWEEN #{start} AND #{end}
+		  </select>
+    */
+   public static List<FoodVO> foodListData(Map map)
+   {
+	   SqlSession session=null;
+	   List<FoodVO> list=null;
+	   try
+	   {
+		   session=ssf.openSession();
+		   list=session.selectList("foodListData",map);
+	   }catch(Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   if(session!=null)
+			   session.close();
+	   }
+	   return list;
+   }
+   /*
+    * <select id="foodTotalPage" resultType="int">
+       SELECT CEIL(COUNT(*)/20.0) FROM food_menupan
+      </select>
+    */
+   public static int foodTotalPage()
+   {
+	   SqlSession session=ssf.openSession();
+	   int total=session.selectOne("foodTotalPage");
+	   session.close();
+	   return total;
    }
 }

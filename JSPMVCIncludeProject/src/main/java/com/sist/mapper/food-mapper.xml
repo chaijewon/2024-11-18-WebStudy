@@ -29,6 +29,17 @@
     FROM food_menupan ORDER BY ${column} DESC)
     WHERE rownum&lt;=12
   </select>
+  <select id="foodListData" resultType="FoodVO" 
+     parameterType="hashmap">
+  SELECT fno,poster,name,num
+  FROM (SELECT fno,poster,name,rownum as num 
+  FROM (SELECT /*+ INDEX_ASC(food_menupan fm_fno_pk)*/fno,poster,name 
+  FROM food_menupan))
+  WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  <select id="foodTotalPage" resultType="int">
+   SELECT CEIL(COUNT(*)/20.0) FROM food_menupan
+  </select>
 </mapper>
 
 

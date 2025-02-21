@@ -10,7 +10,7 @@
 <div class="wrapper row1">
   <header id="header" class="clear"> 
     <div id="logo" class="fl_left">
-      <h1><a href="index.html">맛집 & 여행</a></h1>
+      <h1><a href="../main/main.do">맛집 & 여행</a></h1>
     </div>
     <div class="fl_right">
       <ul class="inline">
@@ -23,7 +23,7 @@
 <div class="wrapper row2">
   <nav id="mainav" class="clear"> 
     <ul class="clear">
-      <li class="active"><a href="index.html">Home</a></li>
+      <li class="active"><a href="../main/main.do">Home</a></li>
       <li><a class="drop" href="#">회원</a>
         <ul>
           <li><a href="pages/gallery.html">회원가입</a></li>
@@ -34,7 +34,7 @@
       
       <li><a class="drop" href="#">맛집</a>
         <ul>
-          <li><a href="pages/gallery.html">맛집목록</a></li>
+          <li><a href="../food/list.do">맛집목록</a></li>
           <li><a href="pages/full-width.html">지역별검색</a></li>
           <li><a href="pages/sidebar-left.html">맛집예약</a></li>
         </ul>
