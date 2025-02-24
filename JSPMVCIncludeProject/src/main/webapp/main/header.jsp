@@ -59,6 +59,7 @@
       
       <li><a href="#">스토어</a></li>
       <li><a href="#">마이페이지</a></li>
+      <li><a href="../emp/list.do">사원정보</a></li>
     </ul>
     </nav>
 </div>
