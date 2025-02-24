@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%--
+     294
      1. HTML/CSS : 브라우저에 출력 (XML) 
      2. Java : 오라클 연결 / 브라우저 연결 
                데이터 관리 
@@ -85,7 +86,7 @@
                   ***let a=()=>{} => function과 return 제거 
                      ------------
                      | 함수안에서 처리가 가능 
-         자바스크립트 출력 : System.out.println()
+         자바스크립트 출력 : System.out.println() => 297
          ------------- 브라우저에 출력 
          1) alert() : 팝업창 
          2) console.log() => 도스 출력 
@@ -103,7 +104,7 @@
          -------------------------
          라이브러리 : Jquery  
          
-         1) 변수 선언 
+         1) 변수 선언 299
             변수의 데이터형을 사용하지 않는다 / 자동 데이터형 
             예) 
                 설정값에 따라 데이터형이 다르다
