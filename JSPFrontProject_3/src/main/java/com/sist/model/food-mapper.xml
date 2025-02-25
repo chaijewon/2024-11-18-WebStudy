@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.model.food-mapper">
+  <!-- 목록 출력 -->
+  <select id="foodFindData" resultType="FoodVO" parameterType="hashmap">
+   SELECT fno,poster,name,num
+   FROM (SELECT fno,poster,name,rownum as num 
+   FROM (SELECT /*+ INDEX_ASC(food_menupan fm_fno_pk)*/fno,poster,name 
+   FROM food_menupan WHERE address LIKE '%'||#{address}||'%'))
+   WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  <!-- 총페이지 -->
+  <select id="foodFindTotalPage" resultType="int"
+   parameterType="string">
+    SELECT CEIL(COUNT(*)/12.0) FROM food_menupan
+    WHERE address LIKE '%'||#{address}||'%' 
+  </select>
+  <!-- 상세보기 -->
+  <select id="foodFindDetailData" resultType="FoodVO"
+  parameterType="int"
+  >
+    SELECT * FROM food_menupan 
+    WHERE fno=#{fno}
+  </select>
+</mapper>
