@@ -44,6 +44,7 @@ public class EmpModel {
 			  arr.add(obj);
 		  }
 		  out.write(arr.toJSONString());
+		  System.out.println(arr.toJSONString());
 	  }catch(Exception ex) {}
   }
   
