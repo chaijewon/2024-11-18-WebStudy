@@ -13,7 +13,7 @@
   <select id="foodFindTotalPage" resultType="int"
    parameterType="string">
     SELECT CEIL(COUNT(*)/12.0) FROM food_menupan
-    WHERE address LIKE '%'||#{address}||'%' 
+    WHERE address LIKE '%'||#{address}||'%'
   </select>
   <!-- 상세보기 -->
   <select id="foodFindDetailData" resultType="FoodVO"

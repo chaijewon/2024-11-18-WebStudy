@@ -103,4 +103,32 @@ public class FoodModel {
 		  // JSON전송 
 	  }catch(Exception ex) {}
   }
+  @RequestMapping("food/detail_js.do")
+  public void food_detail(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  String fno=request.getParameter("fno");
+	  FoodVO vo=
+		FoodDAO.foodFindDetailData(Integer.parseInt(fno));
+	  
+	  JSONObject obj=new JSONObject();
+	  obj.put("poster", "http://www.menupan.com"+vo.getPoster());
+	  obj.put("name", vo.getName());
+	  obj.put("score", vo.getScore());
+	  obj.put("address", vo.getAddress());
+	  obj.put("phone", vo.getPhone());
+	  obj.put("type", vo.getType());
+	  obj.put("time", vo.getTime());
+	  obj.put("parking", vo.getParking());
+	  obj.put("theme", vo.getTheme());
+	  obj.put("content", vo.getContent());
+	  
+	  try
+	  {
+		  response.setContentType("text/plain;charset=UTF-8");
+		  PrintWriter out=response.getWriter();
+		  // 해당 브라우저를 찾아서 
+		  out.write(obj.toJSONString());
+	  }catch(Exception ex) {}
+  }
 }

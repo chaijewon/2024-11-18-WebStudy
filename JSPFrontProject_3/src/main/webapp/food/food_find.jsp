@@ -19,6 +19,9 @@ p{
    white-space: nowrap;
    text-overflow: ellipsis;
 }
+img:hover {
+   cursor: pointer
+}
 </style>
 <script type="text/javascript" src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
@@ -48,7 +51,7 @@ window.onload=function(){
 		food_list.map(function(vo){
 			html+='<div class="col-sm-4">'
 			     +'<div class="thumbnail">'
-			     +'<img src="'+vo.poster+'" style="width:100%">'
+			     +'<img src="'+vo.poster+'" style="width:100%" onclick="detail('+vo.fno+')">'
 			     +'<p>'+vo.name+'</p>'
 			     +'</div>'
 			     +'</div>'
@@ -132,6 +135,15 @@ function foodFind(){
 		main.innerHTML=html
 	})
 	
+}
+let detail=(fno)=>{
+	axios.get("http://localhost/JSPFrontProject_3/food/detail_js.do",{
+		params:{
+			fno:fno
+		}
+	}).then((res)=>{
+		console.log(res.data)
+	})
 }
 </script>
 </head>
