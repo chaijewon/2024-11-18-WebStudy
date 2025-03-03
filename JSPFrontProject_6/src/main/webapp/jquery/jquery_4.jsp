@@ -24,6 +24,8 @@
                     id="m"+rno
                     
     => window => 스크롤 
+    
+    
 */
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
