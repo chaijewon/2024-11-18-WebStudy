@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.dao.emp-mapper">
+ <select id="empListData" resultType="EmpVO">
+  SELECT empno,ename,job,
+         TO_CHAR(hiredate,'YYYY-MM-DD') as dbday,sal
+  FROM emp
+ </select>
+ <select id="foodTypeListData" resultType="com.sist.vo.FoodVO" parameterType="string">
+   SELECT fno,name,poster,rownum
+   FROM (SELECT fno,name,poster 
+   FROM food_menupan WHERE type LIKE '%'||#{type}||'%' 
+   ORDER BY fno ASC)
+   WHERE rownum&lt;=20 
+ </select>
+</mapper>
