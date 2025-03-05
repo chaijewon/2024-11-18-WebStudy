@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sist.mapper.food-mapper">
-  <!-- ResultSet(resultType) / PreparedStatement (SQL) -->
-  <!-- JOIN -->
+  <!--  main : main 맛집 -->
+  <select id="foodMainHouseData" resultType="FoodVO">
+    SELECT * FROM (SELECT * FROM project_food 
+      ORDER BY DBMS_RANDOM.RANDOM
+    )
+    WHERE rownum&lt;=1
+  </select>
+  <select id="foodMainHouseData8" resultType="FoodVO">
+    SELECT * FROM (SELECT * FROM project_food 
+      ORDER BY DBMS_RANDOM.RANDOM
+    )
+    WHERE rownum&lt;=8
+  </select>
 </mapper>

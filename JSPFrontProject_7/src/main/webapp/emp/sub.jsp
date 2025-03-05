@@ -20,7 +20,7 @@
 <body>
   <div class="container">
     <div class="row">
-     <h3 class="text-center">JOIN 연습</h3>
+     <h3 class="text-center">서브쿼리 연습</h3>
      <table class="table">
       <tr>
        <th>사번</th>
