@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+    while(rs.next())
+    {
+      EmpVO vo=new EmpVO();
+      vo.setEname(rs.getString("ename"))
+      vo.getDvo().setDaname(rs.getString("dname"))
+    }
+ -->
 <mapper namespace="com.sist.dao.emp-mapper">
+ <!-- 
+      컬럼명과 VO의 변수가 다른 경우
+      
+  -->
+ <resultMap type="EmpVO" id="empMap">
+   <!-- 
+      SELECT ename,dname,loc,grade FROM...
+      setEname() dvo.setDname() dvo.setLoc() svo.setGrade()
+    -->
+   <result property="dvo.dname" column="dname"/>
+   <!-- 
+         dvo.setDname(rs.getString("dname"))
+    -->
+    <result property="dvo.loc" column="loc"/>
+    <result property="svo.grade" column="grade"/>
+    <!-- 
+        관리자 페이지 => 
+        마이 페이지
+     -->
+ </resultMap>
  <select id="empListData" resultType="EmpVO">
   SELECT empno,ename,job,
          TO_CHAR(hiredate,'YYYY-MM-DD') as dbday,sal
@@ -12,5 +40,18 @@
    FROM food_menupan WHERE type LIKE '%'||#{type}||'%' 
    ORDER BY fno ASC)
    WHERE rownum&lt;=20 
+ </select>
+ <select id="empDeptJoinData" resultMap="empMap">
+   SELECT empno,ename,job,dname,loc,grade
+   FROM emp,dept,salgrade
+   WHERE emp.deptno=dept.deptno
+   AND sal BETWEEN losal AND hisal
+ </select>
+ <select id="empDeptSubqueryData" resultMap="empMap">
+   SELECT empno,ename,job,
+          (SELECT dname FROM dept WHERE deptno=emp.deptno) as dname,
+          (SELECT loc FROM dept WHERE deptno=emp.deptno) as loc,
+          (SELECT grade FROM salgrade WHERE emp.sal BETWEEN losal AND hisal) as grade
+   FROM emp      
  </select>
 </mapper>

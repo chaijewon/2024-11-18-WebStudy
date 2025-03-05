@@ -28,7 +28,7 @@
                         <img src="../img/catagory-img/2.jpg" alt="">
                         <div class="catagory-title">
                             <a href="#">
-                                <h5>Cooking</h5>
+                                <h5>Recipe</h5>
                             </a>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                         <img src="../img/catagory-img/3.jpg" alt="">
                         <div class="catagory-title">
                             <a href="#">
-                                <h5>Life Style</h5>
+                                <h5>Travel</h5>
                             </a>
                         </div>
                     </div>

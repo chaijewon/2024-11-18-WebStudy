@@ -1,9 +1,25 @@
 package com.sist.vo;
-import java.util.*;
+import java.util.*;// view
 public class EmpVO {
     private int empno,sal;
     private String ename,job,dbday;
     private Date hiredate;
+    private DeptVO dvo=new DeptVO();
+    private SalGradeVO svo=new SalGradeVO();
+    
+    
+	public DeptVO getDvo() {
+		return dvo;
+	}
+	public void setDvo(DeptVO dvo) {
+		this.dvo = dvo;
+	}
+	public SalGradeVO getSvo() {
+		return svo;
+	}
+	public void setSvo(SalGradeVO svo) {
+		this.svo = svo;
+	}
 	public int getEmpno() {
 		return empno;
 	}

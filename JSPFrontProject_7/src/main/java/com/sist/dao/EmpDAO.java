@@ -44,4 +44,35 @@ public class EmpDAO {
 	   session.close();
 	   return list;
    }
+   /*
+    *   <select id="empDeptJoinData" resultType="EmpVO">
+		   SELECT empno,ename,job,dname,loc,grade
+		   FROM emp,dept,salgrade
+		   WHERE emp.deptno=dept.deptno
+		   AND sal BETWEEN losal AND hisal
+		 </select>
+    */
+   public static List<EmpVO> empDeptJoinData()
+   {
+	   SqlSession session=ssf.openSession();
+	   List<EmpVO> list=session.selectList("empDeptJoinData");
+	   session.close();
+	   return list;
+   }
+   /*
+    *  <select id="empDeptSubqueryData" resultMap="empMap">
+	   SELECT empno,ename,job,
+	          (SELECT dname FROM dept WHERE deptno=emp.deptno) as dname,
+	          (SELECT loc FROM dept WHERE deptno=emp.deptno) as loc,
+	          (SELECT grade FROM salgrade WHERE emp.sal BETWEEN losal AND hisal) as grade
+	   FROM emp      
+	 </select>
+    */
+   public static List<EmpVO> empDeptSubqueryData()
+   {
+	   SqlSession session=ssf.openSession();
+	   List<EmpVO> list=session.selectList("empDeptSubqueryData");
+	   session.close();
+	   return list;
+   }
 }

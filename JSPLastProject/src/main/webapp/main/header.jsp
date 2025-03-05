@@ -26,25 +26,23 @@
                 <div class="col-7 col-sm-6">
                     <div class="signup-search-area d-flex align-items-center justify-content-end">
                         <div class="login_register_area d-flex">
+                           <c:if test="${sessionScope.id==null }">
                             <div class="login">
-                                <a href="register.html">Sing in</a>
+                                <a href="register.html">로그인</a>
                             </div>
                             <div class="register">
-                                <a href="register.html">Sing up</a>
+                                <a href="register.html">회원가입</a>
                             </div>
+                           </c:if>
+                           
+                           <c:if test="${sessionScope.id!=null }">
+                            <div class="login">
+                                ${sessionScope.name}(${sessionScope.admin=='y'?"관리자":"일반사용자" })님 로그인되었습니다&nbsp;&nbsp;
+                                <a href="register.html">로그아웃</a>
+                            </div>
+                           </c:if>
                         </div>
-                        <!-- Search Button Area -->
-                        <div class="search_button">
-                            <a class="searchBtn" href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
-                        </div>
-                        <!-- Search Form -->
-                        <div class="search-hidden-form">
-                            <form action="#" method="get">
-                                <input type="search" name="search" id="search-anything" placeholder="Search Anything...">
-                                <input type="submit" value="" class="d-none">
-                                <span class="searchBtn"><i class="fa fa-times" aria-hidden="true"></i></span>
-                            </form>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -59,7 +57,7 @@
                 <!-- Logo Area Start -->
                 <div class="col-12">
                     <div class="logo_area text-center">
-                        <a href="index.html" class="yummy-logo">Recipe & Food & Travel</a>
+                        <a href="../main/main.do" class="yummy-logo">Recipe & Food & Travel</a>
                     </div>
                 </div>
             </div>
@@ -72,7 +70,7 @@
                         <div class="collapse navbar-collapse justify-content-center" id="yummyfood-nav">
                             <ul class="navbar-nav" id="yummy-nav">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="../main/main.do">Home <span class="sr-only">(current)</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원</a>
@@ -95,9 +93,9 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">맛집</a>
                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html">맛집목록</a>
-                                        <a class="dropdown-item" href="archive.html">맛집검색</a>
-                                        <a class="dropdown-item" href="single.html">맛집예약</a>
+                                        <a class="dropdown-item" href="../food/food_list.do">맛집목록</a>
+                                        <a class="dropdown-item" href="../food/food_find.do">맛집검색</a>
+                                        <a class="dropdown-item" href="../reserve/reserve_main.do">맛집예약</a>
                            
                                    </div>
                                  
