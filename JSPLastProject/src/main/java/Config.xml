@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<!--  데이터베이스 Connection : getConnection / disConnection -->
+<configuration>
+  <properties resource="db.properties"/>
+  <!-- 
+        resource : 자신의 폴더안에 있는 파일 읽기
+        url : 외부에 있는 경우
+   -->
+   <typeAliases>
+     <!-- VO 등록 -->
+   </typeAliases>
+   <environments default="development">
+     <environment id="development">
+      <!-- 트랜잭션 사용 : 일괄처리 Commit()/Rollback() -->
+      <transactionManager type="JDBC"/>
+      <!-- 오라클 정보 전송  -->
+      <dataSource type="POOLED">
+       <!--
+           POOLED : DBCP = Connection을 미리 생성 = 사용후에 반환
+                           재사용 
+           UNPOOLED : JDBC = 열기 / 닫기 = 열기 (연결에 시간이 많이 소모)
+        -->
+        <property name="driver" value="${driver}"/>
+        <property name="url" value="${url}"/>
+        <property name="username" value="${username}"/>
+        <property name="password" value="${password}"/>
+        <!-- 
+              maxActive : 최대한 생성할 수 있는 Connection갯수
+                          8
+              maxIdle : 사용중인 Connection 갯수
+                          8 
+              maxWait : 반환할때까지 기다리는 시간 10000 
+         -->
+      </dataSource>
+     </environment>
+   </environments>
+   <!-- sql문장  -->
+   <mappers>
+     
+   </mappers>
+   <!-- 
+          동적 쿼리 
+          <if> <forEach> <where> <set> = mapper에 작업
+          필터링 
+    -->
+</configuration>

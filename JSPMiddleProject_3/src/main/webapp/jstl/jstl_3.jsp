@@ -2,6 +2,7 @@
     pageEncoding="UTF-8" import="java.util.*,java.text.*"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core"%>
 <%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
+
 <!DOCTYPE html>
 <html>
 <head>
