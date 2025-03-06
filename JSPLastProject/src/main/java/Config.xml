@@ -12,6 +12,7 @@
    <typeAliases>
      <!-- VO 등록 -->
      <typeAlias type="com.sist.vo.FoodVO" alias="FoodVO"/>
+     <typeAlias type="com.sist.vo.SeoulVO" alias="SeoulVO"/>
    </typeAliases>
    <environments default="development">
      <environment id="development">
@@ -41,6 +42,7 @@
    <!-- sql문장  -->
    <mappers>
      <mapper resource="com/sist/mapper/food-mapper.xml"/>
+     <mapper resource="com/sist/mapper/seoul-mapper.xml"/>
    </mappers>
    <!-- 
           동적 쿼리 

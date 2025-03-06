@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.seoul-mapper">
+  <select id="seoulListData" resultType="SeoulVO" parameterType="hashmap">
+   SELECT no,title,poster,hit,likecount,replycount,num
+   FROM (SELECT no,title,poster,hit,likecount,replycount,rownum as num 
+   FROM (SELECT no,title,poster,hit,likecount,replycount
+   FROM ${table_name} ORDER BY no ASC))
+   WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  <select id="seoulTotalPage" resultType="int" parameterType="hashmap">
+   SELECT CEIL(COUNT(*)/12.0) FROM ${table_name}
+  </select>
+</mapper>
+
