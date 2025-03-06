@@ -65,7 +65,7 @@
                             </div>
                       <table class="table">
        <tr>
-         <td width=30% class="text-center" rowspan="8">
+         <td width=40% class="text-center" rowspan="8">
            <img src="https://www.menupan.com${vo.poster }" style="width: 100%">
          </td>
          <td colspan="2">
