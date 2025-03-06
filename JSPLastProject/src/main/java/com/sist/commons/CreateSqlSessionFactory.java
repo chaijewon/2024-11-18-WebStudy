@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class CreateSqlSessionFactory {
    private static SqlSessionFactory ssf;
+   // 공통모듈 : AOP
    static 
    {
 	   try
