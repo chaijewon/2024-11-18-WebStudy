@@ -16,8 +16,41 @@ $(function(){
 		url:'../food/food_find_ajax.do',
 		data:{"fd":fd,"ss":ss,"page":1},
 		success:function(result){
-			$('#view').text(result)
+			//$('#view').text(result)
 		  	let json=JSON.parse(result)
+		  	jsonView(json)
+		}
+	})
+	
+	$('#findBtn').click(function(){
+		let fd=$('#fd').val()
+		let ss=$('#ss').val()
+		$.ajax({
+			type:'post',
+			url:'../food/food_find_ajax.do',
+			data:{"fd":fd,"ss":ss,"page":1},
+			success:function(result){
+				//$('#view').text(result)
+			  	let json=JSON.parse(result)
+			  	jsonView(json)
+			}
+		})
+	})
+	$('#ss').keydown(function(e){
+		if(e.keyCode==13)
+		{
+			let fd=$('#fd').val()
+			let ss=$('#ss').val()
+			$.ajax({
+				type:'post',
+				url:'../food/food_find_ajax.do',
+				data:{"fd":fd,"ss":ss,"page":1},
+				success:function(result){
+					//$('#view').text(result)
+				  	let json=JSON.parse(result)
+				  	jsonView(json)
+				}
+			})
 		}
 	})
 })
@@ -27,7 +60,7 @@ function jsonView(json)
 	let html=''
 	json.map(function(food){
 		html+='<div class="col-12 col-md-6 col-lg-4">'
-        +'<div class="single-post wow fadeInUp" data-wow-delay="0.1s">'
+		+'<div class="single-post wow fadeInUp" data-wow-delay="0.1s">'
         +'<div class="post-thumb">'
         +'<a href="../food/food_detail_before.do?fno='+food.fno+'">'
         +'<img src="https://www.menupan.com'+food.poster+'" alt="">'
@@ -111,8 +144,9 @@ function jsonView(json)
     <!-- ****** Archive Area Start ****** -->
     <section class="archive-area section_padding_80">
         <div class="container">
-            <div class="row">
-               <div id="view"></div>
+            <div class="row" id="view">
+               
+                
                 
                 <%-- <div class="col-12">
                     <div class="pagination-area d-sm-flex mt-15">

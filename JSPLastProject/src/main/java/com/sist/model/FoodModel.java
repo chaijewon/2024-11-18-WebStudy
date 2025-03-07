@@ -130,7 +130,8 @@ public class FoodModel {
 		  obj.put("theme", vo.getTheme());
 		  obj.put("phone", vo.getPhone());
 		  obj.put("address", vo.getAddress());
-		 
+		  obj.put("likecount", vo.getLikecount());
+		  obj.put("replycount", vo.getReplycount());
 		  arr.add(obj);
 	  }
 	  
