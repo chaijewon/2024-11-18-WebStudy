@@ -6,9 +6,15 @@ import com.sist.controller.RequestMapping;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.PrintWriter;
 // JSP (디자인) => Model => DAO => Model => JSP
 //             | Conroller         |Controller
 import java.util.*;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import com.sist.vo.*;
 import com.sist.dao.*;
 @Controller
@@ -84,6 +90,59 @@ public class FoodModel {
   {
   	request.setAttribute("main_jsp", "../food/food_find.jsp");
   	return "../main/main.jsp";
+  }
+  @RequestMapping("food/food_find_ajax.do")
+  public void recipe_find_ajax(HttpServletRequest request,
+  		HttpServletResponse response)
+  {
+	  // data:{"fd":fd,"ss":ss,"page":1}
+	  String page=request.getParameter("page");
+	  String fd=request.getParameter("fd");
+	  String ss=request.getParameter("ss");
+	  int curpage=Integer.parseInt(page);
+	  Map map=new HashMap();
+	  map.put("start", (12*curpage)-11);
+	  map.put("end", 12*curpage);
+	  map.put("ss", ss);
+	  map.put("fd",fd);
+	  List<FoodVO> list=FoodDAO.foodFindData(map);
+	  int totalpage=FoodDAO.foodFindTotalPage(map);
+	  
+	  final int BLOCK=10;
+	  int startPage=((curpage-1)/BLOCK*BLOCK)+1;
+	  int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
+	  
+	  if(endPage>totalpage)
+		 endPage=totalpage;
+	  
+	  // JSON변경 
+	  JSONArray arr=new JSONArray();
+	  // fno,name,poster,score,type,content,theme,phone,address
+	  for(FoodVO vo:list)
+	  {
+		  JSONObject obj=new JSONObject();
+		  obj.put("fno", vo.getFno());
+		  obj.put("name", vo.getName());
+		  obj.put("poster", vo.getPoster());
+		  obj.put("score", vo.getScore());
+		  obj.put("type", vo.getType());
+		  obj.put("content", vo.getContent());
+		  obj.put("theme", vo.getTheme());
+		  obj.put("phone", vo.getPhone());
+		  obj.put("address", vo.getAddress());
+		 
+		  arr.add(obj);
+	  }
+	  
+	  // 전송
+	  try
+	  {
+		  response.setContentType("text/plain;charset=UTF-8");
+		  PrintWriter out=response.getWriter();
+		  out.write(arr.toJSONString());
+	  }catch(Exception ex) {}
+	  
+	  
   }
 }
 

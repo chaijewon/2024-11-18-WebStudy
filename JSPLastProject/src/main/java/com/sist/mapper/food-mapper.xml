@@ -34,4 +34,17 @@
     hit=hit+1
     WHERE fno=#{fno}
   </update>
+  <!-- 맛집 검색 -->
+  <select id="foodFindData" resultType="FoodVO" parameterType="hashmap">
+    SELECT fno,name,poster,score,type,content,theme,phone,address,num
+    FROM (SELECT fno,name,poster,score,type,content,theme,phone,address,rownum as num 
+    FROM (SELECT /*+ INDEX_ASC(project_food pf_fno_pk)*/fno,name,poster,score,type,content,theme,phone,address
+    FROM project_food WHERE ${fd} LIKE '%'||#{ss}||'%'))
+    WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  <select id="foodFindTotalPage" resultType="int" parameterType="hashmap">
+    SELECT CEIL(COUNT(*)/12.0) 
+    FROM project_food
+    WHERE ${fd} LIKE '%'||#{ss}||'%'
+  </select>
 </mapper>
