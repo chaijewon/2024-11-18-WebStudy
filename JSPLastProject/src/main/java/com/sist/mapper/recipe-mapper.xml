@@ -24,5 +24,26 @@
   <select id="recipeTotalPage" resultType="int">
    SELECT CEIL(COUNT(*)/12.0) FROM recipe
   </select>
-  <!-- 쉐프 목록 -->
+  <!-- 쉐프 목록 
+        NO        NOT NULL NUMBER        
+		CHEF      NOT NULL VARCHAR2(300) 
+		POSTER             VARCHAR2(260) 
+		MEM_CONT1          VARCHAR2(30)  
+		MEM_CONT3          VARCHAR2(30)  
+		MEM_CONT7          VARCHAR2(30)  
+		MEM_CONT2          VARCHAR2(30)
+  -->
+  <select id="recipeChefListData" resultType="ChefVO" parameterType="hashmap">
+    SELECT no,chef,poster,mem_cont1,mem_cont3,mem_cont7,
+           mem_cont2,num
+    FROM (SELECT no,chef,poster,mem_cont1,mem_cont3,mem_cont7,
+           mem_cont2,rownum as num
+    FROM (SELECT no,chef,poster,mem_cont1,mem_cont3,mem_cont7,
+           mem_cont2
+    FROM chef ORDER BY no ASC))
+    WHERE num BETWEEN #{start} AND #{end}
+  </select>
+  <select id="recipeChefTotalPage" resultType="int">
+   SELECT CEIL(COUNT(*)/30.0) FROM chef
+  </select>
 </mapper>

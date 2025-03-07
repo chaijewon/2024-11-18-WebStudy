@@ -48,6 +48,7 @@ public class MainModel {
 	  // request / session 
 	  request.setAttribute("main_jsp", "../main/home.jsp");
 	  // 화면 변경
+	  // include => 파일에서 request를 공유할 수 있다 
 	  return "../main/main.jsp";
   }
 }

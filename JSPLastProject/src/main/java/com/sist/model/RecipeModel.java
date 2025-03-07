@@ -18,6 +18,10 @@ import com.sist.vo.*;
  *    %>
  *    
  *    Spring : MVC
+ *    
+ *    => 오라클 
+ *    => 브라우저 전송 
+ *    => 자바 핵심 
  */
 @Controller
 public class RecipeModel {

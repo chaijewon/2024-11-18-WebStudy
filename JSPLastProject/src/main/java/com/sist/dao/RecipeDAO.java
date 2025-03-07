@@ -115,5 +115,34 @@ public class RecipeDAO {
 	  }
 	  return total;
   }
+  /*
+   *   <select id="recipeChefListData" resultType="ChefVO" parameterType="hashmap">
+	    SELECT no,chef,poster,mem_cont1,mem_cont3,mem_cont7,
+	           mem_cont2,num
+	    FROM (SELECT no,chef,poster,mem_cont1,mem_cont3,mem_cont7,
+	           mem_cont2,rownum as num
+	    FROM (SELECT no,chef,poster,mem_cont1,mem_cont3,mem_cont7,
+	           mem_cont2
+	    FROM chef ORDER BY no ASC))
+	    WHERE num BETWEEN #{start} AND #{end}
+	  </select>
+	  <select id="recipeChefTotalPage" resultType="int">
+	   SELECT CEIL(COUNT(*)/30.0) FROM chef
+	  </select>
+   */
+  public static List<ChefVO> recipeChefListData(Map map)
+  {
+	  SqlSession session=ssf.openSession();
+	  List<ChefVO> list=session.selectList("recipeChefListData",map);
+	  session.close();
+	  return list;
+  }
+  public static int recipeChefTotalPage()
+  {
+	  SqlSession session=ssf.openSession();
+	  int total=session.selectOne("recipeChefTotalPage");
+	  session.close();
+	  return total;
+  }
   
 }
