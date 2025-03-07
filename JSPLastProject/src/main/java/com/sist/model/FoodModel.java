@@ -78,7 +78,13 @@ public class FoodModel {
 	  request.setAttribute("main_jsp", "../food/food_detail.jsp");
 	  return "../main/main.jsp";
   }
-  
+  @RequestMapping("food/food_find.do")
+  public String recipe_find(HttpServletRequest request,
+  		HttpServletResponse response)
+  {
+  	request.setAttribute("main_jsp", "../food/food_find.jsp");
+  	return "../main/main.jsp";
+  }
 }
 
 
