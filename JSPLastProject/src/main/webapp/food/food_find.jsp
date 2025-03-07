@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
+let curpage=1
+let totalpage=0
+let startPage=0
+let endPage=0
 $(function(){
 	$('#ss').val('마포')
 	let fd=$('#fd').val()
@@ -18,6 +22,14 @@ $(function(){
 		success:function(result){
 			//$('#view').text(result)
 		  	let json=JSON.parse(result)
+		  	//console.log(json)
+		  	/*
+		  	  json=[{curpage},{},{}...] 12
+		  	*/
+		  	/* curpage=json[0].curpage
+		  	totalpage=json[0].totalpage
+		  	startPage=json[0].startPage
+		  	endPage=json[0].endPage */
 		  	jsonView(json)
 		}
 	})
@@ -48,6 +60,7 @@ $(function(){
 				success:function(result){
 					//$('#view').text(result)
 				  	let json=JSON.parse(result)
+				  	console.log(json)
 				  	jsonView(json)
 				}
 			})
@@ -95,6 +108,46 @@ function jsonView(json)
             +'</div>'
             +'</div>'
 	})
+	
+	html+='<div class="col-12">'
+	html+='<div class="pagination-area d-sm-flex mt-15">'
+	html+='<nav aria-label="#">'
+	html+='<ul class="pagination">'
+      if(json[0].startPage>1)
+      {
+       html+='<li class="page-item">'
+       html+='<a class="page-link" onclick="prev('+(json[0].startPage-1)+')">이전 <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>'
+       html+='</li>'
+      }
+            
+      for(let i=json[0].startPage;i<=json[0].endPage;i++)
+      {
+    	  if(json[0].curpage===i)
+    	  {
+    		  html+='<li class="page-item active"><a class="page-link" onclick="pageChange('+i+')">'+i+'</a></li>'
+    	  }
+    	  else
+    	  {
+    		  html+='<li class="page-item"><a class="page-link" onclick="pageChange('+i+')">'+i+'</a></li>'
+    	  }
+    	  
+      }
+            
+            if(json[0].endPage<json[0].totalpage)
+            {
+            	html+='<li class="page-item">'
+            	html+='<a class="page-link" onclick="next('+(json[0].endPage+1)+')">다음 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>'
+            	html+='</li>'
+            }
+            
+            html+='</ul>'
+            html+='</nav>'
+            html+='<div class="page-status">'
+            html+='<p>Page '+json[0].curpage+' of '+json[0].totalpage+' results</p>'
+            html+='</div>'
+            html+='</div>'
+            html+='</div>'
+
 	$('#view').html(html)
 	// 페이지 
 }
@@ -147,35 +200,7 @@ function jsonView(json)
             <div class="row" id="view">
                
                 
-                
-                <%-- <div class="col-12">
-                    <div class="pagination-area d-sm-flex mt-15">
-                        <nav aria-label="#">
-                            <ul class="pagination">
-                               <c:if test="${startPage>1 }">
-                                 <li class="page-item">
-                                    <a class="page-link" href="../food/food_list.do?page=${startPage-1 }">이전 <i class="fa fa-angle-double-left" aria-hidden="true"></i></a>
-                                 </li>
-                                </c:if>
-                                
-                                <c:forEach var="i" begin="${startPage }" end="${endPage }">
-                                 <li class="page-item ${i==curpage?'active':'' }"><a class="page-link" href="../food/food_list.do?page=${i }">${i }</a></li>
-                                </c:forEach>
-                                
-                                <c:if test="${endPage<totalpage }">
-                                 <li class="page-item">
-                                    <a class="page-link" href="../food/food_list.do?page=${endPage+1 }">다음 <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
-                                 </li>
-                                </c:if>
-                            </ul>
-                        </nav>
-                        <div class="page-status">
-                            <p>Page ${curpage } of ${totalpage } results</p>
-                        </div>
-                    </div>
-                </div>
-
-            --%>
+              
             </div> 
         </div>
     </section>

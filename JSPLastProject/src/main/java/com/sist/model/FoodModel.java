@@ -117,6 +117,7 @@ public class FoodModel {
 	  
 	  // JSON변경 
 	  JSONArray arr=new JSONArray();
+	  int i=0;
 	  // fno,name,poster,score,type,content,theme,phone,address
 	  for(FoodVO vo:list)
 	  {
@@ -132,7 +133,16 @@ public class FoodModel {
 		  obj.put("address", vo.getAddress());
 		  obj.put("likecount", vo.getLikecount());
 		  obj.put("replycount", vo.getReplycount());
+		  if(i==0)
+		  {
+			  obj.put("curpage", curpage);
+			  obj.put("totalpage", totalpage);
+			  obj.put("startPage", startPage);
+			  obj.put("endPage",endPage);
+		  }
+		  
 		  arr.add(obj);
+		  i++;
 	  }
 	  
 	  // 전송
