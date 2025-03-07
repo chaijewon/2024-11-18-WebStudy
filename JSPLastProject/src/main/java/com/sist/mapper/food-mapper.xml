@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    1. CURD = INSERT / UPDATE / DELETE / SELECT
+              게시판 
+    2. JOIN 
+    3. SubQuery 
+    ===========================================
+    4. 동적쿼리 
+    
+              
+ -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.sist.mapper.food-mapper">
   <!--  main : main 맛집 -->

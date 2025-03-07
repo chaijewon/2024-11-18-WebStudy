@@ -18,6 +18,17 @@ import org.json.simple.JSONObject;
 import com.sist.vo.*;
 import com.sist.dao.*;
 @Controller
+/*
+ *          JSP .do
+ *           |
+ *   DispatcherServlet (Controller) ***
+ *           |
+ *         (Model) ******* DAO
+ *           | request
+ *   DispatcherServlet  ***
+ *           | request
+ *          (JSP) 
+ */
 public class FoodModel {
   @RequestMapping("food/food_list.do")
   public String food_list(HttpServletRequest request,
