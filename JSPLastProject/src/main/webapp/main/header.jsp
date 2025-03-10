@@ -45,17 +45,17 @@ function login(){
                         <div class="login_register_area d-flex">
                            <c:if test="${sessionScope.id==null }">
                             <div class="login">
-                                <a href="javascript:login()">로그인</a>
+                                <a href="javascript:login()" class="btn btn-outline-primary">로그인</a>
                             </div>
                             <div class="register">
-                                <a href="../member/join.do">회원가입</a>
+                                <a href="../member/join.do" class="btn btn-outline-warning">회원가입</a>
                             </div>
                            </c:if>
                            
                            <c:if test="${sessionScope.id!=null }">
                             <div class="login">
                                 ${sessionScope.name}(${sessionScope.admin=='y'?"관리자":"일반사용자" })님 로그인되었습니다&nbsp;&nbsp;
-                                <a href="../member/logout.do">로그아웃</a>
+                                <a href="../member/logout.do" class="btn btn-outline-danger">로그아웃</a>
                             </div>
                            </c:if>
                         </div>
@@ -168,7 +168,7 @@ function login(){
                                         <a class="dropdown-item" href="index.html">자유게시판</a>
                                         <a class="dropdown-item" href="archive.html">묻고답하기</a>
                                         <a class="dropdown-item" href="single.html">공지사항</a>
-                                        <a class="dropdown-item" href="single.html">실시간채팅</a>
+                                        <a class="dropdown-item" href="../chat/chat.do">실시간채팅</a>
                            
                                    </div>
                                  
