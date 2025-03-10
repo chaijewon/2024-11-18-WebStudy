@@ -9,6 +9,7 @@ import com.sist.vo.MemberVO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberModel {
@@ -87,5 +88,36 @@ public class MemberModel {
 	   return "../member/login.jsp";
    }
    // 로그인 
+   @RequestMapping("member/login_ok.do")
+   public void member_login_ok(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   String id=request.getParameter("id");
+	   String pwd=request.getParameter("pwd");
+	   MemberVO vo=MemberDAO.memberLogin(id, pwd);
+	   if(vo.getMsg().equals("OK"))
+	   {
+		   HttpSession session=request.getSession();
+		   session.setAttribute("id", vo.getId());
+		   session.setAttribute("name", vo.getName());
+		   session.setAttribute("sex", vo.getSex());
+		   session.setAttribute("admin", vo.getAdmin());
+		   // post / addr1 / addr2 / email / phone 
+	   }
+	   try
+	   {
+		   response.setContentType("text/html;charset=UTF-8");
+		   PrintWriter out=response.getWriter();
+		   out.write(vo.getMsg());
+	   }catch(Exception ex) {}
+   }
    // 로그아웃 
+   @RequestMapping("member/logout.do")
+   public String member_logout(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   HttpSession session=request.getSession();
+	   session.invalidate();
+	   return "redirect:../main/main.do";
+   }
 }

@@ -41,4 +41,39 @@ public class MemberDAO {
 	   session.insert("memberInsert",vo);
 	   session.close();
    }
+   /*
+    *  <select id="memberIdCheckCount" resultType="int" parameterType="string">
+		   SELECT COUNT(*) FROM project_member
+		   WHERE id=#{id}
+		  </select>
+		  <select id="memberGetPassword" resultType="MemberVO" parameterType="string">
+		   SELECT id,pwd,name,sex,admin
+		   FROM project_member
+		   WHERE id=#{id}
+		  </select>
+    */
+   public static MemberVO memberLogin(String id,String pwd)
+   {
+	   MemberVO vo=new MemberVO();
+	   SqlSession session=ssf.openSession();
+	   int count=session.selectOne("memberIdCheckCount",id);
+	   if(count==0)
+	   {
+		   vo.setMsg("NOID");
+	   }
+	   else
+	   {
+		   vo=session.selectOne("memberGetPassword",id);
+		   if(pwd.equals(vo.getPwd()))
+		   {
+			   vo.setMsg("OK");
+		   }
+		   else
+		   {
+			   vo.setMsg("NOPWD");
+		   }
+	   }
+	   session.close();
+	   return vo;
+   }
 }

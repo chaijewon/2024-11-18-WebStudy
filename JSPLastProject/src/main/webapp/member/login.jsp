@@ -7,7 +7,55 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-
+<script type="text/javascript">
+$(function(){
+	$('#logBtn').click(function(){
+		let id=$('#id').val()
+		if(id.trim()==="")
+		{
+			$('#id').focus()
+			return
+		}
+		
+		let pwd=$('#pwd').val()
+		if(pwd.trim()==="")
+		{
+			$('#pwd').focus()
+			return
+		}
+		
+		$.ajax({
+			type:'post',
+			url:'../member/login_ok.do',
+			data:{"id":id,"pwd":pwd},
+			success:function(result)
+			{
+				// NOID , NOPWD , OK
+				if(result==='NOID')
+				{
+					alert("아이디 존재하지 않습니다")
+					$('#id').val("")
+					$('#pwd').val("")
+					$('#id').focus()
+				}
+				else if(result==='NOPWD')
+				{
+					alert("비밀번호가 틀립니다")
+					$('#pwd').val("")
+					$('#pwd').focus()
+				}
+				else
+				{
+					
+					parent.location.href="../main/main.do"
+					parent.Shadowbox.close()
+				}
+			}
+		})
+	})
+	
+})
+</script>
 </head>
 <body>
    <div class="container" style="margin-top: 50px">

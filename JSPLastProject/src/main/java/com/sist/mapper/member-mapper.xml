@@ -26,4 +26,14 @@
       #{phone},#{content},'n'
     )
   </insert>
+  <!-- 로그인 -->
+  <select id="memberIdCheckCount" resultType="int" parameterType="string">
+   SELECT COUNT(*) FROM project_member
+   WHERE id=#{id}
+  </select>
+  <select id="memberGetPassword" resultType="MemberVO" parameterType="string">
+   SELECT id,pwd,name,sex,admin
+   FROM project_member
+   WHERE id=#{id}
+  </select>
 </mapper>
