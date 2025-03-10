@@ -1,0 +1,36 @@
+desc %{Creates a "build" directory in the parent directory with compressed versions of the code}
+task :build do
+  require 'pathname'
+
+  chdir(File.dirname(__FILE__)) do
+    compressor = File.join('libraries', 'yuicompressor', 'yuicompressor-2.4.2.jar')
+    build_dir = Pathname.new(File.join('..', 'build')).expand_path
+
+    build_dir.mkpath unless build_dir.exist?
+
+    Pathname.glob('**/*').each do |path|
+      next if !path.file?
+
+      # exclude Rakefile, PSD's, mediaplayer, and yuicompressor
+      next if path.to_s =~ /(yuicompressor|mediaplayer|(rakefile|\.psd)$)/i
+
+      build_file = Pathname.new build_dir.to_s + '/' + path.to_s
+
+      unless build_file.exist?
+        dir = build_file.dirname
+        dir.mkpath unless dir.exist?
+      else
+        next unless build_file.mtime < path.mtime
+      end
+
+      if path.to_s =~ /\.(css|js)$/
+        puts "Compressing #{path} to #{build_file}"
+        java = `java -jar #{compressor} #{path.to_s} -o #{build_file.to_s}`
+      else
+        cp path.to_s, build_file.to_s
+      end
+    end
+
+    puts "Done!"
+  end
+end

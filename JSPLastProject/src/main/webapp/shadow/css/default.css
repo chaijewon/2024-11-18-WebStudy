@@ -1,0 +1,267 @@
+@charset "utf-8";
+/* 기본 */
+
+* { 
+margin:0; padding:0; border:0; font-family:Dotum,Dotumche,tahoma;
+font-size:12px; color:#5B5B5B; 
+
+}
+
+html, body 
+{ 
+	scrollbar-face-color: #F2F2F2;
+	scrollbar-shadow-color: #999999;
+	scrollbar-highlight-color: #999999;
+	scrollbar-3dlight-color: #FFFFFF;
+	scrollbar-darkshadow-color: #FFFFFF;
+	scrollbar-track-color: #F2F2F2;
+	scrollbar-arrow-color: #999999;
+	
+	font-size:12px; color:#5B5B5B; border:none; line-height: 16px;
+	background-color:#FBFCEE;
+	/*background:url(/images/background_sub.gif);*/
+}
+
+
+table, td, th, p, h1, h2, h3, h4, h5	{	word-break:break-all; word-wrap:break-word; list-style:none;						}
+div, ul, ol, li, dl, dt, dd, span		{	word-break:break-all; word-wrap:break-word; list-style:none;border:none;	}
+
+hr{	display:none;		}
+
+.png24 { tmp:expression(setPng24(this)); } 
+
+
+/* 링크관련 */
+a:link,      
+a:active,    
+a:visited,  {	text-decoration: none; color:#5B5B5B;		}
+a:hover    {	text-decoration: none; color:#000000;	}
+
+a {selector-dummy : expression(this.hideFocus=true);} 
+
+
+/* 기본클래스 */
+.fl		{ float:left !important; }
+.fr		{ float:right !important; }
+.cb	{ clear:both !important; }
+.ac	{ text-align:center !important; }
+.al		{ text-align:left !important; }
+.ar		{ text-align:right !important; }
+.vt		{ vertical-align:top !important; }
+.vm	{ vertical-align:middle !important; }
+.vb	{ vertical-align:bottom !important; }
+.jf		{ text-align:justify !important; }
+.oh	{ overflow:hidden !important; }
+.cp	{ cursor:pointer !important; }
+.di		{ display:inline !important; }
+.dn	{ display:none !important; }
+.db	{ display:block !important; }
+.vv	{ visibility:visible !important; }
+.vh	{ visibility:hidden !important; }
+.bn	{ border:none !important; }
+.bbn	{ border-bottom:none !important; }
+.brn	{ border-right:none !important; }
+.bgn	{ background:none !important; } 
+.fb		{ font-weight:bold !important; }
+.fs		{ font-size:11px !important; }
+
+
+/* 폼관련 */
+form			{	margin:0px; padding:0px;}
+textarea		{	font-family: tahoma; font-size:12px;color: #5B5B5B; line-height:16px; letter-spacing:-0.9px;	}
+Input			{	font-family: tahoma; font-size:12px;color: #5B5B5B; line-height:16px; letter-spacing:-0.9px;	}
+select		{	font-family: Dotum,Dotumche,tahoma; font-size:11px;color: #5B5B5B; line-height:16px; background-color:#F5F5F5; letter-spacing:-0.9px; HEIGHT: 18px;	 }
+
+.box {
+	  BORDER-RIGHT: #cfcfcf 1px solid; 
+	  BORDER-TOP: #cfcfcf 1px solid; 
+	  BORDER-LEFT: #cfcfcf 1px solid; 
+	  BORDER-BOTTOM: #cfcfcf 1px solid;
+	  BACKGROUND: #FFFFFF;
+	  HEIGHT: 18px;
+	  cursor:arrow;
+ }
+
+.textarea {
+	  BORDER-RIGHT: #cfcfcf 1px solid; 
+	  BORDER-TOP: #cfcfcf 1px solid; 
+	  BORDER-LEFT: #cfcfcf 1px solid; 
+	  BORDER-BOTTOM: #cfcfcf 1px solid;
+	  BACKGROUND: #FFFFFF;
+	  WIDTH: 100%;
+	  HEIGHT: 50px; 
+}
+
+
+
+/* 폰트관련 */ 
+.f12px {FONT-FAMILY:tahoma; font-size:12px; line-height:16px; letter-spacing:-0.9px;} /* 기본 12폰트 */ 
+ 
+
+
+/* 라인관련 */
+.w_line		{ border-top: 1px solid #dfdfdf; margin: 0px;	}	 
+.h_line		{ border-left: 1px solid #dfdfdf; margin: 0px;	}
+.wc_line		{ border-top: 1px solid #363636; margin: 0px;	}
+.hc_line		{ border-left: 1px solid #363636; margin: 0px;	}
+.wc2_line	{ border-top: 2px solid #434544; margin: 0px;	}
+.wc4_line	{ border-top: 4px solid #434544; margin: 0px;	}  
+
+
+/* 패딩관련 */
+.pd { padding:4px 0px 3px 0px; }
+.pd_c { padding:4px 0px 3px 0px; text-align:center; }
+.pd_box { padding:4px 0px 3px 0px; text-align:center; }
+.pd_img { padding:5px 0px 0px 0px; text-align:center; }
+
+.pdw_img { padding:13px 20px 13px 10px; }
+.pdw_box { padding-top:9px; }
+.pdw_text { padding-top:12px; }
+
+
+/* ///////[ input박스] ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+.inbox		{	background: #FFFFFF;	 width:99%;	height: 18px;	padding:1px 0px 0px 0px; border: #CFCFCF 1px solid;	 }   
+.viewbox	{	background: #FFFFFF;	 width:99%;	height: 18px;	padding:2px 2px 0px 2px; border: 0px;	}  
+
+
+
+/* ///////[기본레이아웃]///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */ 
+
+#Human		{	width:100%; height:100%;	margin-top:5px;  margin:0px; background:url(../images/top_background.jpg); background-repeat:no-repeat;}
+
+#TOP			{	width:100%; height:300px;		padding:0px; margin:0px;	clear:both;		}
+#BODY		{	width:1024px; height:65%;	padding:0px; margin:0px;	clear:both;		}  
+#BOTTOM	{	width:100%;	height:10%;	padding:0px; margin:0px;	background-color:#F4F4D8;clear:both;	}
+
+ 
+#TOP .TopMenu1	{	float:left; width:1024px;	height:65px; padding:0px; margin:0px; position:absolute;z-index:10; top:0;left:0;		  }
+#TOP .TopMenu2	{	float:left; width:10%;	height:65px; padding:0px  margin:0px; background:url(../images/top_menu_bg.gif); background-repeat:repeat-x;  	}
+#TOP .TopImg			{	float:left; width:1024px;	height:65px; padding:0px; margin:50px 0px 0px 0px;	 }
+
+#BODY .LeftMenu {	float:left; width:225px;	padding:0px; margin:0px;							}
+#BODY .Content	 {	float:left; width:772px;	padding:0px; margin:0px 17px 0px 10px;		}
+
+#BODY .Content .subTitle1	 {	float:left; width:500px; height:35px; padding:10px 0 0 0; margin:0px;font-weight:bold;font-size:19px;}
+#BODY .Content .subTitle2	 {	float:left; width:272px; height:35px;	 padding:12px 0px 0px 0px; margin:0px;		}
+
+/*///////////////// 회원가입 레이아웃 ///////////////////////////*/
+ 
+#BODY .personal_join_basic {	float : left; width : 600px;	}
+#BODY .personal_join_address {	clear : both;	float : left; width : 600px;	}
+#BODY .personal_join_channel {	clear : both;	float : left; width : 600px;	}
+#BODY .personal_join_capcha {	clear : both;	float : left; width : 600px;	}
+#BODY .corp_join_basic {	float : left; width : 600px;	}
+#BODY .corp_join_address {	clear : both;	float : left; width : 600px;	}
+#BODY .corp_join_manager {	clear : both;	float : left; width : 600px;	}
+#BODY .corp_join_channel {	clear : both;	float : left; width : 600px;	}
+#BODY .view_agreement {	float : left;	width : 620px;	}
+#BODY .text_agreement {	width : 540px; height : 200px; margin : 0 30px 30px 40px; background-color: #fbfcee;	}
+#BODY .text_privacy {	width : 540px; height : 200px; margin : 0 30px 30px 40px; background-color: #fbfcee;	}
+#BODY .agree_agreement {	clear : both;	float : left;	margin: -20px 0 24px 0;	width : 230px;	font-size : 14px;	font-weight : bold;	}
+#BODY .set_joinbutton {	clear : both;	float : left;	width : 600px;	margin-bottom : 24px;	}
+
+
+/* ///////////////////////////프로필 레이아웃 ////////////////////////////// */
+
+#BODY .box_profile {	float : left;	margin : 0 0 24px 12px;	width : 750px;	height : 230px;	border : 2px solid #dfbe9d;	}
+#BODY .box_profile li {	list-style: none;	}
+#BODY .box_pic {	float : left; width : 160px;	}
+#BODY .box_pic .input_button {	margin-top : -26px;	margin-left : 36px;}
+#BODY .box_content {	float : left;	margin-top : 40px; }
+#BODY .box_content .sub {	font-size : 16px;	font-weight : bold;	}
+#BODY .box_sub {	padding-top:30px; float : right;	width : 240px; height : 180px; margin-top : 9px; border-left : 2px solid #dfbe9d;}
+#BODY .box_sub fieldset {	border : 2px solid #dfbe9d;	}
+#BODY .box_sub ol li {	margin-left:-25px;}
+#BODY .box_sub ul li {	margin-left:15px; list-style: square; list-style-position: inherit;}
+#BODY .box_sub ul li #box_submargin {	padding-bottom: 20px }
+#BODY .ex1 {	float : left;	width : 520px;	padding-top: 5px;	}
+#BODY .ex1 li {	list-style: none; margin-left: -10px;	}
+#BODY .carr {	float : left;	width : 520px;	}
+#BODY .nomination {	float : left;	width : 520px;	}
+#BODY .introme {	float : left;	width : 520px;	}
+#BODY .achievement {	float : left;	width : 520px;	}
+#BODY .purpose {	float : left;	width : 520px;	}
+#BODY .openinfo {	float : left;	width : 520px;	}
+#BODY .complete {	float : right; width : 192px;	margin-right : 6px; margin-bottom : 10px; border : 2px solid #dfbe9d;	}
+#BODY .complete .sub {	margin-top : 6px;	font-size : 16px;	font-weight : bold;	}
+#BODY .complete .content {	margin-left : 4px; text-align : left;	}
+#BODY .complete .complete_bar {	 height : 20px; background-image:url("../images/profile/bar.png");		}
+#BODY .complete .bar_back {	width : 170px; height : 20px; text-align : left; background-color : #fff;	border : 1px dotted #ccc;	}
+#BODY .mygroup {	clear : both; float : right;	width : 200px;	margin-right : 4px; }
+#BODY .mygroup .tbl {	width : 196px; border : 2px solid #dfbe9d;	}
+#BODY .mygroup .sub {	height : 24px;	font-size : 14px; font-weight : bold; background-color : #dfbe9d;	}
+#bbs_profile legend {	margin-left : 12px; margin-bottom : 14px;	font-size : 15px;	font-weight : bold;		}
+#bbs_profile ol {	list-style : none;	}
+#bbs_profile li {	font-size : 12px;	text-align : left;		padding : 0 20px 12px 20px; list-style: circle; list-style-position: inside;	}
+#bbs_profile label {	margin-left : 18px;		margin-bottom : 8px;		font-size : 14px;	font-weight : bold;	color : #666666;	}
+#bbs_profile span {	margin-left : 20px;		font-size : 12px; 	}
+#bbs_profile .input_button {	height :22px;	border : 1px solid #666666;	margin-top : 8px;	}
+#bbs_profile .profile_pic {	float : left;	width : 122px;	margin : 20px 12px 20px 12px;border: 1px double #cccccc; }
+#bbs_profile .bullet {	margin-top : -6px;	padding-right : 10px;	}
+#profile_write {	width : 520px;	margin : 15px; background-color:#FBFCEE;	}
+#profile_write fieldset {	padding-top : 12px;	padding-bottom : 12px;	}
+#profile_write .input_button {	width : 70px;	}
+#profile_write textarea {	border : 1px solid #000;	}
+
+/* //////////////// 개인인맥 네트워크 ///////////// */
+
+#hrnetwork .hrnetwork_table {	width : 750px;	}
+#hrnetwork .hrnetwork_table_subject {	float : left;	width : 720px;	padding-top : 5px;	padding-bottom : 5px;	border-top : 2px solid #dfbe9d;	border-bottom : 2px solid #dfbe9d;	font-weight : bold;}
+#hrnetwork .hrnetwork_table_content {	clear : both;	float : left;	width : 720px;	margin-top : 8px;	margin-bottom : 6px;	}
+#hrnetwork .img {	float : left;	width : 60px;	font-size : 15px;	}
+#hrnetwork .img_pic {	float : left;	width : 30px;	height : 30px;	margin-left : 12px;	margin-top : -2px;	font-size : 15px;	}
+#hrnetwork .name {	float : left;	width : 100px;	font-size : 15px;	}
+#hrnetwork .current {	float : left;	width : 180px;	font-size : 15px;	}
+#hrnetwork .business {	float : left;	width : 140px;	font-size : 15px;	}
+#hrnetwork .area {	float : left;	width : 140px;	font-size : 15px;	}
+#hrnetwork .netcancel {	float : left;	width : 80px;	font-size : 15px;	}
+#hrnetwork .hrnet_text {	float : left;	margin-left : 20px;	margin-bottom : 24px;	font-size : 14px;	font-weight : bold;	}
+#hrnetwork .hrnet_btn {	float : left;	margin-left : 18px;}
+
+
+/* 명진이가 쓸려고 만든 css입니다. */
+
+#mcheckid_write {     width : 400px;	margin : 15px;	}
+#mcheckid_write fieldset {	padding-top : 12px;	padding-bottom : 12px;	}
+#mcheckid_write .input_button {	width : 70px;	}
+#mcheckid_write textarea {	border : 1px solid #000;	}
+
+#postfind_write {     width : 460px;	margin : 15px;	}
+#postfind_write fieldset {	padding-top : 12px;	padding-bottom : 12px;	}
+#postfind_write .input_button {	width : 70px;	}
+#postfind_write textarea {	border : 1px solid #000;	}
+
+#compfind_write {     width : 800px;	margin : 15px;	}
+#compfind_write fieldset {	padding-top : 12px;	padding-bottom : 12px;	}
+#compfind_write .input_button {	width : 70px;	}
+#compfind_write textarea {	border : 1px solid #000;	}
+
+#mojor_write {     width : 450px;	margin : 15px;	}
+#mojor_write fieldset {	padding-top : 12px;	padding-bottom : 12px;	}
+#mojor_write .input_button {	width : 70px;	}
+#mojor_write textarea {	border : 1px solid #000;	}
+/* 여기까지 명진이가 쓸려고 만든 css입니다.*/
+
+
+/* ////////////////입력폼 레이아웃/////////////////// */
+
+#bbs_write fieldset {	margin : 0 0 24px 0;	border : 2px solid #9e7a54;	}
+#bbs_write legend {	margin-left : 16px;	margin-bottom : 18px;	color : #666666;	font-size : 16px;	font-weight : bold;	}
+#bbs_write ol {	list-style : none;	}
+#bbs_write li {	font-size : 14px;	text-align : left;		padding : 0 12px 8px 12px;	}
+#bbs_write textarea { font-size : 13px;	text-align : left;	border : 2px solid #d1caca;	}
+#bbs_write label {	float : left;	width : 120px;	margin-right : 12px;	margin-top : 3px;	text-align : right;	font-size : 14px;	}
+#bbs_write span {	magin-bottom : 12px; font-size : 14px;	}
+#bbs_write p {	font-size : 14px;	font-weight : bold;	}
+#bbs_write .input_text {	height : 20px;	border : 1px solid #666666; 	}
+#bbs_write .input_button {	height : 22px;	border : 1px solid #666666;	}
+#bbs_write .submit {	clear : both;	float : left;	margin-left : 270px;	margin-bottom : 12px;	border : 1px solid #666666;	}
+#bbs_write .id {	font-size : 12pt;	font-weight : bold;	}
+#bbs_write .rid {	font-size : 11pt;	color: #1f52d2; }
+#bbs_write .inputTxtArea{font-size : 15px; width: 350px; height: 100px;}
+.ridStyle a:link,.ridStyle a:visited,.ridStyle a:hover {color: #379b55; }
+
+
+
+
+

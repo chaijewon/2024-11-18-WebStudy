@@ -76,7 +76,7 @@
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">회원</a>
                                     <c:if test="${sessionScope.id==null }">
                                      <div class="dropdown-menu" aria-labelledby="yummyDropdown">
-                                        <a class="dropdown-item" href="index.html">회원가입</a>
+                                        <a class="dropdown-item" href="../member/join.do">회원가입</a>
                                         <a class="dropdown-item" href="archive.html">아이디찾기</a>
                                         <a class="dropdown-item" href="single.html">비밀번호찾기</a>
                            
@@ -135,7 +135,7 @@
                                         <a class="dropdown-item" href="../seoul/seoul_list.do?mode=2">자연 & 관광</a>
                                         <a class="dropdown-item" href="../seoul/seoul_list.do?mode=3">쇼핑</a>
                                         <a class="dropdown-item" href="../seoul/seoul_list.do?mode=4">음식</a>
-                                        <a class="dropdown-item" href="single.html">날씨</a>
+                                        <a class="dropdown-item" href="../seoul/weather.do">날씨</a>
                                         <a class="dropdown-item" href="single.html">여행코스</a>
                                    </div>
                                  

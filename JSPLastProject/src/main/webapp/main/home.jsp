@@ -18,7 +18,7 @@
                     <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
                         <img src="../img/catagory-img/1.jpg" alt="">
                         <div class="catagory-title">
-                            <a href="#">
+                            <a href="../food/food_list.do">
                                 <h5>Food</h5>
                             </a>
                         </div>
@@ -28,7 +28,7 @@
                     <div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
                         <img src="../img/catagory-img/2.jpg" alt="">
                         <div class="catagory-title">
-                            <a href="#">
+                            <a href="../recipe/recipe_list.do">
                                 <h5>Recipe</h5>
                             </a>
                         </div>
@@ -38,7 +38,7 @@
                     <div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
                         <img src="../img/catagory-img/3.jpg" alt="">
                         <div class="catagory-title">
-                            <a href="#">
+                            <a href="../seoul/seoul_list.do?mode=1">
                                 <h5>Travel</h5>
                             </a>
                         </div>
@@ -246,9 +246,8 @@
                                 <div class="add-text">
                                     <div class="yummy-table">
                                         <div class="yummy-table-cell">
-                                            <h2>타켓 광고</h2>
-                                            <p>Buy Book Online Now!</p>
-                                            <a href="#" class="add-btn">Buy Now</a>
+                                            
+                                            <iframe src="http://www.youtube.com/embed/MuYcCAUdjBE\u0026pp=QAFIAQ%3D%3D" style="width:100%"></iframe>
                                         </div>
                                     </div>
                                 </div>

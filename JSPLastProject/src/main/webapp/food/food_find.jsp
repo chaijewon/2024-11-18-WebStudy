@@ -165,7 +165,7 @@ function jsonView(json)
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item">
-                             <select id="fd" class="input-sm">
+                             <select id="fd" class="form-control-sm">
                                <option value="name">업체명</option>
                                
               
@@ -173,7 +173,7 @@ function jsonView(json)
                                <option value="theme">테마</option>
                                <option value="address" selected>주소</option>
                              </select>
-                             <input type=text size=15 id="ss" class="input-sm">
+                             <input type=text size=15 id="ss" class="form-control-sm">
                              <input type=button value="검색" class="btn-sm btn-primary" id="findBtn">
                              
                              
