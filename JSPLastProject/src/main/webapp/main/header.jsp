@@ -180,12 +180,12 @@ function login(){
                                 <c:if test="${sessionScope.id!=null }">
                                  <c:if test="${sessionScope.admin=='n' }">
                                   <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">마이페이지</a>
+                                    <a class="nav-link" href="../mypage/my_main.do">마이페이지</a>
                                   </li>
                                  </c:if>
                                  <c:if test="${sessionScope.admin=='y' }">
                                   <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">관리자페이지</a>
+                                    <a class="nav-link" href="../adminpage/admin_main.do">관리자페이지</a>
                                   </li>
                                  </c:if>
                                 </c:if>
