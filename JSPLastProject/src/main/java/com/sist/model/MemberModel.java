@@ -49,6 +49,7 @@ public class MemberModel {
 	   
    }
    @RequestMapping("member/join_ok.do")
+   // MemberVO vo
    public String member_join_ok(HttpServletRequest request,
 		   HttpServletResponse response)
    {
@@ -79,6 +80,7 @@ public class MemberModel {
 	   vo.setContent(content);
 	   
 	   MemberDAO.memberInsert(vo);
+	   
 	   return "redirect:../main/main.do";
    }
    @RequestMapping("member/login.do")
