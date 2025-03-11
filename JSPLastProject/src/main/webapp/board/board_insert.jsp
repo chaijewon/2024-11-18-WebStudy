@@ -38,6 +38,7 @@
     <section class="archive-area section_padding_80">
         <div class="container">
             <div class="row" style="width:800px;margin:0px auto">
+             <form method="post" action="../board/board_insert_ok.do">
               <table class="table">
                <tr>
                 <th class="text-center" width=15%>이름</th>
@@ -79,6 +80,7 @@
                  </td>
                </tr>
               </table>
+              </form>
             </div>
         </div>
     </section>

@@ -57,7 +57,7 @@
               <c:forEach var="vo" items="${list }">
                 <tr>
                  <td width=10% class="text-center">${vo.no }</td>
-                 <td width=45%>${subject }</td>
+                 <td width=45%><a href="../board/board_detail.do?no=${vo.no }&page=${curpage}">${vo.subject }</a></td>
                  <td width=15% class="text-center">${vo.name }</td>
                  <td width=20% class="text-center">${vo.dbday }</td>
                  <td width=10% class="text-center">${vo.hit }</td>
@@ -74,9 +74,9 @@
                  <input type=button value="검색" class="btn-outline-primary btn-sm">
                 </td>
                 <td class="text-right">
-                 <a href="#" class="btn btn-outline-info btn-sm">이전</a>
+                 <a href="../board/board_list.do?page=${curpage>1?curpage-1:curpage }" class="btn btn-outline-info btn-sm">이전</a>
                   ${curpage } page / ${totalpage } pages
-                 <a href="#" class="btn btn-outline-success btn-sm">다음</a>
+                 <a href="../board/board_list.do?page=${curpage<totalpage?curpage+1:curpage }" class="btn btn-outline-success btn-sm">다음</a>
                 </td>
                </tr>
              </table>

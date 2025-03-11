@@ -76,4 +76,52 @@ public class BoardDAO {
 	  session.insert("boardInsert",vo);
 	  session.close();
   }
+  /*
+   *  <update id="boardUpdate" parameterType="BoardVO">
+	   UPDATE project_board SET
+	   name=#{name},subject=#{subject},content=#{content}
+	   WHERE no=#{no}
+	 </update>
+	 <!-- 삭제 -->
+	 <select id="boardGetPassword" resultType="string" 
+	     parameterType="int">
+	   SELECT pwd FROM project_board
+	   WHERE no=#{no}
+	 </select>
+	 <delete id="boardDelete" parameterType="int">
+	   DELETE FROM project_board
+	   WHERE no=#{no}
+	 </delete>
+   */
+  public static BoardVO boardUpdateData(int no)
+  {
+	  SqlSession session=ssf.openSession();
+	  BoardVO vo=session.selectOne("boardDetailData",no);
+	  session.close();
+	  return vo;
+  }
+  public static void boardUpdate(BoardVO vo)
+  {
+	  SqlSession session=ssf.openSession(true);
+	  session.update("boardUpdate",vo);//insert/update/delete
+	  // ps.executeUpdate()
+	  session.close();
+  }
+  
+  public static String boardGetPassword(int no)
+  {
+	  SqlSession session=ssf.openSession();
+	  String pwd=session.selectOne("boardGetPassword",no);
+	  session.close();
+	  return pwd;
+  }
+  
+  public static void boardDelete(int no)
+  {
+	  SqlSession session=ssf.openSession(true);
+	  session.delete("boardDelete",no);//insert/update/delete
+	  // ps.executeUpdate()
+	  session.close();
+  }
+  
 }

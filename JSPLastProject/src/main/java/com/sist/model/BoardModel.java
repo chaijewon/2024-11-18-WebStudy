@@ -5,6 +5,8 @@ import com.sist.controller.RequestMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.PrintWriter;
 /*
  *   (HttpServletRequest request,
 		   HttpServletResponse response)
@@ -61,4 +63,57 @@ public class BoardModel {
 	   BoardDAO.boardInsert(vo);
 	   return "redirect:../board/board_list.do";
    }
+   // ../board/board_detail.do?no=${vo.no }
+   @RequestMapping("board/board_detail.do") // if동일 
+   public String board_detail(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   String no=request.getParameter("no");
+	   String page=request.getParameter("page");
+	   BoardVO vo=BoardDAO.boardDetailData(Integer.parseInt(no));
+	   request.setAttribute("vo", vo);
+	   request.setAttribute("page", page);
+	   request.setAttribute("main_jsp", "../board/board_detail.jsp");
+	   return "../main/main.jsp";
+   }
+   
+   @RequestMapping("board/board_pwd_ajax.do")
+   public void board_pwd_ajax(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   String no=request.getParameter("no");
+	   String pwd=request.getParameter("pwd");
+	   String db_pwd=BoardDAO.boardGetPassword(Integer.parseInt(no));
+	   int res=0;
+	   if(db_pwd.equals(pwd))
+	   {
+		   res=1;
+	   }
+	   try
+	   {
+		   response.setContentType("text/html;charset=UTF-8");
+		   PrintWriter out=response.getWriter();
+		   out.write(String.valueOf(res));
+	   }catch(Exception ex) {}
+		   
+   }
+   @RequestMapping("board/board_delete_ajax.do")
+   public void board_delete_ajax(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   String no=request.getParameter("no");
+	   PrintWriter out=null;
+	   try
+	   {
+		   
+		   response.setContentType("text/html;charset=UTF-8");
+		   out=response.getWriter();
+		   
+		   BoardDAO.boardDelete(Integer.parseInt(no));
+		   out.write("yes");
+	   }catch(Exception ex) {
+		   out.write("no");
+	   }
+   }
+   
 }
