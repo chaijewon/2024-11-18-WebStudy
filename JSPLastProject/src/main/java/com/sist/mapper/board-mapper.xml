@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.board-mapper">
+ <select id="boardListData" resultType="BoardVO" parameterType="hashmap">
+   SELECT no,subject,name,TO_CHAR(regdate,'YYYY-MM-DD') as dbday,hit,num
+   FROM (SELECT no,subject,name,regdate,hit,rownum as num 
+   FROM (SELECT no,subject,name,regdate,hit
+   FROM project_board ORDER BY no DESC))
+   WHERE num BETWEEN #{start} AND #{end}
+ </select>
+ <select id="boardTotalPage" resultType="int">
+   SELECT CEIL(COUNT(*)/10.0) FROM project_board
+ </select>
+ <insert id="boardInsert" parameterType="BoardVO">
+   <selectKey keyProperty="no" resultType="int" order="BEFORE">
+     SELECT NVL(MAX(no)+1,1) as no FROM project_board
+   </selectKey>
+   INSERT INTO project_board VALUES(
+     #{no},#{name},#{subject},#{content},#{pwd},
+     SYSDATE,0
+   )
+ </insert>
+ <update id="boardHitIncrement" parameterType="int">
+   UPDATE project_board SET
+   hit=hit+1
+   WHERE no=#{no}
+ </update>
+ <select id="boardDetailData" resultType="int" parameterType="BoardVO">
+   SELECT no,name,subject,content,hit,
+   TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') as dbday
+   FROM project_board
+   WHERE no=#{no}
+ </select>
+ <!-- 수정 -->
+ <!-- 삭제 -->
+</mapper>
+

@@ -47,7 +47,7 @@
               <input type=submit value="검색" class="btn btn-sm btn-outline-danger">
             </form>
             </div>
-            <div class="row">
+            <div class="row" style="margin-top: 20px">
 
                 <!-- Single Post -->
                 <c:forEach var="vo" items="${list }">

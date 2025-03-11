@@ -17,6 +17,7 @@
      <typeAlias type="com.sist.vo.ChefVO" alias="ChefVO"/>
      <typeAlias type="com.sist.vo.MemberVO" alias="MemberVO"/>
      <typeAlias type="com.sist.vo.EmpVO" alias="EmpVO"/>
+     <typeAlias type="com.sist.vo.BoardVO" alias="BoardVO"/>
    </typeAliases>
    <environments default="development">
      <environment id="development">
@@ -50,6 +51,7 @@
      <mapper resource="com/sist/mapper/recipe-mapper.xml"/>
      <mapper resource="com/sist/mapper/member-mapper.xml"/>
      <mapper resource="com/sist/mapper/emp-mapper.xml"/>
+     <mapper resource="com/sist/mapper/board-mapper.xml"/>
    </mappers>
    <!-- 
           동적 쿼리 
