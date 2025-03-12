@@ -115,5 +115,59 @@ public class BoardModel {
 		   out.write("no");
 	   }
    }
-   
+   @RequestMapping("board/board_update.do")
+   public String board_update(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   // public String board_update(int no,int page,Model model)
+	   //                            BoardVO vo
+	   String no=request.getParameter("no");
+	   String page=request.getParameter("page");
+	   BoardVO vo=BoardDAO.boardUpdateData(Integer.parseInt(no));
+	   request.setAttribute("vo", vo);
+	   request.setAttribute("page", page);
+	   
+	   request.setAttribute("main_jsp", "../board/board_update.jsp");
+	   return "../main/main.jsp";
+   }
+   @RequestMapping("board/board_update_ok.do")
+   public String board_update_ok(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   // invoke(obj,request,response)
+	   String name=request.getParameter("name");
+	   String subject=request.getParameter("subject");
+	   String content=request.getParameter("content");
+	   String pwd=request.getParameter("pwd");
+	   String no=request.getParameter("no");
+	   String page=request.getParameter("page");
+	   
+	   BoardVO vo=new BoardVO();
+	   vo.setName(name);
+	   vo.setSubject(subject);
+	   vo.setContent(content);
+	   vo.setNo(Integer.parseInt(no));
+	   
+	   int res=0;
+	   
+	   String db_pwd=BoardDAO.boardGetPassword(Integer.parseInt(no));
+	   if(db_pwd.equals(pwd))
+	   {
+		   BoardDAO.boardUpdate(vo);
+		   res=1;
+	   }
+	   else
+	   {
+		   res=0;
+	   }
+	   request.setAttribute("res", res);
+	   request.setAttribute("page", page);
+	   request.setAttribute("no", no);
+	   return "../board/board_update_ok.jsp";
+   }
 }
+
+
+
+
+

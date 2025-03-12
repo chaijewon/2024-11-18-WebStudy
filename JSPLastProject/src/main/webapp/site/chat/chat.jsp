@@ -20,7 +20,7 @@ let websocket;
 function connection()
 {
 	// 소켓연결 
-	websocket=new WebSocket("ws://localhost:8080/JSPLastProject/site/chat/chat-ws")
+	websocket=new WebSocket("ws://localhost/JSPLastProject/site/chat/chat-ws")
 	websocket.onopen=onOpen
 	websocket.onclose=onClose
 	websocket.onmessage=onMessage

@@ -17,8 +17,8 @@ function login(){
 	Shadowbox.open({
 		content:'../member/login.do',
 		player:'iframe',
-		width:320,
-		height:250,
+		width:300,
+		height:260,
 		title:'로그인'
 	})
 }
@@ -167,7 +167,7 @@ function login(){
                                    <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                         <a class="dropdown-item" href="../board/board_list.do">자유게시판</a>
                                         <a class="dropdown-item" href="archive.html">묻고답하기</a>
-                                        <a class="dropdown-item" href="single.html">공지사항</a>
+                                        <a class="dropdown-item" href="../notice/notice_user_list.do">공지사항</a>
                                         <a class="dropdown-item" href="../chat/chat.do">실시간채팅</a>
                            
                                    </div>

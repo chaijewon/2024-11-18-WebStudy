@@ -6,6 +6,23 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/bootstrap/bootstrap.min.css">
+<style type="text/css">
+#login img{
+  margin: 10px 0;
+}
+#login .center {
+  text-align: center;
+}
+
+#login .login {
+  max-width: 300px;
+	margin: 35px auto;
+}
+
+#login .login-form{
+  padding:0px 25px;
+}
+</style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -82,6 +99,8 @@ $(function(){
          </td>
         </tr>
        </table>
+       
+      
      </div>
    </div>
 </body>

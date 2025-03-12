@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="../food/map.css">
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=72fa81817487692b6dc093004af97650&libraries=services"></script>
 </head>
 <body>
 <!-- ****** Breadcumb Area Start ****** -->
@@ -144,7 +145,7 @@
 			    </div>
 			</div>
 			
-			<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=72fa81817487692b6dc093004af97650&libraries=services"></script>
+			
 			<script>
 			// 마커를 담을 배열입니다
 			var markers = [];

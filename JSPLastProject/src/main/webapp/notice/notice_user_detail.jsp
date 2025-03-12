@@ -12,7 +12,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>수정하기</h2>
+                        <h2>공시사항</h2>
                     </div>
                 </div>
             </div>
@@ -38,53 +38,36 @@
     <section class="archive-area section_padding_80">
         <div class="container">
             <div class="row" style="width:800px;margin:0px auto">
-             <form method="post" action="../board/board_update_ok.do">
               <table class="table">
                <tr>
-                <th class="text-center" width=15%>이름</th>
-                <td width=85%>
-                 <input type=text name=name id=name size=20
-                  class="form-control-sm" required value="${vo.name }">
-                 <input type=hidden name="no" value="${vo.no }">
-                 <input type=hidden name=page value="${page }">
+                <th class="text-center" width=20%>공지</th>
+                <td class="text-center" width=30%>${vo.types }</td>
+                <th class="text-center" width=20%>작성일</th>
+                <td class="text-center" width=30%>${vo.dbday }</td>
+               </tr>
+               <tr>
+                <th class="text-center" width=20%>이름</th>
+                <td class="text-center" width=30%>${vo.name }</td>
+                <th class="text-center" width=20%>조회수</th>
+                <td class="text-center" width=30%>${vo.hit }</td>
+               </tr>
+               <tr>
+                <th class="text-center" width=20%>제목</th>
+                <td colspan="3">${vo.subject }</td>
+               </tr>
+               <tr>
+                <td colspan="4" class="text-left"
+                  valign="top" height="200"><pre style="white-space:pre-wrap;border:none;background-color: white">${vo.content }</pre></td>
+               </tr>
+               <tr>
+                <td colspan="4" class="text-right">
+                 <a href="../notice/notice_user_list.do" class="btn btn-warning btn-xs">목록</a>
                 </td>
                </tr>
                
-               <tr>
-                <th class="text-center" width=15%>제목</th>
-                <td width=85%>
-                 <input type=text name=subject id=subject size=50
-                  class="form-control-sm" required value="${vo.subject }">
-                </td>
-               </tr>
-               
-               <tr>
-                <th class="text-center" width=15%>내용</th>
-                <td width=85%>
-                 <textarea rows="10" cols="52" name=content required>${vo.content }</textarea>
-                </td>
-               </tr>
-               
-               <tr>
-                <th class="text-center" width=15%>비밀번호</th>
-                <td width=85%>
-                 <input type=password name=pwd id=pwd size=20
-                  class="form-control-sm" required>
-                </td>
-               </tr>
-               
-               <tr>
-                 <td colspan="2" class="text-center">
-                  <input type=submit value="수정" class="btn-outline-primary btn-sm">
-                  <input type=button value="취소" class="btn-outline-danger btn-sm"
-                   onclick="javascript:history.back()"
-                  >
-                 </td>
-               </tr>
               </table>
-              </form>
             </div>
-        </div>
+         </div>
     </section>
 </body>
 </html>
