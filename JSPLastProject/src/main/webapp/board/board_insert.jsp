@@ -41,31 +41,31 @@
              <form method="post" action="../board/board_insert_ok.do">
               <table class="table">
                <tr>
-                <th class="text-center" width=15%>이름</th>
-                <td width=85%>
+                <th class="text-center table-warning" width=20%>이름</th>
+                <td width=80%>
                  <input type=text name=name id=name size=20
                   class="form-control-sm" required>
                 </td>
                </tr>
                
                <tr>
-                <th class="text-center" width=15%>제목</th>
-                <td width=85%>
+                <th class="text-center table-warning" width=20%>제목</th>
+                <td width=80%>
                  <input type=text name=subject id=subject size=50
                   class="form-control-sm" required>
                 </td>
                </tr>
                
                <tr>
-                <th class="text-center" width=15%>내용</th>
-                <td width=85%>
+                <th class="text-center table-warning" width=20%>내용</th>
+                <td width=80%>
                  <textarea rows="10" cols="52" name=content required></textarea>
                 </td>
                </tr>
                
                <tr>
-                <th class="text-center" width=15%>비밀번호</th>
-                <td width=85%>
+                <th class="text-center table-warning" width=20%>비밀번호</th>
+                <td width=80%>
                  <input type=password name=pwd id=pwd size=20
                   class="form-control-sm" required>
                 </td>

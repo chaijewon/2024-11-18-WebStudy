@@ -19,6 +19,7 @@
      <typeAlias type="com.sist.vo.EmpVO" alias="EmpVO"/>
      <typeAlias type="com.sist.vo.BoardVO" alias="BoardVO"/>
      <typeAlias type="com.sist.vo.NoticeVO" alias="NoticeVO"/>
+     <typeAlias type="com.sist.vo.QnABoardVO" alias="QnABoardVO"/>
    </typeAliases>
    <environments default="development">
      <environment id="development">
@@ -54,6 +55,7 @@
      <mapper resource="com/sist/mapper/emp-mapper.xml"/>
      <mapper resource="com/sist/mapper/board-mapper.xml"/>
      <mapper resource="com/sist/mapper/notice-mapper.xml"/>
+     <mapper resource="com/sist/mapper/qna-mapper.xml"/>
    </mappers>
    <!-- 
           동적 쿼리 

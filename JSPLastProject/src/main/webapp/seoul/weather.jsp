@@ -50,12 +50,18 @@
 
     <!-- ****** Archive Area Start ****** -->
     <div class="container">
-        <div class="row">
+        <%-- <div class="row">
                 <div class="col-12">    
                  ${html }
                 </div>
+        </div> --%>
+        <section class="archive-area section_padding_80">
+         <div class="container">
+            <div class="row" style="width: 960px;margin: 0px auto">
+            ${html }
+            </div>
         </div>
-          
+      </section>
       </div>
     <%-- <section class="archive-area section_padding_80">
         <div class="container">

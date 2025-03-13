@@ -12,7 +12,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>수정하기</h2>
+                        <h2>질의하기</h2>
                     </div>
                 </div>
             </div>
@@ -38,36 +38,27 @@
     <section class="archive-area section_padding_80">
         <div class="container">
             <div class="row" style="width:800px;margin:0px auto">
-             <form method="post" action="../board/board_update_ok.do">
+             <form method="post" action="../qna/qna_insert_ok.do">
               <table class="table">
-               <tr>
-                <th class="text-center table-warning" width=20%>이름</th>
-                <td width=80%>
-                 <input type=text name=name id=name size=20
-                  class="form-control-sm" required value="${vo.name }">
-                 <input type=hidden name="no" value="${vo.no }">
-                 <input type=hidden name=page value="${page }">
-                </td>
-               </tr>
-               
+              
                <tr>
                 <th class="text-center table-warning" width=20%>제목</th>
                 <td width=80%>
                  <input type=text name=subject id=subject size=50
-                  class="form-control-sm" required value="${vo.subject }">
+                  class="form-control-sm" required>
                 </td>
                </tr>
                
                <tr>
                 <th class="text-center table-warning" width=20%>내용</th>
                 <td width=80%>
-                 <textarea rows="10" cols="52" name=content required>${vo.content }</textarea>
+                 <textarea rows="10" cols="52" name=content required></textarea>
                 </td>
                </tr>
                
                <tr>
-                <th class="text-center" width=15%>비밀번호</th>
-                <td width=85%>
+                <th class="text-center table-warning" width=20%>비밀번호</th>
+                <td width=80%>
                  <input type=password name=pwd id=pwd size=20
                   class="form-control-sm" required>
                 </td>
@@ -75,7 +66,7 @@
                
                <tr>
                  <td colspan="2" class="text-center">
-                  <input type=submit value="수정" class="btn-outline-primary btn-sm">
+                  <input type=submit value="질의" class="btn-outline-primary btn-sm">
                   <input type=button value="취소" class="btn-outline-danger btn-sm"
                    onclick="javascript:history.back()"
                   >

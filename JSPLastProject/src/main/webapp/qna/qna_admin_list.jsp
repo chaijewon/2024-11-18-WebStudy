@@ -13,7 +13,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>공지사항</h2>
+                        <h2>묻고 답하기(관리자)</h2>
                     </div>
                 </div>
             </div>
@@ -41,41 +41,42 @@
             <div class="row" style="width:800px;margin:0px auto">
              
              <table class="table">
-              <tr class="table-danger">
+              <tr class="table-info">
                 <th width=10% class="text-center">번호</th>
-                <th width=45% class="text-center">제목</th>
-                <th width=15% class="text-center">이름</th>
-                <th width=20% class="text-center">작성일</th>
+                <th width=40% class="text-center">제목</th>
+                <th width=10% class="text-center">이름</th>
+                <th width=15% class="text-center">작성일</th>
                 <th width=10% class="text-center">조회수</th>
+                <th width=15% class="text-center"></th>
               </tr>
-                
               <c:set var="count" value="${count }"/>
               <c:forEach var="vo" items="${list }">
                 <tr>
-                 <td width=10% class="text-center">
-                 
-                 ${count }</td>
-                 <td width=45%><a href="../notice/notice_user_detail.do?no=${vo.no }">[${vo.types}]&nbsp;${vo.subject }</a></td>
-                 <td width=15% class="text-center">${vo.name }</td>
-                 <td width=20% class="text-center">${vo.dbday }</td>
+                 <td width=10% class="text-center">${count }</td>
+                 <td width=40%>
+           
+                  <a href="../qna/qna_detail.do?no=${vo.no }">
+                  ${vo.subject }
+                  </a>
+                  
+                 </td>
+                 <td width=10% class="text-center">${vo.name }</td>
+                 <td width=15% class="text-center">${vo.dbday }</td>
                  <td width=10% class="text-center">${vo.hit }</td>
+                 <td width="15%" class="text-center">
+                  
+                 </td>
                </tr>
                <c:set var="count" value="${count-1 }"/>
               </c:forEach>
              </table>
              <table class="table">
                <tr>
-                <td class="text-left">
-                 <input type="checkbox" name=fs value="N">이름
-                 <input type="checkbox" name=fs value="S">제목
-                 <input type="checkbox" name=fs value="C">내용
-                 <input type=text name=ss size=15 class="input-sm">
-                 <input type=button value="검색" class="btn-primary btn-sm">
-                </td>
+                
                 <td class="text-right">
-                 <a href="../notice/notice_user_list.do?page=${curpage>1?curpage-1:curpage }" class="btn btn-info btn-sm">이전</a>
+                 <a href="../qna/qna_list.do?page=${curpage>1?curpage-1:curpage }" class="btn btn-outline-info btn-sm">이전</a>
                   ${curpage } page / ${totalpage } pages
-                 <a href="../notice/notice_user_list.do?page=${curpage<totalpage?curpage+1:curpage }" class="btn btn-success btn-sm">다음</a>
+                 <a href="../qna/qna_list.do?page=${curpage<totalpage?curpage+1:curpage }" class="btn btn-outline-success btn-sm">다음</a>
                 </td>
                </tr>
              </table>

@@ -119,5 +119,47 @@ public class NoticeModel {
 	  request.setAttribute("main_jsp", "../notice/notice_user_list.jsp");
 	  return "../main/main.jsp";
   }
+  @RequestMapping("admin/notice_update.do")
+  public String notice_update(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  String no=request.getParameter("no");
+	  //DB연동
+	  NoticeVO vo=NoticeDAO.noticeDetailData(Integer.parseInt(no), 0);
+	  request.setAttribute("vo", vo);
+	  request.setAttribute("admin_jsp", "../notice/notice_update.jsp");
+	  request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
+	  return "../main/main.jsp";
+  }
+  @RequestMapping("admin/notice_update_ok.do")
+  public String notice_update_ok(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  String type=request.getParameter("type");
+	  String subject=request.getParameter("subject");
+	  String content=request.getParameter("content");
+	  String no=request.getParameter("no");
+	  NoticeVO vo=new NoticeVO();
+	  vo.setType(Integer.parseInt(type));
+	  vo.setSubject(subject);
+	  vo.setContent(content);
+	  vo.setNo(Integer.parseInt(no));
+	  
+	  NoticeDAO.noticeUpdate(vo);
+	  
+	  return "redirect:../admin/notice_detail.do?no="+no;
+  }
+  @RequestMapping("admin/notice_delete.do")
+  public String notice_delete(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  //목록으로 돌아간다 
+	  String[] nos=request.getParameterValues("dbox");
+	  for(String no:nos)
+	  {
+		  NoticeDAO.noticeDelete(Integer.parseInt(no));
+	  }
+	  return "redirect:../admin/notice_list.do";
+  }
   
 }

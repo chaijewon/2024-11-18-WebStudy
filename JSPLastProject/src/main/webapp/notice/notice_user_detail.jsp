@@ -12,7 +12,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>공시사항</h2>
+                        <h2>공지사항</h2>
                     </div>
                 </div>
             </div>
@@ -40,19 +40,19 @@
             <div class="row" style="width:800px;margin:0px auto">
               <table class="table">
                <tr>
-                <th class="text-center" width=20%>공지</th>
+                <th class="text-center table-success" width=20%>공지</th>
                 <td class="text-center" width=30%>${vo.types }</td>
-                <th class="text-center" width=20%>작성일</th>
+                <th class="text-center table-success" width=20%>작성일</th>
                 <td class="text-center" width=30%>${vo.dbday }</td>
                </tr>
                <tr>
-                <th class="text-center" width=20%>이름</th>
+                <th class="text-center table-success" width=20%>이름</th>
                 <td class="text-center" width=30%>${vo.name }</td>
-                <th class="text-center" width=20%>조회수</th>
+                <th class="text-center table-success" width=20%>조회수</th>
                 <td class="text-center" width=30%>${vo.hit }</td>
                </tr>
                <tr>
-                <th class="text-center" width=20%>제목</th>
+                <th class="text-center table-success" width=20%>제목</th>
                 <td colspan="3">${vo.subject }</td>
                </tr>
                <tr>

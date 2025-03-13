@@ -105,19 +105,19 @@ $(function(){
             <div class="row" style="width:800px;margin:0px auto">
               <table class="table">
                <tr>
-                <th class="text-center" width=20%>번호</th>
+                <th class="text-center table-warning" width=20%>번호</th>
                 <td class="text-center" width=30%>${vo.no }</td>
-                <th class="text-center" width=20%>작성일</th>
+                <th class="text-center table-warning" width=20%>작성일</th>
                 <td class="text-center" width=30%>${vo.dbday }</td>
                </tr>
                <tr>
-                <th class="text-center" width=20%>이름</th>
+                <th class="text-center table-warning" width=20%>이름</th>
                 <td class="text-center" width=30%>${vo.name }</td>
-                <th class="text-center" width=20%>조회수</th>
+                <th class="text-center table-warning" width=20%>조회수</th>
                 <td class="text-center" width=30%>${vo.hit }</td>
                </tr>
                <tr>
-                <th class="text-center" width=20%>제목</th>
+                <th class="text-center table-warning" width=20%>제목</th>
                 <td colspan="3">${vo.subject }</td>
                </tr>
                <tr>
