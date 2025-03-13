@@ -43,5 +43,24 @@
      SELECT COUNT(*) FROM qnaBoard
      WHERE group_step=0
    </select>
+   <!-- 답변 -->
+   <select id="qnaAdminDetailData" resultType="QnABoardVO"
+    parameterType="int"
+   >
+     SELECT no,name,subject,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') as dbday,
+            content,group_id
+     FROM qnaBoard
+     WHERE group_id=#{group_id}
+   </select>
+   <update id="qnaAdminAnOKChange" parameterType="int">
+     UPDATE qnaBoard SET
+     anok='y'
+     WHERE group_id=#{group_id}
+   </update>
+   <insert id="qnaAdminInsert" parameterType="QnABoardVO">
+     INSERT INTO qnaBoard(no,id,name,subject,content,pwd,group_id,group_step,group_tab,anok) 
+     VALUES((SELECT NVL(MAX(no)+1,1) FROM qnaBoard),#{id},
+            '관리자',#{subject},#{content},#{pwd},#{group_id},1,1,'y')
+   </insert>
 </mapper>
 

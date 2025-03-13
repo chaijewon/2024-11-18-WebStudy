@@ -96,5 +96,16 @@ public class QnABoardModel {
 	   request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
 	   return "../main/main.jsp";
   }
-  
+  @RequestMapping("qna/qna_admin_insert.do")
+  public String qna_admin_insert(HttpServletRequest request,
+		  HttpServletResponse res)
+  {
+	   String gi=request.getParameter("gi");
+	   // => vo 읽기
+	   QnABoardVO vo=QnABoardDAO.qnaAdminDetailData(Integer.parseInt(gi));
+	   request.setAttribute("vo", vo);
+	   request.setAttribute("admin_jsp", "../qna/qna_admin_insert.jsp");
+	   request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
+	   return "../main/main.jsp";
+  }
 }

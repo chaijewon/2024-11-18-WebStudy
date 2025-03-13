@@ -8,38 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div class="breadcumb-area" style="background-image: url(../img/bg-img/breadcumb.jpg);">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center">
-                <div class="col-12">
-                    <div class="bradcumb-title text-center">
-                        <h2>묻고 답하기(관리자)</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="breadcumb-nav">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">food-list Page</li>
-                        </ol>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- ****** Breadcumb Area End ****** -->
 
-    <!-- ****** Archive Area Start ****** -->
-    <section class="archive-area section_padding_80">
-        <div class="container">
-            <div class="row" style="width:800px;margin:0px auto">
-             
              <table class="table">
               <tr class="table-info">
                 <th width=10% class="text-center">번호</th>
@@ -55,16 +24,22 @@
                  <td width=10% class="text-center">${count }</td>
                  <td width=40%>
            
-                  <a href="../qna/qna_detail.do?no=${vo.no }">
+                  
                   ${vo.subject }
-                  </a>
+                 
                   
                  </td>
                  <td width=10% class="text-center">${vo.name }</td>
                  <td width=15% class="text-center">${vo.dbday }</td>
                  <td width=10% class="text-center">${vo.hit }</td>
                  <td width="15%" class="text-center">
-                  
+                  <c:if test="${vo.anok=='y' }">
+                   <span class="btn btn-success btn-sm">답변완료</span>
+                   <a href="#" class="btn btn-warning btn-sm">수정</a>
+                  </c:if>
+                  <c:if test="${vo.anok=='n' }">
+                   <a href="../qna/qna_admin_insert.do?gi=${vo.group_id }" class="btn btn-danger btn-sm">답변대기</a>
+                  </c:if>
                  </td>
                </tr>
                <c:set var="count" value="${count-1 }"/>
@@ -74,14 +49,12 @@
                <tr>
                 
                 <td class="text-right">
-                 <a href="../qna/qna_list.do?page=${curpage>1?curpage-1:curpage }" class="btn btn-outline-info btn-sm">이전</a>
+                 <a href="../qna/qna_list.do?page=${curpage>1?curpage-1:curpage }" class="btn btn-info btn-sm">이전</a>
                   ${curpage } page / ${totalpage } pages
-                 <a href="../qna/qna_list.do?page=${curpage<totalpage?curpage+1:curpage }" class="btn btn-outline-success btn-sm">다음</a>
+                 <a href="../qna/qna_list.do?page=${curpage<totalpage?curpage+1:curpage }" class="btn btn-success btn-sm">다음</a>
                 </td>
                </tr>
              </table>
-            </div>
-        </div>
-    </section>
+          
 </body>
 </html>

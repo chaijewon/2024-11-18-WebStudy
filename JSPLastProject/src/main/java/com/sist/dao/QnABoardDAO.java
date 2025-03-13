@@ -78,6 +78,54 @@ public class QnABoardDAO {
 	   session.close();
 	   return count;
    }
+   /*
+    *   <select id="qnaAdminDetailData" resultType="QnABoardVO"
+	    parameterType="int"
+	   >
+	     SELECT no,name,subject,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') as dbday,
+	            content
+	     FROM qnaBoard
+	     WHERE group_id=#{group_id}
+	   </select>
+	   <update id="qnaAdminAnOKChange" parameterType="int">
+	     UPDATE qnaBoard SET
+	     anok='y'
+	     WHERE group_id=#{group_id}
+	   </update>
+	   <insert id="qnaAdminInsert" parameterType="QnABoardVO">
+	     INSERT INTO qnaBoard(no,id,name,subject,content,pwd,group_id,group_step,group_tab,anok) 
+	     VALUES((SELECT NVL(MAX(no)+1,1) FROM qnaBoard),#{id},
+	            '관리자',#{subject},#{content},#{pwd},#{group_id},1,1,'y')
+	   </insert>
+    */
+   public static QnABoardVO qnaAdminDetailData(int group_id)
+   {
+	   SqlSession session=ssf.openSession();
+	   QnABoardVO vo=session.selectOne("qnaAdminDetailData",group_id);
+	   session.close();
+	   return vo;
+   }
+   public static void qnaAdminInsert(QnABoardVO vo)
+   {
+	   // 트랜잭션 => 일괄처리 => 금융권 , 물류
+	   SqlSession session=null;
+	   try
+	   {
+		   session=ssf.openSession();
+		   session.update("qnaAdminAnOKChange",vo.getGroup_id());
+		   session.insert("qnaAdminInsert",vo);
+		   session.commit();// 동시에 저장 
+	   }catch(Exception ex)
+	   {
+		   session.rollback(); // 동시에 취소 
+	   }
+	   finally
+	   {
+		   if(session!=null)
+			   session.close();
+	   }
+	   
+   }
    
 }
 
