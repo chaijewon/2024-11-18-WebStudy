@@ -15,7 +15,7 @@
     <li class="list-group-item"><a href="#">회원관리</a></li>
     <li class="list-group-item"><a href="#">구매관리</a></li>
     <li class="list-group-item"><a href="#">예약관리</a></li>
-    <li class="list-group-item"><a href="../admin/qna_admin_list.do">묻고답하기</a></li>
+    <li class="list-group-item"><a href="../qna/qna_admin_list.do">묻고답하기</a></li>
     <li class="list-group-item"><a href="../admin/notice_list.do">공지사항</a></li>
    </ul>
  </div>

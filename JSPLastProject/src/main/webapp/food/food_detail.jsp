@@ -431,7 +431,7 @@
                                     <form action="#" method="post">
                                         
                                         <div class="form-group">
-                                            <textarea name="message" id="message" cols="78" rows="4" placeholder="Message" style="float: left"></textarea>
+                                            <textarea name="message" id="message" cols="70" rows="4" placeholder="Message" style="float: left"></textarea>
                                             <button type="submit" class="btn btn-primary" style="width:100px;height: 95px;float: left">댓글쓰기</button>
                                         </div>
                                         
