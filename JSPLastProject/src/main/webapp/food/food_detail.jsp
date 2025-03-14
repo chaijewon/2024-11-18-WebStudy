@@ -385,24 +385,7 @@
                                                 <a class="active" href="#">Reply</a>
                                             </div>
                                         </div>
-                                        <ol class="children">
-                                            <li class="single_comment_area">
-                                                <div class="comment-wrapper d-flex">
-                                                    <!-- Comment Meta -->
-                                                    <div class="comment-author">
-                                                        <img src="../img/blog-img/18.jpg" alt="">
-                                                    </div>
-                                                    <!-- Comment Content -->
-                                                    <div class="comment-content">
-                                                        <span class="comment-date text-muted">27 Aug 2018</span>
-                                                        <h5>Brandon Kelley</h5>
-                                                        <p>Neque porro qui squam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.</p>
-                                                        <a href="#">Like</a>
-                                                        <a class="active" href="#">Reply</a>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ol>
+                                       
                                     </li>
                                     <li class="single_comment_area">
                                         <div class="comment-wrapper d-flex">

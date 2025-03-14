@@ -104,6 +104,19 @@
                <tr>
                  <td colspan="2"><h3>레시피 작성자</h3></td>
                </tr>
+               <tr>
+                 <td width=20% class="text-center" rowspan="2">
+                   <img src="${vo.chef_poster }" style="width:100px;height: 100px" class="rounded-circle">
+                 </td>
+                 <td width=80%>
+                   <h3>${vo.chef }</h3>
+                 </td>
+               </tr>
+               <tr>
+                 <td width=80%>
+                   ${vo.chef_profile }
+                 </td>
+               </tr>
               </table>
             </div>
         </div>
