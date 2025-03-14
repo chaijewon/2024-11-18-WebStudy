@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.reply-mapper">
+  <!-- 댓글목록 
+     rno => 맛집번호 / 레시피 번호
+     type=> 맛집 1 
+  -->
+  <select id="replyListData" resultType="ReplyVO" parameterType="ReplyVO">
+    SELECT cno,rno,type,id,name,sex,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') as dbday
+    FROM all_comment
+    WHERE rno=#{rno} AND type=#{type}
+    ORDER BY cno DESC
+  </select>
+  <select id="replyCount" resultType="int" parameterType="ReplyVO">
+    SELECT COUNT(*) FROM all_comment
+    WHERE rno=#{rno} AND type=#{type}
+  </select>
+  <!-- 댓글쓰기 -->
+  <insert id="replyInsert" parameterType="ReplyVO">
+    INSERT INTO all_comment(cno,rno,type,id,name,sex,msg,group_id)
+    VALUES((SELECT NVL(MAX(cno)+1,1) FROM all_comment),
+            #{rno},#{type},#{id},#{name},#{sex},
+            #{msg},(SELECT NVL(MAX(group_id)+1,1) FROM all_comment))
+  </insert>
+</mapper>

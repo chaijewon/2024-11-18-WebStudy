@@ -118,10 +118,75 @@
                  </td>
                </tr>
               </table>
-            </div>
-        </div>
-    </section>
-    <!-- ****** Archive Area End ****** -->
+              
+              <!-- ****** Archive Area End ****** -->
+                    <div class="comment_area section_padding_50 clearfix">
+                                <h4 class="mb-30">댓글(${count })</h4>
 
+                                <ol>
+                                   <c:forEach var="rvo" items="${rList }">
+                                    <li class="single_comment_area">
+                                        <div class="comment-wrapper d-flex">
+                                            <!-- Comment Meta -->
+                                            <div class="comment-author">
+                                                <c:if test="${rvo.sex=='남자' }">
+                                                 <img src="../img/images/man.png" alt="">
+                                                </c:if>
+                                                <c:if test="${rvo.sex=='여자' }">
+                                                 <img src="../img/images/woman.png" alt="">
+                                                </c:if>
+                                            </div>
+                                            <!-- Comment Content -->
+                                            <div class="comment-content">
+                                                <span class="comment-date text-muted">${rvo.dbday}</span>
+                                                <h5>${rvo.name }</h5>
+                                                <p>${rvo.msg }</p>
+                                                <c:if test="${sessionScope.id!=null }">
+                                                   <a href="#" class="active">좋아요</a>
+                                                   <a href="#" class="active">댓글</a>
+                                                   <c:if test="${sessionScope.id==rvo.id }">
+                                                     <a href="#" class="active">수정</a>
+                                                     <a href="#" class="active">삭제</a>
+                                                   </c:if>
+                                                </c:if>
+                                                
+                                            </div>
+                                        </div>
+                                    </li>
+                                    </c:forEach>
+                                </ol>
+                            </div>
+
+                            <!-- Leave A Comment -->
+                            <c:if test="${sessionScope.id!=null }">
+                            <div class="leave-comment-area section_padding_50 clearfix">
+                                <div class="comment-form">
+                                  
+                                    <form action="../reply/reply_insert.do" method="post">
+                                        
+                                        <div class="form-group">
+                                            <textarea name="msg" id="msg" cols="70" rows="4" placeholder="Message" style="float: left" required></textarea>
+                                            <input type=hidden name="type" value="2">
+                                            <input type=hidden name="rno" value="${vo.no }">
+                                            <button type="submit" class="btn btn-primary" style="width:100px;height: 95px;float: left">댓글쓰기</button>
+                                        </div>
+                                        
+                                    </form>
+                                </div>
+                            </div>
+                          </c:if>
+              
+            </div>
+        
+           
+        
+        </div>
+        
+        
+        
+    </section>
+    
+
+                        
 </body>
 </html>
