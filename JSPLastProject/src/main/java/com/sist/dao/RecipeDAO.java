@@ -218,5 +218,25 @@ public class RecipeDAO {
 	  session.close();
 	  return list;
   }
+  /*
+   *   <update id="recipeHitIncrement" parameterType="int">
+		    UPDATE recipe SET
+		    hit=hit+1
+		    WHERE no=#{no}
+		  </update>
+		  <select id="recipeDetailData" resultType="com.sist.vo.RecipeDetailVO" parameterType="int">
+		    SELECT * FROM recipedetail
+		    WHERE no=#{no}
+		  </select>
+   */
+  public static RecipeDetailVO recipeDetailData(int no)
+  {
+	  SqlSession session=ssf.openSession();
+	  session.update("recipeHitIncrement",no);
+	  session.commit();
+	  RecipeDetailVO vo=session.selectOne("recipeDetailData",no);
+	  session.close();
+	  return vo;
+  }
   
 }

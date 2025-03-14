@@ -47,7 +47,11 @@
      DELETE FROM qnaBoard
      WHERE group_id=#{group_id}
    </delete>
-   
+   <update id="qnaUpdate" parameterType="QnABoardVO">
+     UPDATE qnaBoard SET 
+     subject=#{subject},content=#{content}
+     WHERE no=#{no}
+   </update>
    
    <update id="qnaAdminAnDeleteOk" parameterType="int">
      UPDATE qnaBoard SET

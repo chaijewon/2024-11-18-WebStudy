@@ -18,11 +18,21 @@
    SELECT no,title,poster,chef,hit,likecount,replycount,num
    FROM (SELECT no,title,poster,chef,hit,likecount,replycount,rownum as num 
    FROM (SELECT /*+ INDEX_ASC(recipe recipe_no_pk)*/no,title,poster,chef,hit,likecount,replycount
-   FROM recipe))
+   FROM recipe WHERE no IN(SELECT no FROM recipe INTERSECT SELECT no FROM recipeDetail)))
    WHERE num BETWEEN #{start} AND #{end}
   </select>
   <select id="recipeTotalPage" resultType="int">
    SELECT CEIL(COUNT(*)/12.0) FROM recipe
+   WHERE no IN(SELECT no FROM recipe INTERSECT SELECT no FROM recipeDetail)
+  </select>
+  <update id="recipeHitIncrement" parameterType="int">
+    UPDATE recipe SET
+    hit=hit+1
+    WHERE no=#{no}
+  </update>
+  <select id="recipeDetailData" resultType="com.sist.vo.RecipeDetailVO" parameterType="int">
+    SELECT * FROM recipedetail
+    WHERE no=#{no}
   </select>
   <!-- 쉐프 목록 
         NO        NOT NULL NUMBER        

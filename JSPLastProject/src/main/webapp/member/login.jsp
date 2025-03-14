@@ -26,6 +26,9 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
+	$('#canBtn').click(function(){
+		parent.Shadowbox.close()
+	})
 	$('#logBtn').click(function(){
 		let id=$('#id').val()
 		if(id.trim()==="")

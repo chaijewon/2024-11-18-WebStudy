@@ -143,9 +143,33 @@ public class QnABoardDAO {
    {
 	   SqlSession session=ssf.openSession();
 	   session.update("qnaHitIncrement",no);
+	   session.commit();
+	   // executeUpdate() => commit()
 	   QnABoardVO vo=session.selectOne("qnaDetailData",no);
 	   session.close();
 	   return vo;
+   }
+   // => 회원 수정 => id(비활성화) / pwd => addMonth()
+   public static QnABoardVO qnaUpdateData(int no)
+   {
+	   SqlSession session=ssf.openSession();
+	   QnABoardVO vo=session.selectOne("qnaDetailData",no);
+	   session.close();
+	   return vo;
+   }
+   /*
+    *   <update id="qnaUpdate" parameterType="QnABoardVO">
+	     UPADTE qnaBoard SET 
+	     subject=#{subject},content=#{content}
+	     WHERE no=#{no}
+	   </update>
+    */
+   public static void qnaUpdate(QnABoardVO vo)
+   {
+	   // insert/update/delete => 가독성 
+	   SqlSession session=ssf.openSession(true);
+	   session.update("qnaUpdate",vo);
+	   session.close();
    }
    /*
     *   <delete id="qnaDelete" parameterType="int">

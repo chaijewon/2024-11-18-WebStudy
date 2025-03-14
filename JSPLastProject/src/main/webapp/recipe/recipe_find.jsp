@@ -56,7 +56,7 @@
                         <!-- Post Thumb -->
                         <div class="post-thumb">
                           <a href="#">
-                            <img src="${vo.poster }" alt="">
+                            <img src="${vo.poster }" style="width:350px;height: 250px ">
                           </a>
                         </div>
                         <!-- Post Content -->
