@@ -50,11 +50,15 @@
                      <tr>
                        <td width="25%" rowspan="2" class="text-center">
                         <div class="about-me-widget-thumb">
+                          <a href="../recipe/chef_make.do?no=${vo.no }">
                            <img src="${vo.poster }" style="width: 100px;height: 100px">
+                          </a>
                         </div>
                        </td>
                        <td colspan="4">
-                        <h4 style="color: orange;">${vo.chef }</h4>
+                        <h4 style="color: orange;">
+                         <a href="../recipe/chef_make.do?no=${vo.no }">${vo.chef }</a>
+                        </h4>
                        </td>
                      </tr>
                      <tr>

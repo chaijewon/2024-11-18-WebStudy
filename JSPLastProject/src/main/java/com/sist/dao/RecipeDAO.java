@@ -238,5 +238,35 @@ public class RecipeDAO {
 	  session.close();
 	  return vo;
   }
+  /*<select id="recipeChefMakeData" resultType="RecipeVO" parameterType="hashmap">
+  SELECT no,title,poster,chef,hit,likecount,replycount,num
+  FROM (SELECT no,title,poster,chef,hit,likecount,replycount,rownum as num 
+  FROM (SELECT + INDEX_ASC(recipe recipe_no_pk)no,title,poster,chef,hit,likecount,replycount
+  FROM recipe WHERE chef=(SELECT chef FROM chef WHERE no=#{no})))
+  WHERE num BETWEEN #{start} AND #{end}
+ </select>
+ <select id="recipeChefMakeTotalPage" resultType="int" parameterType="int">
+  SELECT CEIL(COUNT(*)/12.0) FROM recipe
+  WHERE chef=(SELECT chef FROM chef WHERE no=#{no})
+ </select>*/
+  // JSP => .do
+  // mapper 
+  // DAO
+  // Model
+  // JSP 출력 
+  public static List<RecipeVO> recipeChefMakeData(Map map)
+  {
+	  SqlSession session=ssf.openSession();
+	  List<RecipeVO> list=session.selectList("recipeChefMakeData",map);
+	  session.close();
+	  return list;
+  }
+  public static int recipeChefMakeTotalPage(int no)
+  {
+	  SqlSession session=ssf.openSession();
+	  int total=session.selectOne("recipeChefMakeTotalPage",no);
+	  session.close();
+	  return total;
+  }
   
 }

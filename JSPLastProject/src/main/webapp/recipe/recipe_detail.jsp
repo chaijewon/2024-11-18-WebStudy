@@ -38,7 +38,7 @@
     <!-- ****** Archive Area Start ****** -->
     <section class="archive-area section_padding_80">
         <div class="container">
-            <div class="row" style="width:800px;margin:0px auto">
+            <div class="row" style="width:900px;margin:0px auto">
               <table class="table">
                <tr>
                 <td colspan="3" class="text-center">
