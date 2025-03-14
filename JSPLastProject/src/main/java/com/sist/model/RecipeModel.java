@@ -174,6 +174,7 @@ public class RecipeModel {
 	    request.setAttribute("startPage", startPage);
 	    request.setAttribute("endPage", endPage);
 	    request.setAttribute("no", no);
+	    request.setAttribute("chef", list.get(0).getChef());
     	request.setAttribute("main_jsp", "../recipe/chef_make.jsp");
     	return "../main/main.jsp";
     }
