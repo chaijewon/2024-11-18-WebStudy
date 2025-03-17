@@ -6,6 +6,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+a.updates{
+  cursor: pointer;
+}
+</style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+let bClick=false
+$(function(){
+	$('.updates').click(function(){
+		let rno=$(this).attr("data-rno")
+		$('.ups').hide()
+		$(".updates").text("수정")
+		if(bClick===false)
+		{
+			$(this).text("취소")
+			$('#up'+rno).show()
+			bClick=true
+		}
+		else
+		{
+			$(this).text("수정")
+			$('#up'+rno).hide()
+			bClick=false
+		}
+	})
+})
+</script>
 </head>
 <body>
 <div class="breadcumb-area" style="background-image: url(../img/bg-img/breadcumb.jpg);">
@@ -145,10 +173,25 @@
                                                    <a href="#" class="active">좋아요</a>
                                                    <a href="#" class="active">댓글</a>
                                                    <c:if test="${sessionScope.id==rvo.id }">
-                                                     <a href="#" class="active">수정</a>
-                                                     <a href="#" class="active">삭제</a>
+                                                     <a class="active updates" data-rno="${rvo.cno }">수정</a>
+                                                     <a href="../reply/reply_delete.do?cno=${rvo.cno }&rno=${rvo.rno}&type=1" class="active">삭제</a>
                                                    </c:if>
                                                 </c:if>
+                                                
+                                                <div class="comment-form ups" style="display:none" id="up${rvo.cno }">
+                                  
+				                                    <form action="../reply/reply_update.do" method="post">
+				                                        
+				                                        <div class="form-group">
+				                                            <textarea name="msg" id="msg" cols="50" rows="3" placeholder="Message" style="float: left" required>${rvo.msg }</textarea>
+				                                            <input type=hidden name="type" value="2">
+				                                            <input type=hidden name="rno" value="${vo.no }">
+				                                            <input type=hidden name="cno" value="${rvo.cno }">
+				                                            <button type="submit" class="btn btn-primary" style="width:100px;height: 85px;float: left">댓글수정</button>
+				                                        </div>
+				                                        
+				                                    </form>
+				                                </div>
                                                 
                                             </div>
                                         </div>

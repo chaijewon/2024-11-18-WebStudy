@@ -26,9 +26,9 @@
   </select>
   <!-- 맛집 목록 -->
   <select id="foodListData" resultType="FoodVO" parameterType="hashmap">
-   SELECT fno,name,poster,score,type,content,theme,phone,address,num
-   FROM (SELECT fno,name,poster,score,type,content,theme,phone,address,rownum as num 
-   FROM (SELECT /*+ INDEX_ASC(project_food pf_fno_pk)*/fno,name,poster,score,type,content,theme,phone,address
+   SELECT fno,name,poster,score,type,content,theme,phone,address,likecount,replycount,num
+   FROM (SELECT fno,name,poster,score,type,content,theme,phone,address,likecount,replycount,rownum as num 
+   FROM (SELECT /*+ INDEX_ASC(project_food pf_fno_pk)*/fno,name,poster,score,type,content,theme,phone,address,likecount,replycount
    FROM project_food))
    WHERE num BETWEEN #{start} AND #{end}
   </select>

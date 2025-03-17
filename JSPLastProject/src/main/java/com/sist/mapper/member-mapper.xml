@@ -36,4 +36,12 @@
    FROM project_member
    WHERE id=#{id}
   </select>
+  <select id="memberIdFindData" resultType="String" parameterType="MemberVO">
+   SELECT RPAD(SUBSTR(id,1,2),LENGTH(id),'*') FROM project_member
+   WHERE name=#{name} AND email=#{email}
+  </select>
+  <select id="memberIdFindCount" resultType="int" parameterType="MemberVO">
+   SELECT COUNT(*) FROM project_member
+   WHERE name=#{name} AND email=#{email}
+  </select>
 </mapper>

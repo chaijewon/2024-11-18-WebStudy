@@ -22,4 +22,13 @@
             #{rno},#{type},#{id},#{name},#{sex},
             #{msg},(SELECT NVL(MAX(group_id)+1,1) FROM all_comment))
   </insert>
+  <delete id="replyDelete" parameterType="int">
+    DELETE FROM all_comment 
+    WHERE cno=#{cno}
+  </delete>
+  <update id="replyUpdate" parameterType="ReplyVO">
+    UPDATE all_comment SET
+    msg=#{msg}
+    WHERE cno=#{cno}
+  </update>
 </mapper>

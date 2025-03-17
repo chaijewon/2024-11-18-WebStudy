@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpSession;
 public class ReplyModel {
   private String[] urls={"","food/food_detail.do?fno=",
 		  "recipe/recipe_detail.do?no=","",""};
+  
   @RequestMapping("reply/reply_insert.do")
   public String reply_insert(HttpServletRequest request,
 		  HttpServletResponse response)
@@ -38,6 +39,36 @@ public class ReplyModel {
 	  
 	  ReplyDAO.replyInsert(vo);
 	  
+	  return "redirect:../"+urls[Integer.parseInt(type)]+rno;
+  }
+  // ?cno=${rvo.cno }$rno=${rvo.rno}&type=1
+  @RequestMapping("reply/reply_delete.do")
+  public String reply_delete(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  String cno=request.getParameter("cno");
+	  String rno=request.getParameter("rno");
+	  String type=request.getParameter("type");
+	  
+	  
+	  ReplyDAO.replyDelete(Integer.parseInt(cno));
+	  return "redirect:../"+urls[Integer.parseInt(type)]+rno;
+  }
+  
+  @RequestMapping("reply/reply_update.do")
+  public String reply_update(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  String cno=request.getParameter("cno");
+	  String rno=request.getParameter("rno");
+	  String type=request.getParameter("type");
+	  String msg=request.getParameter("msg");
+	  
+	  ReplyVO vo=new ReplyVO();
+	  vo.setCno(Integer.parseInt(cno));
+	  vo.setMsg(msg);
+	  
+	  ReplyDAO.replyUpdate(vo);
 	  return "redirect:../"+urls[Integer.parseInt(type)]+rno;
   }
 }

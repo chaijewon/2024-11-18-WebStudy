@@ -94,7 +94,7 @@ function login(){
                                     <c:if test="${sessionScope.id==null }">
                                      <div class="dropdown-menu" aria-labelledby="yummyDropdown">
                                         <a class="dropdown-item" href="../member/join.do">회원가입</a>
-                                        <a class="dropdown-item" href="archive.html">아이디찾기</a>
+                                        <a class="dropdown-item" href="../member/idfind.do">아이디찾기</a>
                                         <a class="dropdown-item" href="single.html">비밀번호찾기</a>
                            
                                      </div>
