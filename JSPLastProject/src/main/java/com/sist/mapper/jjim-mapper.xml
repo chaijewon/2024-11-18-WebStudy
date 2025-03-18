@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sist.mapper.jjim-mapper">
+  <!-- 
+       찜가능 여부 
+         찜이 된 상태 / 안된 상태 
+       private int jno,rno,type;
+                           ===== 
+                       맛집 / 레시피 / 스토어 
+                        1     1       1
+       private String id,dbday;
+       private Date regdate;
+   -->
+   <!-- 찜 여부 확인  aj_jno_seq-->
+   <select id="jjimCheckCount" resultType="int" 
+       parameterType="JjimVO">
+     SELECT COUNT(*) FROM all_jjim
+     WHERE id=#{id} AND rno=#{rno} AND type=#{type}
+   </select>
+   <insert id="jjimInsert" parameterType="JjimVO">
+     INSERT INTO all_jjim VALUES(
+       aj_jno_seq.nextval,#{rno},#{type},#{id},SYSDATE
+     )
+   </insert>
+   <resultMap type="JjimVO" id="jjimMap">
+     <result property="fvo.name" column="name"/>
+     <result property="fvo.poster" column="poster"/>
+     <result property="fvo.fno" column="fno"/>
+   </resultMap>
+   <select id="jjimFoodListData" resultMap="jjimMap" parameterType="string">
+      SELECT jno,aj.type,rno,name,poster,fno 
+      FROM all_jjim aj,project_food pf
+      WHERE aj.rno=pf.fno
+      AND id=#{id} AND aj.type=1
+      ORDER BY jno DESC
+   </select>
+  <delete id="jjimDelete" parameterType="int">
+    DELETE FROM all_jjim
+    WHERE jno=#{jno}
+  </delete>
+</mapper>
+
+
+
+

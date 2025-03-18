@@ -14,7 +14,66 @@ a.updates{
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 let bClick=false
+let likeCheck=false
+let rno=${param.no}
+let id='${sessionScope.id}'
 $(function(){
+	if (id.length > 0)
+	{
+		$.ajax({
+	        type: 'post',
+	        url: '../like/likeCheck.do',
+	        data: {
+	            'rno': rno,
+	            'type': 2
+	        },
+	        success: function(result) {
+	            if (result === 'OK') {
+	                likeCheck = true
+	                $('#likeBtnIcon').attr('src', '../food/fullheart.png')
+	            } else {
+	                likeCheck = false
+	                $('#likeBtnIcon').attr('src', '../food/heart.png')
+	            }
+	        }
+	    })
+	}
+	$('#likeBtnIcon').click(function() {
+		if(likeCheck===true){
+			$.ajax({
+				type:'post',
+				url:'../like/likeOff.do',
+				data:{
+					'rno':rno,
+					'type':2
+				},
+				success:function(result){
+					if(result>=0){
+						likeCheck=false
+						$('#likeBtnIcon').attr('src', '../food/heart.png')
+						$('#likeCount').text(result)
+					}
+				}
+			})
+		}
+		else{
+			$.ajax({
+				type:'post',
+				url:'../like/likeOn.do',
+				data:{
+					'rno':rno,
+					'type':2
+				},
+				success:function(result){
+					if(result>=0){
+						likeCheck=true
+						$('#likeBtnIcon').attr('src', '../food/fullheart.png')
+						$('#likeCount').text(result)
+					}
+				}
+			})
+		}
+	})
 	$('.updates').click(function(){
 		let rno=$(this).attr("data-rno")
 		$('.ups').hide()
@@ -75,7 +134,7 @@ $(function(){
                </tr>
                <tr>
                 <td colspan="3" class="text-center">
-                  <h3>${vo.title }</h3>
+                  <h3 id="id" >${vo.title }</h3>
                 </td>
                </tr>
                <tr>
@@ -83,6 +142,15 @@ $(function(){
                   <span style="color:gray;">${vo.content }</span>
                 </td>
                </tr>
+               <c:if test="${sessionScope.id!=null }">
+               <tr>
+                 <td colspan="3" class="text-right">
+                  <img src="../food/heart.png" id="likeBtnIcon" style="width:35px;height: 35px">
+			      <span id="likeCount">&nbsp;&nbsp;&nbsp;${vo.likecount }
+			      </span>
+                 </td>
+               </tr>
+               </c:if>
                <tr>
                  <td class="text-center"><img src="../recipe/icon/a1.png"></td>
                  <td class="text-center"><img src="../recipe/icon/a2.png"></td>

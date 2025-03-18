@@ -13,7 +13,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <div class="bradcumb-title text-center">
-                        <h2>관리자 페이지</h2>
+                        <h2>마이 페이지</h2>
                     </div>
                 </div>
             </div>

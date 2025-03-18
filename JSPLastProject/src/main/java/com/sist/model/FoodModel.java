@@ -6,6 +6,7 @@ import com.sist.controller.RequestMapping;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.PrintWriter;
 // JSP (디자인) => Model => DAO => Model => JSP
@@ -100,6 +101,21 @@ public class FoodModel {
 	  int count=ReplyDAO.replyCount(rvo);
 	  request.setAttribute("count", count);
 	  request.setAttribute("rList", list);
+	  
+	  
+	  
+	  JjimVO jvo=new JjimVO();
+	  jvo.setRno(Integer.parseInt(fno));
+	  jvo.setType(1);
+	  HttpSession session=request.getSession();
+	  String id=(String)session.getAttribute("id");
+	  jvo.setId(id);
+	  
+	  if(id!=null)
+	  {
+		  int jCount=JjimDAO.jjimCheckCount(jvo);
+		  request.setAttribute("jCount", jCount);
+	  }
 	  ////////////////////////////////////////
 	  request.setAttribute("main_jsp", "../food/food_detail.jsp");
 	  return "../main/main.jsp";

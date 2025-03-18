@@ -124,7 +124,9 @@ public class RecipeModel {
     {
     	String no=request.getParameter("no");
     	RecipeDetailVO vo=RecipeDAO.recipeDetailData(Integer.parseInt(no));
-    	
+    	String data=vo.getData();
+    	data=data.replaceAll("구매", "");
+    	vo.setData(data);
     	List<String> mList=new ArrayList<String>();
     	List<String> iList=new ArrayList<String>();
     	
