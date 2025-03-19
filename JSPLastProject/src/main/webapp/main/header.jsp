@@ -163,7 +163,7 @@ function login(){
                                 </li>
                                 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">스토어</a>
+                                    <a class="nav-link" href="../goods/goods_list.do">스토어</a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="yummyDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">커뮤니티</a>
