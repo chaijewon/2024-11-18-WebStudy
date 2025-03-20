@@ -31,4 +31,24 @@ public class MyPageModel {
 	  request.setAttribute("main_jsp", "../mypage/my_main.jsp");
 	  return "../main/main.jsp";
   }
+  @RequestMapping("mypage/mypage_cart_list.do")
+  public String mypage_cart_list(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  /*
+	   *   SELECT cno,goods_name,goods_poster,goods_price,
+           account,price
+		    FROM cart c,goods_all g
+		    WHERE c.gno=g.no
+		    AND id=#{id} AND isbuy='n'
+	   */
+	  HttpSession session=request.getSession();
+	  String id=(String)session.getAttribute("id");
+	  List<CartVO> list=CartDAO.cartListData(id);
+	  request.setAttribute("list", list);
+	  request.setAttribute("my_jsp", "../cart/cart_list.jsp");
+	  request.setAttribute("main_jsp", "../mypage/my_main.jsp");
+	  return "../main/main.jsp";
+	  
+  }
 }

@@ -78,7 +78,53 @@
 		color:white;
 	}
 </style>
-
+<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+let sel=0;
+var IMP = window.IMP; 
+IMP.init("imp68206770"); 
+function requestPay() {
+    IMP.request_pay({
+        pg: "html5_inicis",
+        pay_method: "card",
+        merchant_uid: "ORD20180131-0000011",   // 주문번호
+        name: '홈쇼핑 완판 켄트 초미세모 칫솔 6개',
+        amount: 10000,         // 숫자 타입
+        buyer_email: 'hong@co.kr',
+        buyer_name: '홍길동',
+        buyer_tel:'010-1111-1111',
+        buyer_addr: '서울',
+        buyer_postcode: '000-000'
+    }, function (rsp) { // callback
+    	location.href='http://localhost/JSPLastProject/mypage/mypage_buy.do' 
+    });
+}
+$(function(){
+	
+	$('#sel').change(function(){
+		let account=$('#sel').val()
+		if(account==='수량선택')
+		{
+			alert("수량을 선택하세요")
+			return
+		}
+		let price=$('#sel').attr("data-price")
+		let total=Number(price)*Number(account)
+		$('#total').text(total.toLocaleString()+"원")
+		$('#account').val(account)
+        sel=1		
+	})
+	$('#cart').click(function(){
+		if(sel===0)
+		{
+		  alert("수량을 선택하세요")
+		  return;
+		}
+		$('#frm').submit()
+	})
+})
+</script>
 </head>
 <body>
 <!-- ****** Breadcumb Area Start ****** -->
@@ -180,13 +226,13 @@
 	   <tr>
 		   <td width="70%">
 		     <c:if test="${sessionScope.id!=null and sessionScope.admin=='n'}">
-		      <form method="post" action="../goods/cart_insert.do" style="float: left">
+		      <form method="post" action="../cart/cart_insert.do" style="float: left" id="frm">
 		        <input type="hidden" name="gno" value="${vo.no}" id="gno">
 		        <input type="hidden" name="price" value="${vo.price}" id="price2">
 		        <input type="hidden" name="account" value="" id="account">
-		        <input type="submit" value="장바구니" id="cart" style="float: left">
+		        <input type="button" value="장바구니" id="cart" style="float: left">
 		      </form>
-			   <input type="button" value="바로구매" id="buy" style="float: left">
+			   <input type="button" value="바로구매" id="buy" style="float: left" onclick="requestPay()">
 			 </c:if>
 			   <input type="button" value="목록" onclick="javascript:history.back()" id="list">
 		   </td>
