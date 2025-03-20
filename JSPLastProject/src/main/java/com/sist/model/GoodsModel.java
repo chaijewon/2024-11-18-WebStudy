@@ -41,4 +41,18 @@ public class GoodsModel {
 		  request.setAttribute("main_jsp", "../goods/goods_list.jsp");
 		  return "../main/main.jsp";
 	  }
+	  @RequestMapping("goods/goods_detail.do")
+	  public String goods_detail(HttpServletRequest request,
+			  HttpServletResponse response)
+	  {
+		  System.out.println("good-detail");
+		  String no=request.getParameter("no");
+		  GoodsVO vo=GoodsDAO.goodsDetailData(Integer.parseInt(no));
+		  String price=vo.getGoods_price();
+		  price=price.replaceAll("[^0-9]", "");
+		  vo.setPrice(Integer.parseInt(price));
+		  request.setAttribute("vo", vo);
+		  request.setAttribute("main_jsp", "../goods/goods_detail.jsp");
+		  return "../main/main.jsp";
+	  }
 }

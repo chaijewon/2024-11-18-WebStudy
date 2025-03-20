@@ -47,7 +47,7 @@
                     <div class="single-post wow fadeInUp" data-wow-delay="0.1s">
                         <!-- Post Thumb -->
                         <div class="post-thumb">
-                          <a href="../good/goods_detail.do?no=${vo.no }">
+                          <a href="../goods/goods_detail.do?no=${vo.no }">
                             <img src="${vo.goods_poster }" alt="">
                           </a>
                         </div>

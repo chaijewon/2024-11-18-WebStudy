@@ -11,4 +11,13 @@
   <select id="goodsTotalPage" resultType="int">
    SELECT CEIL(COUNT(*)/12.0) FROM goods_all
   </select>
+  <update id="goodsHitIncrement" parameterType="int">
+    UPDATE goods_all SET
+    hit=hit+1
+    WHERE no=#{no}
+  </update>
+  <select id="goodsDetailData" resultType="GoodsVO" parameterType="int">
+    SELECT * FROM goods_all
+    WHERE no=#{no}
+  </select>
 </mapper>

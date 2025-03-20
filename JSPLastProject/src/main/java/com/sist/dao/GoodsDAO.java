@@ -39,4 +39,24 @@ public class GoodsDAO {
 	   session.close();
 	   return total;
    }
+   /*
+    *   <update id="goodsHitIncrement" parameterType="int">
+		    UPDATE goods_all SET
+		    hit=hit+1
+		    WHERE no=#{no}
+		  </update>
+		  <select id="goodsDetailData" resultType="GoodsVO" parameterType="int">
+		    SELECT * FROM goods_all
+		    WHERE no=#{no}
+		  </select>
+    */
+   public static GoodsVO goodsDetailData(int no)
+   {
+	   SqlSession session=ssf.openSession();
+	   session.update("goodsHitIncrement",no);
+	   session.commit();
+	   GoodsVO vo=session.selectOne("goodsDetailData",no);
+	   session.close();
+	   return vo;
+   }
 }
