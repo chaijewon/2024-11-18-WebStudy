@@ -77,14 +77,52 @@ public class CartDAO {
 	   return list;
    }
    
-   
+   /*
+    *   <select id="buyListData" resultMap="cartMap" 
+     parameterType="string">
+    SELECT cno,goods_name,goods_poster,goods_price,
+           account,price
+    FROM cart c,goods_all g
+    WHERE c.gno=g.no
+    AND id=#{id} AND isbuy='y'
+    ORDER BY cno DESC
+  </select>
+    */
+   public static List<CartVO> buyListData(String id)
+   {
+	   SqlSession session=ssf.openSession();
+	   List<CartVO> list=session.selectList("buyListData", id);
+	   session.close();
+	   return list;
+   }
    
    public static void cartCancel(int cno)
    {
 	      SqlSession session=ssf.openSession(true);
+	      try
+	      {
 		  session.delete("cartCancel",cno);
+	      }catch(Exception ex)
+	      {
+	    	  ex.printStackTrace();
+	      }
 		  session.close();
 		  
+   }
+   
+   /*
+    *   <insert id="buyInsert" parameterType="CartVO">
+		    INSERT INTO cart VALUES(
+		      cart_cno_seq.nextval,#{gno},#{id},#{account},
+		      #{price},'y',SYSDATE
+		    )
+		  </insert>
+    */
+   public static void buyInsert(CartVO vo)
+   {
+	   SqlSession session=ssf.openSession(true);
+	   session.insert("buyInsert",vo);
+	   session.close();
    }
    
    

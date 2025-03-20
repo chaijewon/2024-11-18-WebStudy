@@ -44,4 +44,10 @@
    SELECT COUNT(*) FROM project_member
    WHERE name=#{name} AND email=#{email}
   </select>
+  
+  <select id="memberInfoData" resultType="MemberVO" 
+    parameterType="string">
+    SELECT * FROM project_member
+    WHERE id=#{id}
+  </select>
 </mapper>

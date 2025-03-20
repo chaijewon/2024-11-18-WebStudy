@@ -46,9 +46,23 @@ public class MyPageModel {
 	  String id=(String)session.getAttribute("id");
 	  List<CartVO> list=CartDAO.cartListData(id);
 	  request.setAttribute("list", list);
+	  request.setAttribute("count", list.size());
 	  request.setAttribute("my_jsp", "../cart/cart_list.jsp");
 	  request.setAttribute("main_jsp", "../mypage/my_main.jsp");
 	  return "../main/main.jsp";
 	  
+  }
+  @RequestMapping("mypage/mypage_buy_list.do")
+  public String mypage_buy_list(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  HttpSession session=request.getSession();
+	  String id=(String)session.getAttribute("id");
+	  List<CartVO> list=CartDAO.buyListData(id);
+	  request.setAttribute("count", list.size());
+	  request.setAttribute("list", list);
+	  request.setAttribute("my_jsp", "../cart/buy_list.jsp");
+	  request.setAttribute("main_jsp", "../mypage/my_main.jsp");
+	  return "../main/main.jsp";
   }
 }

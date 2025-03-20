@@ -8,11 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-  <c:if test="${count==0 }">
+   <c:if test="${count==0 }">
   <table class="table">
     <tr>
       <td class="text-center">
-        <h3>장바구니가 비워있습니다</h3>
+        <h3>구매 내역이 없습니다</h3>
       </td>
     </tr>
   </table>
@@ -39,8 +39,7 @@
       <th class="text-center">${vo.gvo.goods_price }</th>
       <th class="text-center">${vo.price }</th>
       <th class="text-center">
-        <input type=button value="구매" class="btn-sm btm-primary">
-        <a href="../cart/cart_cancel.do?cno=${vo.cno }" class="btn btn-sm btm-danger">취소</a>
+        <input type=button value="구매내역" class="btn-sm btn-success">
       </th>
      </tr>
     </c:forEach>

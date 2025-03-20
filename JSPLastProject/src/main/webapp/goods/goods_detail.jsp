@@ -84,20 +84,20 @@
 let sel=0;
 var IMP = window.IMP; 
 IMP.init("imp68206770"); 
-function requestPay() {
+function requestPay(json,name,price) {
     IMP.request_pay({
         pg: "html5_inicis",
         pay_method: "card",
         merchant_uid: "ORD20180131-0000011",   // 주문번호
-        name: '홈쇼핑 완판 켄트 초미세모 칫솔 6개',
-        amount: 10000,         // 숫자 타입
-        buyer_email: 'hong@co.kr',
-        buyer_name: '홍길동',
-        buyer_tel:'010-1111-1111',
-        buyer_addr: '서울',
-        buyer_postcode: '000-000'
+        name: name,
+        amount: price,         // 숫자 타입
+        buyer_email: json.email,
+        buyer_name: json.name,
+        buyer_tel:json.phone,
+        buyer_addr: json.address,
+        buyer_postcode: json.post
     }, function (rsp) { // callback
-    	location.href='http://localhost/JSPLastProject/mypage/mypage_buy.do' 
+    	location.href='http://localhost/JSPLastProject/mypage/mypage_buy_list.do' 
     });
 }
 $(function(){
@@ -122,6 +122,28 @@ $(function(){
 		  return;
 		}
 		$('#frm').submit()
+	})
+	$('#buy').click(function(){
+		if(sel===0)
+		{
+			alert("수량 선택하세요")
+			return
+		}
+		let gno=$('#gno').val();
+		let price=$('#price2').val();
+		let account=$('#account').val();
+		let name=$('#title').text()
+		$.ajax({
+			type:'post',
+			url:'../cart/buy_insert.do',
+			data:{"gno":gno,"price":price,"account":account},
+			success:function(result)
+			{
+				alert(result)
+				let json=JSON.parse(result)
+				requestPay(json,name,price)
+			}
+		})
 	})
 })
 </script>
@@ -232,7 +254,7 @@ $(function(){
 		        <input type="hidden" name="account" value="" id="account">
 		        <input type="button" value="장바구니" id="cart" style="float: left">
 		      </form>
-			   <input type="button" value="바로구매" id="buy" style="float: left" onclick="requestPay()">
+			   <input type="button" value="바로구매" id="buy" style="float: left">
 			 </c:if>
 			   <input type="button" value="목록" onclick="javascript:history.back()" id="list">
 		   </td>
