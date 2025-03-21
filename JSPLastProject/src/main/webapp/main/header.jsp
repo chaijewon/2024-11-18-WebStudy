@@ -181,7 +181,7 @@ function login(){
                                 </li>
                                 <li class="nav-item">
                                    <c:if test="${sessionScope.id!=null }">
-                                    <a class="nav-link" href="#">빠른예약</a>
+                                    <a class="nav-link" href="../reserve/reserve_main.do">빠른예약</a>
                                    </c:if>
                                 </li>
                                 <c:if test="${sessionScope.id!=null }">

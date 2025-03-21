@@ -16,7 +16,7 @@
  *         |
  *        DispatcherServlet 
  *         |
- *        등록 위치 @RequestMapping() : URI 매핑
+ *        등록 위치 @RequestMapping() : URI 매핑 
  *         |
  *        사용자가 처리한 메소드 찾기 
                       | DAO연동 
