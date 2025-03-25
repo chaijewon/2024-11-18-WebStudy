@@ -25,6 +25,9 @@
      <typeAlias type="com.sist.vo.JjimVO" alias="JjimVO"/>
      <typeAlias type="com.sist.vo.GoodsVO" alias="GoodsVO"/>
      <typeAlias type="com.sist.vo.CartVO" alias="CartVO"/>
+     <typeAlias type="com.sist.vo.ReserveVO" alias="ReserveVO"/>
+     <typeAlias type="com.sist.vo.DateVO" alias="DateVO"/>
+     <typeAlias type="com.sist.vo.TimeVO" alias="TimeVO"/>
    </typeAliases>
    <environments default="development">
      <environment id="development">
@@ -66,6 +69,7 @@
      <mapper resource="com/sist/mapper/jjim-mapper.xml"/>
      <mapper resource="com/sist/mapper/goods-mapper.xml"/>
      <mapper resource="com/sist/mapper/cart-mapper.xml"/>
+     <mapper resource="com/sist/mapper/reserve-mapper.xml"/>
    </mappers>
    <!-- 
           동적 쿼리 

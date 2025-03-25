@@ -5,6 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		type:'post',
+		url:'../reserve/reserve_food_info.do',
+		success:function(result)
+		{
+			$('#food_list').html(result)
+		}
+	})
+})
+</script>
 </head>
 <body>
 <!-- ****** Breadcumb Area Start ****** -->
@@ -41,31 +54,36 @@
             <div class="row">
               <table class="table">
                 <tr>
-                  <td width="30%" class="table-danger" height="500">
+                  <td width="30%" height="600">
                     <table class="table">
-                     <caption><h4 class="text-center">맛집 정보</h4></caption>
+                     <tr><td class="table-danger"><h4 class="text-center">맛집 정보</h4></td></tr>
+                     <tr>
+                       <td>
+                        <div id="food_list" style="height:600px;overflow-y:scroll "></div>
+                       </td>
+                     </tr>
                     </table>
                   </td>
-                  <td width="40%" class="table-info" height="500">
+                  <td width="40%" height="600">
                     <table class="table">
-                     <caption><h4 class="text-center">예약일 정보</h4></caption>
+                     <tr><td class="table-info"><h4 class="text-center">예약일 정보</h4></td></tr>
                     </table>
                   </td>
-                  <td width="30%" class="table-success" height="700" rowspan="2">
+                  <td width="30%"  height="850" rowspan="2">
                     <table class="table">
-                     <caption><h4 class="text-center">예약 정보</h4></caption>
+                     <tr><td class="table-success"><h4 class="text-center">예약 정보</h4></td></tr>
                     </table>
                   </td>
                 </tr>
                 <tr>
-                  <td width="30%" class="table-primary" height="200">
+                  <td width="30%"  height="250">
                     <table class="table">
-                     <caption><h4 class="text-center">시간 정보</h4></caption>
+                     <tr><td class="table-primary"><h4 class="text-center">시간 정보</h4></td></tr>
                     </table>
                   </td>
-                  <td width="40%" class="table-info" height="200">
+                  <td width="40%"  height="250">
                     <table class="table">
-                     <caption><h4 class="text-center">인원 정보</h4></caption>
+                     <tr><td class="table-info"><h4 class="text-center">인원 정보</h4></td></tr>
                     </table>
                   </td>
                 </tr>

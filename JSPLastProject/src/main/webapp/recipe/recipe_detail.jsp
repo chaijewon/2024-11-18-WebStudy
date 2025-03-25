@@ -129,7 +129,7 @@ $(function(){
               <table class="table">
                <tr>
                 <td colspan="3" class="text-center">
-                  <img src="${vo.poster }" style="width:100%">
+                  <img src="${vo.poster }" style="width:100%" class="rounded">
                 </td>
                </tr>
                <tr>
@@ -188,7 +188,7 @@ $(function(){
                       <tr>
                        <td width=80%>${make}</td>
                        <td width=20%>
-                        <img src="${iList[s.index]}" style="width:250px;height: 120px">
+                        <img src="${iList[s.index]}" style="width:250px;height: 120px" class="rounded">
                        </td>
                       </tr>
                      </table>
