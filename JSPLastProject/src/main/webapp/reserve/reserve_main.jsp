@@ -67,11 +67,23 @@ $(function(){
                   <td width="40%" height="600">
                     <table class="table">
                      <tr><td class="table-info"><h4 class="text-center">예약일 정보</h4></td></tr>
+                     <tr>
+                       <td id="food_rdays"></td>
+                     </tr>
                     </table>
                   </td>
                   <td width="30%"  height="850" rowspan="2">
                     <table class="table">
-                     <tr><td class="table-success"><h4 class="text-center">예약 정보</h4></td></tr>
+                     <tr><td class="table-success" colspan="2"><h4 class="text-center">예약 정보</h4></td></tr>
+                     <tr>
+                       <td class="text-center" colspan="2">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5R6QRNst_kdWB8R08hMQMSDNVflcIzrZwQQ&s" style="width:250px;height: 180px" id="food_poster">
+                       </td>
+                     </tr>
+                     <tr>
+                       <td width=30% style="color:gray">업체명</td>
+                       <td width=70%><span id="food_name"></span></td>
+                     </tr>
                     </table>
                   </td>
                 </tr>

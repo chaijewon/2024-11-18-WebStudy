@@ -6,7 +6,57 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<style type="text/css">
+.dataTr:hover{
+  background-color: pink;
+  cursor: pointer;
+}
+</style>
+<script type="text/javascript">
+$(function(){
+	$('.types').click(function(){
+		let tname=$(this).val()
+		$.ajax({
+			type:'post',
+			url:'../reserve/reserve_food_info.do',
+			data:{"type":tname},
+			success:function(result)
+			{
+				$('#food_list').html(result)
+			},
+			error:function(request,status,error)
+			{
+				console.log(error)
+			}
+		})
+		
+	})
+	
+	$('.dataTr').click(function(){
+		let fno=$(this).attr("data-fno")
+		let name=$(this).attr("data-name")
+		let poster=$(this).attr("data-poster")
+		let rdays=$(this).attr("data-rdays");
+		
+		$('#food_poster').attr("src",poster)
+		$('#food_name').text(name)
+		
+		$.ajax({
+			type:'post',
+			url:'../reserve/reserve_day.do',
+			data:{"rdays":rdays},
+			success:function(result)
+			{
+				$('#food_rdays').html(result)
+			},
+			error:function(request,status,error)
+			{
+				console.log(error)
+			}
+		})
+	})
+})
+</script>
 </head>
 <body>
    <table class="table">
@@ -31,7 +81,12 @@
       <th class="text-center">업체명</th>
     </tr>
     <c:forEach var="vo" items="${fList }">
-      <tr>
+      <tr class="dataTr"
+         data-fno="${vo.fno }"
+         data-name="${vo.name }"
+         data-poster="https://www.menupan.com${vo.poster }"
+         data-rdays="${vo.rdays }"
+      >
        <td class="text-center">
         <img src="https://www.menupan.com${vo.poster }" 
           style="width: 30px;height: 30px">

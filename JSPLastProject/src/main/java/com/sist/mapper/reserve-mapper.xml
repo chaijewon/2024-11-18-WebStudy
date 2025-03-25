@@ -3,8 +3,8 @@
 <mapper namespace="com.sist.mapper.reserve-mapper">
  <!-- 맛집 정보 읽기 -->
  <select id="reserveFoodData" resultType="FoodVO" parameterType="hashmap">
-   SELECT fno,poster,name,rownum 
-   FROM (SELECT fno,poster,name 
+   SELECT fno,poster,name,rdays,rownum 
+   FROM (SELECT fno,poster,name,rdays 
    FROM project_food WHERE type LIKE '%'||#{type}||'%' ORDER BY hit DESC)
    WHERE rownum&lt;=50
  </select>
