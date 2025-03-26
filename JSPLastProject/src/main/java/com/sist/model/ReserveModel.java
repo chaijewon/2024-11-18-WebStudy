@@ -83,10 +83,10 @@ public class ReserveModel {
 	  
 	  request.setAttribute("year", year);
 	  request.setAttribute("month", month);
-	  request.setAttribute("day", day);
+	  
 	  request.setAttribute("week", week);
 	  request.setAttribute("lastday",lastday);
-	  
+	  request.setAttribute("rdays", rdays);
 	  int[] reserveDays=new int[32];
 	  // rdays=1,2,3,6,10...
 	  if(month==Integer.parseInt(tmonth) && year==Integer.parseInt(tyear))
@@ -100,6 +100,7 @@ public class ReserveModel {
 				  reserveDays[d]=1;
 			  }
 		  }
+		  request.setAttribute("day", day);
 	  }
 	  else
 	  {

@@ -33,11 +33,12 @@ $(function(){
 	})
 	
 	$('.dataTr').click(function(){
+		$('.dataTr').css('backgroundColor','white')
 		let fno=$(this).attr("data-fno")
 		let name=$(this).attr("data-name")
 		let poster=$(this).attr("data-poster")
 		let rdays=$(this).attr("data-rdays");
-		
+		$(this).css("backgroundColor","pink")
 		$('#food_poster').attr("src",poster)
 		$('#food_name').text(name)
 		
@@ -48,6 +49,7 @@ $(function(){
 			success:function(result)
 			{
 				$('#food_rdays').html(result)
+				
 			},
 			error:function(request,status,error)
 			{

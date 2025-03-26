@@ -6,11 +6,56 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(function(){
+	$('#year').change(function(){
+		let rdays=$("#tds").attr("data-rdays");
+		let year=$('#year').val()
+		let month=$('#month').val()
+		$.ajax({
+			type:'post',
+			url:'../reserve/reserve_day.do',
+			data:{"rdays":rdays,"year":year,"month":month},
+			success:function(result)
+			{
+				$('#food_rdays').html(result)
+				
+			},
+			error:function(request,status,error)
+			{
+				console.log(error)
+			}
+		})
+	})
+	
+	$('#month').change(function(){
+		let rdays=$("#tds").attr("data-rdays");
+		let year=$('#year').val()
+		let month=$('#month').val()
+		console.log(rdays+":"+year+":"+month)
+		$.ajax({
+			type:'post',
+			url:'../reserve/reserve_day.do',
+			data:{"rdays":rdays,"year":year,"month":month},
+			success:function(result)
+			{
+				$('#food_rdays').html(result)
+				
+			},
+			error:function(request,status,error)
+			{
+				console.log(error)
+			}
+		})
+	})
+	
+})
+</script>
 </head>
 <body>
    <table class="table">
      <tr>
-       <td class="text-center">${year }년도 ${month}월</td>
+       <td class="text-center" data-rdays="${rdays }" id="tds">${year }년도 ${month}월</td>
      </tr>
      <tr>
        <td>
