@@ -17,4 +17,5 @@ public class ReserveVO {
    private int rno,fno;
    private String id,day,time,inwon,isok;
    private Date regdate;
+   private FoodVO fvo=new FoodVO();
 }

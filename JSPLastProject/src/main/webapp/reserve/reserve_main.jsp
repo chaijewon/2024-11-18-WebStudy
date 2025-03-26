@@ -84,6 +84,33 @@ $(function(){
                        <td width=30% style="color:gray">업체명</td>
                        <td width=70%><span id="food_name"></span></td>
                      </tr>
+                     <tr>
+                       <td width=30% style="color:gray">예약일</td>
+                       <td width=70%><span id="food_reserve_day"></span></td>
+                     </tr>
+                     
+                     <tr>
+                       <td width=30% style="color:gray">예약시간</td>
+                       <td width=70%><span id="food_reserve_time"></span></td>
+                     </tr>
+                     
+                     <tr>
+                       <td width=30% style="color:gray">예약인원</td>
+                       <td width=70%><span id="food_reserve_inwon"></span></td>
+                     </tr>
+                     
+                     <tr id="reserveBtn" style="display:none">
+                       <td colspan="2" class="text-center">
+                         <form method="post" action="../reserve/reserve_insert.do">
+                           <input type="hidden" name="fno" value="" id="rfno">
+                           <input type="hidden" name="day" value="" id="rday">
+                           <input type="hidden" name="time" value="" id="rtime">
+                           <input type="hidden" name="inwon" value="" id="rinwon">
+                           <input type=submit value="예약하기"
+                             class="btn-sm btn-primary">
+                         </form>
+                       </td>
+                     </tr>
                     </table>
                   </td>
                 </tr>
@@ -91,11 +118,17 @@ $(function(){
                   <td width="30%"  height="250">
                     <table class="table">
                      <tr><td class="table-primary"><h4 class="text-center">시간 정보</h4></td></tr>
+                     <tr>
+                       <td id="reserve_time2"></td>
+                     </tr>
                     </table>
                   </td>
                   <td width="40%"  height="250">
                     <table class="table">
                      <tr><td class="table-info"><h4 class="text-center">인원 정보</h4></td></tr>
+                     <tr>
+                       <td id="reserve_inwon"></td>
+                     </tr>
                     </table>
                   </td>
                 </tr>

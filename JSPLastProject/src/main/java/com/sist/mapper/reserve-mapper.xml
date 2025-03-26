@@ -8,4 +8,35 @@
    FROM project_food WHERE type LIKE '%'||#{type}||'%' ORDER BY hit DESC)
    WHERE rownum&lt;=50
  </select>
+ 
+ <!-- 시간읽기 -->
+ <select id="reserveDayTimeInfoData" resultType="string"
+   parameterType="int"
+ >
+   SELECT time FROM reserve_day
+   WHERE rno=#{rno}
+ </select>
+ <select id="reserveGetTimeData" resultType="string"
+   parameterType="int"
+ >
+   SELECT time FROM reserve_time
+   WHERE tno=#{tno}
+ </select>
+ <!-- 
+    rno NUMBER,
+   id VARCHAR2(20),
+   fno NUMBER,
+   day VARCHAR2(20) CONSTRAINT ri_day_nn NOT NULL,
+   time VARCHAR2(20) CONSTRAINT ri_time_nn NOT NULL,
+   inwon VARCHAR2(20) CONSTRAINT ri_inwon_nn NOT NULL,
+   regdate DATE DEFAULT SYSDATE,
+   isok CHAR(1) DEFAULT 'n',
+  -->
+ <insert id="reserveInsert" parameterType="ReserveVO">
+  INSERT INTO reserve_info VALUES(
+    (SELECT NVL(MAX(rno)+1,1) FROM reserve_info),
+    #{id},#{fno},#{day},#{time},#{inwon},
+    SYSDATE,'n'
+  )
+ </insert>
 </mapper>

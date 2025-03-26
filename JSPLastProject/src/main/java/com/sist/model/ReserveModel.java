@@ -2,15 +2,16 @@ package com.sist.model;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.List;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.ReserveDAO;
 import com.sist.vo.FoodVO;
+import com.sist.vo.ReserveVO;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 @Controller
 public class ReserveModel {
   @RequestMapping("reserve/reserve_main.do")
@@ -118,6 +119,61 @@ public class ReserveModel {
 	  request.setAttribute("weeks", weeks);
 	  
 	  return "../reserve/reserve_day.jsp";
+  }
+  
+  @RequestMapping("reserve/time_info.do")
+  public String reserve_time(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  String day=request.getParameter("day");
+	  System.out.println("day:"+day);
+	  String times=ReserveDAO.reserveDayTimeInfoData(Integer.parseInt(day));
+	  System.out.println(times);
+	  List<String> tList=new ArrayList<String>();
+	  // 1(09:00),64,,...
+	  StringTokenizer st=new StringTokenizer(times,",");
+	  while(st.hasMoreTokens())
+	  {
+		  String strTime=ReserveDAO.reserveGetTimeData(Integer.parseInt(st.nextToken()));
+		  System.out.println("시간:"+strTime);
+		  tList.add(strTime);
+	  }
+	  request.setAttribute("tList", tList);
+	  return "../reserve/reserve_time.jsp";
+  }
+  @RequestMapping("reserve/inwon_info.do")
+  public String reserve_inwon(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  return "../reserve/reserve_inwon.jsp";
+  }
+  @RequestMapping("reserve/reserve_insert.do")
+  public String reserve_insert(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  String fno=request.getParameter("fno");
+	  String day=request.getParameter("day");
+	  String time=request.getParameter("time");
+	  String inwon=request.getParameter("inwon");
+	  
+	  HttpSession session=request.getSession();
+	  String id=(String)session.getAttribute("id");
+	  
+	  System.out.println("fno:"+fno);
+	  System.out.println("day:"+day);
+	  System.out.println("time:"+time);
+	  System.out.println("inwon:"+inwon);
+	  System.out.println("ID:"+id);
+	  
+	  ReserveVO vo=new ReserveVO();
+	  vo.setId(id);
+	  vo.setDay(day);
+	  vo.setTime(time);
+	  vo.setInwon(inwon);
+	  vo.setFno(Integer.parseInt(fno));
+	  
+	  ReserveDAO.reserveInsert(vo);
+	  return "redirect:../mypage/mypage_reserve.do";
   }
 }
 

@@ -42,6 +42,9 @@ $(function(){
 		$('#food_poster').attr("src",poster)
 		$('#food_name').text(name)
 		
+		// hidden 값을 채운다 
+		$('#rfno').val(fno)
+		
 		$.ajax({
 			type:'post',
 			url:'../reserve/reserve_day.do',

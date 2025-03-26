@@ -6,6 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.rdays_can:hover{
+   cursor: pointer;
+}
+</style>
 <script type="text/javascript">
 $(function(){
 	$('#year').change(function(){
@@ -41,6 +46,31 @@ $(function(){
 			{
 				$('#food_rdays').html(result)
 				
+			},
+			error:function(request,status,error)
+			{
+				console.log(error)
+			}
+		})
+	})
+	
+	// 예약일을 클릭
+	$('.rdays_can').click(function(){
+		let year=$(this).attr("data-year")
+		let month=$(this).attr("data-month")
+		let day=$(this).attr("data-day")
+		let rday=year+"년도 "+month+"월 "+day+"일"
+		$('#food_reserve_day').text(rday)
+		
+		$('#rday').val(year+"-"+month+"-"+day)
+		
+		$.ajax({
+			type:'post',
+			url:'../reserve/time_info.do',
+			data:{"day":day},
+			success:function(result)
+			{
+				$('#reserve_time2').html(result)
 			},
 			error:function(request,status,error)
 			{
@@ -101,7 +131,12 @@ $(function(){
       
       <c:if test="${rday[i]==1}">
         <td class="text-center ${day==i?'table-success':'table-danger' }" height="35">
-         <span style="font-weight: bold;">${i }</span>
+         <span style="font-weight: bold;"
+          class="rdays_can"
+          data-year="${year }"
+          data-month="${month }"
+          data-day="${i }"
+         >${i }</span>
         </td>
       </c:if>
       <c:if test="${rday[i]==0}">
