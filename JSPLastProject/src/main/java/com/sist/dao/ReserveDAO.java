@@ -137,4 +137,47 @@ public class ReserveDAO {
 	   return list;
    }
    
+   /*
+    *   <update id="reserveAdminOk" parameterType="int">
+		   UPDATE reserve_info SET
+		   isok='y'
+		   WHERE rno=#{rno}
+		 </update>
+		 
+		 <delete id="reserveMyPageCancel" parameterType="int">
+		   DELETE FROM reserve_info
+		   WHERE rno=#{rno}
+		 </delete>
+    */
+   public static void reserveAdminOk(int rno)
+   {
+	   SqlSession session=ssf.openSession(true);
+	   session.update("reserveAdminOk",rno);
+	   session.close();
+   }
+   
+   public static void reserveMyPageCancel(int rno)
+   {
+	   SqlSession session=ssf.openSession(true);
+	   session.delete("reserveMyPageCancel",rno);
+	   session.close();
+   }
+   
+   /*
+    *   <select id="reserveMypageInfoData" resultMap="reserveMap" parameterType="int">
+		   SELECT rno,day,time,inwon,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') as dbday,
+		          name,poster,address,phone,score,content,theme
+		   FROM reserve_info ri , project_food pf
+		   WHERE ri.fno=pf.fno
+		   AND rno=#{rno} => ?
+		 </select>
+    */
+   public static ReserveVO reserveMypageInfoData(int rno)
+   {
+	   SqlSession session=ssf.openSession();
+	   ReserveVO vo=session.selectOne("reserveMypageInfoData",rno);
+	   session.close();
+	   return vo;
+   }
+   
 }

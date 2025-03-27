@@ -40,12 +40,11 @@
       <th class="text-center">${vo.inwon }</th>
       <th class="text-center">
        <c:if test="${vo.isok=='y' }">
-        <input type=button class="btn-primary btn-sm"
-          value="승인완료"
-        >
+        <span class="btn-defaul btn-sm btn">승인완료</span>
        </c:if>
        <c:if test="${vo.isok=='n' }">
-        <span class="btn-default btn-sm">승인대기</span>
+        <a href="../adminpage/reserve_ok.do?rno=${vo.rno }" 
+          class="btn btn-danger btn-sm">승인대기</a>
        </c:if>
       </th>
      </tr>

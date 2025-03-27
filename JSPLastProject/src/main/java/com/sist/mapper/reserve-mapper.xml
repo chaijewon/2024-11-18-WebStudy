@@ -72,6 +72,23 @@
    ORDER BY rno DESC
  </select>
  <!-- admin에서 승인 -->
+ <update id="reserveAdminOk" parameterType="int">
+   UPDATE reserve_info SET
+   isok='y'
+   WHERE rno=#{rno}
+ </update>
  <!-- mypage에서 예약 정보 확인 -->
+ <select id="reserveMypageInfoData" resultMap="reserveMap" parameterType="int">
+   SELECT rno,day,ri.time,inwon,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') as dbday,
+          name,poster,address,phone,score,content,theme
+   FROM reserve_info ri , project_food pf
+   WHERE ri.fno=pf.fno
+   AND rno=#{rno}
+ </select>
  <!-- 예약 취소 -->
+ <delete id="reserveMyPageCancel" parameterType="int">
+   DELETE FROM reserve_info
+   WHERE rno=#{rno}
+ </delete>
+ 
 </mapper>

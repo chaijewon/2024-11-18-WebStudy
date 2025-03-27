@@ -29,4 +29,12 @@ public class AdminModel {
 	   request.setAttribute("main_jsp", "../adminpage/admin_main.jsp");
 	   return "../main/main.jsp";
    }
+   @RequestMapping("adminpage/reserve_ok.do")
+   public String reserve_ok(HttpServletRequest request,
+		   HttpServletResponse response)
+   {
+	   String rno=request.getParameter("rno");
+	   ReserveDAO.reserveAdminOk(Integer.parseInt(rno));
+	   return "redirect:../adminpage/admin_reserve.do";
+   }
 } 

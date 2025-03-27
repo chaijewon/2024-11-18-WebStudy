@@ -8,6 +8,12 @@
    FROM project_board ORDER BY no DESC))
    WHERE num BETWEEN #{start} AND #{end}
  </select>
+ <!-- 
+    WHERE num BETWEEN ? AND ?
+    
+    map.put("end",10)
+    map.put("start",1)
+  -->
  <select id="boardTotalPage" resultType="int">
    SELECT CEIL(COUNT(*)/10.0) FROM project_board
  </select>
