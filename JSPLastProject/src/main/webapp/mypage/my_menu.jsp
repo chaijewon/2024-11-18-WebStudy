@@ -27,7 +27,7 @@
     <li class="list-group-item"><a href="../mypage/jjim_list.do">찜관리</a></li>
     <li class="list-group-item"><a href="../mypage/mypage_buy_list.do">구매관리</a></li>
     <li class="list-group-item"><a href="../mypage/mypage_cart_list.do">장바구니관리</a></li>
-    <li class="list-group-item"><a href="#">예약관리</a></li>
+    <li class="list-group-item"><a href="../mypage/mypage_reserve.do">예약관리</a></li>
    </ul>
  </div>
 </body>

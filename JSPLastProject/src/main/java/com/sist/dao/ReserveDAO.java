@@ -89,4 +89,52 @@ public class ReserveDAO {
 	   session.insert("reserveInsert",vo);
 	   session.close();
    }
+   
+   /*
+    *   <select id="reserveMyPageData" resultMap="reserveMap" parameterType="string">
+		   SELECT rno,ri.fno,day,ri.time,inwon,isok,name,poster,address,phone,
+		   TO_CHAR(regdate,'YYYY-MM-DD') as dbday
+		   FROM reserve_info ri , project_food pf
+		   WHERE ri.fno=pf.fno
+		   AND id=#{id}
+		   ORDER BY rno DESC
+		 </select>
+		 <!-- admin 출력 목록 -->
+		 <select id="reserveAdminPageData" resultMap="reserveMap" parameterType="string">
+		   SELECT rno,ri.fno,day,ri.time,inwon,isok,name,poster,address,phone,
+		   TO_CHAR(regdate,'YYYY-MM-DD') as dbday
+		   FROM reserve_info ri , project_food pf
+		   WHERE ri.fno=pf.fno
+		   ORDER BY rno DESC
+		 </select>
+		 
+		 => DAO => 데이터 관리 (요청)
+		 => Model => 요청한 데이터 전송 
+		 => View (JSP) => 화면 출력 
+		    ---------- 사용자 요청 (Front) => 자바스크립트
+		    
+		 JSP => .do => Model <=> DAO
+		                 | request
+		                JSP
+		 처리 => 메소드 
+		         | 호출 => 어노테이션 => 스프링 / 스프링부트
+		         
+		 
+    */
+   public static List<ReserveVO> reserveMyPageData(String id)
+   {
+	   SqlSession session=ssf.openSession();
+	   List<ReserveVO> list=session.selectList("reserveMyPageData",id);
+	   session.close();
+	   return list;
+   }
+   
+   public static List<ReserveVO> reserveAdminPageData()
+   {
+	   SqlSession session=ssf.openSession();
+	   List<ReserveVO> list=session.selectList("reserveAdminPageData");
+	   session.close();
+	   return list;
+   }
+   
 }

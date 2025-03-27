@@ -39,4 +39,39 @@
     SYSDATE,'n'
   )
  </insert>
+ <!-- 
+    private int rno,fno;
+    private String id,day,time,inwon,isok;
+    private Date regdate;
+    private FoodVO fvo=new FoodVO();
+  -->
+ <!-- mypage 출력 목록 -->
+ <resultMap type="ReserveVO" id="reserveMap">
+   <result property="fvo.poster" column="poster"/>
+   <result property="fvo.address" column="address"/>
+   <result property="fvo.phone" column="phone"/>
+   <result property="fvo.theme" column="theme"/>
+   <result property="fvo.score" column="score"/>
+   <result property="fvo.content" column="content"/>
+   <result property="fvo.name" column="name"/>
+ </resultMap>
+ <select id="reserveMyPageData" resultMap="reserveMap" parameterType="string">
+   SELECT rno,ri.fno,day,ri.time,inwon,isok,name,poster,address,phone,
+   TO_CHAR(regdate,'YYYY-MM-DD') as dbday
+   FROM reserve_info ri , project_food pf
+   WHERE ri.fno=pf.fno
+   AND id=#{id}
+   ORDER BY rno DESC
+ </select>
+ <!-- admin 출력 목록 -->
+ <select id="reserveAdminPageData" resultMap="reserveMap" parameterType="string">
+   SELECT rno,id,ri.fno,day,ri.time,inwon,isok,name,poster,address,phone,
+   TO_CHAR(regdate,'YYYY-MM-DD') as dbday
+   FROM reserve_info ri , project_food pf
+   WHERE ri.fno=pf.fno
+   ORDER BY rno DESC
+ </select>
+ <!-- admin에서 승인 -->
+ <!-- mypage에서 예약 정보 확인 -->
+ <!-- 예약 취소 -->
 </mapper>

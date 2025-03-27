@@ -65,4 +65,18 @@ public class MyPageModel {
 	  request.setAttribute("main_jsp", "../mypage/my_main.jsp");
 	  return "../main/main.jsp";
   }
+  @RequestMapping("mypage/mypage_reserve.do")
+  public String mypage_reserve(HttpServletRequest request,
+		  HttpServletResponse response)
+  {
+	  // id 
+	  HttpSession session=request.getSession();
+	  String id=(String)session.getAttribute("id");
+	  List<ReserveVO> list=ReserveDAO.reserveMyPageData(id);
+	  request.setAttribute("list", list);
+	  request.setAttribute("count", list.size());
+	  request.setAttribute("my_jsp", "../mypage/mypage_reserve.jsp");
+	  request.setAttribute("main_jsp", "../mypage/my_main.jsp");
+	  return "../main/main.jsp";
+  }
 }
