@@ -112,6 +112,7 @@ $(function(){
 		let price=$('#sel').attr("data-price")
 		let total=Number(price)*Number(account)
 		$('#total').text(total.toLocaleString()+"원")
+		$('#aaa').attr("data-price",total);
 		$('#account').val(account)
         sel=1		
 	})
@@ -204,7 +205,7 @@ $(function(){
 			   <span id="percent">${vo.goods_discount}%</span>&nbsp;
 			   <span id="price" data-value="${vo.price}">${ vo.goods_price}</span>
 			   <!--  데이터를 저장할때 속성은 사용자 정의로 가능하다 -->
-			   <p>
+			   <p id="aaa" data-price="">
 				   <del id="psub">599,000원</del>
 			   </p>
 		   </td>
@@ -227,7 +228,7 @@ $(function(){
 		   <td width="70%">
 			   <img src="https://recipe1.ezmember.co.kr/img/mobile/icon_point.png" width="20" height="20">
 			   적립&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			   <span id="del">1,595원</span> 적립 (모든 회원 구매액의 0.5% 적립)</span>
+			   <span id="del" >1,595원</span> 적립 (모든 회원 구매액의 0.5% 적립)</span>
 		   </td>
 	   </tr>
 	   <tr>
